@@ -41,7 +41,8 @@ This Navigation Diagram represent the linear structure of game phases with the o
 
 ## Class Diagram
  ![swat-team-diagrams-class diagram drawio](https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/114537897/75abf1df-123a-4e03-b584-a696d3030896)
- 
+
+ The game will be state driven and the superclass States is inherited by all other objects. The Game class is responsible for movement through the phases of the game. Player and Draft class are composed within Game to initialize and then branch out to other classes to build up the game logic.
 
 
  > ## Phase III
