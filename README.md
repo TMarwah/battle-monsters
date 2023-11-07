@@ -30,17 +30,17 @@ A two player battle strategy game where each player has a team of monsters at th
 ## User Interface Specification
 
 ### Navigation Diagram
- ![swat-team-nav-diagrams drawio](https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/114537897/06c2f09b-6bd2-456e-baab-3cfd8a07e73b)
+![swat-team-diagrams-navigation diagram drawio](https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/0faa0ec5-8d0e-4964-85ff-40a1cefadf8d)
 
 This Navigation Diagram represent the linear structure of game phases with the only potential of replay loop. 
 
 
 ### Screen Layouts
- ![swat-team-diagrams-Screen Layouts drawio](https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/114537897/c834621f-8830-4272-886e-5d542da58332)
- 
+ ![swat-team-diagrams-Screen Layouts drawio](https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/414ea81e-d23b-4bf6-8997-2243a13849d3)
+
 
 ## Class Diagram
- ![swat-team-diagrams-class diagram drawio](https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/114537897/75abf1df-123a-4e03-b584-a696d3030896)
+![swat-team-diagrams-class diagram drawio](https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/4fa120fb-d3da-43fc-a0a0-e71e545c91a7)
 
  The game will be state driven and the superclass States is inherited by all other objects. The Game class is responsible for movement through the phases of the game. Player and Draft class are composed within Game to initialize and then branch out to other classes to build up the game logic.
 
