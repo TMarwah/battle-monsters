@@ -32,12 +32,16 @@ A two player battle strategy game where each player has a team of monsters at th
 ### Navigation Diagram
  ![swat-team-nav-diagrams drawio](https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/114537897/06c2f09b-6bd2-456e-baab-3cfd8a07e73b)
 
+This Navigation Diagram represent the linear structure of game phases with the only potential of replay loop. 
+
 
 ### Screen Layouts
  ![swat-team-diagrams-Screen Layouts drawio](https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/114537897/c834621f-8830-4272-886e-5d542da58332)
+ 
 
 ## Class Diagram
  ![swat-team-diagrams-class diagram drawio](https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/114537897/75abf1df-123a-4e03-b584-a696d3030896)
+ 
 
 
  > ## Phase III
