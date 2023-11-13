@@ -1,0 +1,10 @@
+bin
+build
+lib
+test/googletest
+*.a
+*.o
+*.cmake 
+CMakeFiles/
+CMakeCache.txt
+Makefile
