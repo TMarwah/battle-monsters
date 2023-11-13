@@ -1,6 +1,7 @@
 #ifndef OBJECTSTATES_H
 #define OBJECTSTATES_H
 
+
 enum ObjectStates
 {
     ACTIVE,
@@ -12,5 +13,6 @@ enum ObjectStates
     LAST_STATE
 
 };
+
 
 #endif //OBJECTSTATES_H
