@@ -30,7 +30,8 @@ A two player battle strategy game where each player has a team of monsters at th
 ## User Interface Specification
 
 ### Navigation Diagram
-![swat-team-diagrams-navigation diagram drawio](https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/81bdb653-08ae-4d12-b3f9-8f81c27ea547)
+![swat-team-diagrams-navigation diagram의 복사본 drawio](https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/114537897/8daa761c-685a-4962-b2b9-df8d75c41fca)
+
 
 This Navigation Diagram represent the linear structure of game phases with the only potential of replay loop. 
 
