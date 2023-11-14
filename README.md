@@ -37,7 +37,61 @@ This Navigation Diagram represent the linear structure of game phases with the o
 
 
 ### Screen Layouts
- ![swat-team-diagrams-Screen Layouts drawio](https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/414ea81e-d23b-4bf6-8997-2243a13849d3)
+ <img width="295" alt="Screen  1" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/9d93a2d4-37eb-4ffd-90ce-36b1ce0c4cc8">
+ 
+ 
+ Title Screen
+
+
+
+ <img width="229" alt="Screen  2" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/dc40bebc-9efc-4a08-a033-71518e73ce64">
+ 
+ 
+ Players are prompted for their names
+
+
+
+<img width="346" alt="Screen  3" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/bd3c1de0-c3e9-40b2-a1c0-30c2b7121b3a">
+
+
+Draft Board Screen Layout:
+* We se our two players, their empty stables (soon to have monsters), and the monsters available for drafting. We can also see each monsters type.
+* Players take turns and are prompted to select an available monster by the monsters indicator
+
+
+
+<img width="355" alt="Screen  3 5" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/20044b09-2d0d-4869-90b3-97933c918133">
+
+
+As Monsters are selected they move from the draft board to the player's stable
+
+
+
+<img width="366" alt="Screen  4" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/347905f8-8f35-4275-9157-73ff3c7ad574">
+
+
+Fight Screen Layout:
+* Most of the game takes place in this layout as the battle continues until one of the players is out of monsters.
+* We can see all the pieces needed to play the game. Players, monsters, and monster data like its type and health meter. In the center are each players active monsters (the ones currently fighting)
+* The moves available to players are seen below. Moves will include different attacks and swapping out the active monster for a different one
+
+
+
+<img width="218" alt="Screen  5" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/7e788f4d-a532-4f56-9c69-441316a564c8">
+
+
+Endgame Screen Layout:
+* When one of the players is outof Monsters we have a winner. The option to play again (or quit) is given
+
+
+
+
+<img width="211" alt="Screen  6" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/3074cf81-aca3-435f-ad4c-a4066f573c67">
+
+Quit Game Screen Layout:
+* When the game is quit, a nice goodbye message is shown before program exit.
+
+
 
 
 ## Class Diagram
