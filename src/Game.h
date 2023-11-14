@@ -13,14 +13,18 @@ private:
 
 
 public:
-    // CONSTRUCTOR
+    // CONSTRUCTOR & DESTRUCTOR
     Game();
+    ~Game();
 
     // MUTATORS
     void Init();
+    void Update();
+    void GetInput();
+    void Draw();
 
     // ACCESSORS
-    Player* getPlayers();
+    Player* getPlayers() const;
 
 
     // OPERATOR OVERLOADS

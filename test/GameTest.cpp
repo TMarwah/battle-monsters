@@ -14,7 +14,38 @@ TEST(GameClassTests, testConstructor) {
 TEST(GameClassTests, testInitMethod){
     //Arrange
     Game game;
+    //ACT
     game.Init();
     //Assert
     EXPECT_TRUE(game.checkState(ACTIVE));
+}
+
+// Test GetInput() method 
+TEST(GameClassTests, testGetInputMethod) {
+    //Arrange
+    Game game;
+    // further Player class implementation required...
+
+    //ACT
+    // game.GetInput();
+
+    //Assert
+    EXPECT_TRUE(false);
+}
+
+TEST(GameClassTests, testUpdateMethod) {
+    //Arrange
+    Game game;
+
+    //Act
+    game.Update();
+
+    //Assert
+    EXPECT_TRUE(game.stateChanged());
+}
+
+TEST(GameClassTests, testDrawMethod) {
+    // further visual representation functions required
+
+    EXPECT_TRUE(false);
 }
