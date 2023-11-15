@@ -1,5 +1,6 @@
 add_library(swatLibrary
   States.cpp
+  Game.cpp
 )
 
 find_library(M_LIB m)
