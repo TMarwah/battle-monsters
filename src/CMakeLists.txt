@@ -1,5 +1,4 @@
 add_library(swatLibrary
-  States.cpp
   Player.cpp
 )
 
