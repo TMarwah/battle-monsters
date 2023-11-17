@@ -1,10 +1,16 @@
-#ifndef PLAYER_H
-#define PLAYER_H
-
-class Player {
-    private:
+#pragma once
+#include <string>
+//TODO import bench once complete
+class Player{
+    protected:
+    //Bench _bench;
+    std::string _name;
 
     public:
-};
+    Player(); //player constructor
 
-#endif // PLAYER_H
+    std::string GetName(); //return player name
+
+    //GetBench(); //TODO implement bench
+
+};
