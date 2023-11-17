@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [ master, wkim107/ci_setup ]
+    branches: [ master, wkim107/**, atill006/**, tmarw001/**, szhan240/** ]
   pull_request:
     branches: [ master ]
 
