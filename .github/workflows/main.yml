@@ -27,7 +27,7 @@ jobs:
         echo test, and deploy your project.
 
     # Runs a Unit Test
-    - name: Run a multi-line script
+    - name: Running a mutiple Unit Tests
       run: |
         cmake .
         make
