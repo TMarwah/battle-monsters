@@ -1,5 +1,4 @@
-#ifndef GAME_H
-#define GAME_H
+#pragma once
 #include "States.h"
 #include "Player.h"
 #include "enum/ObjectStates.h"
@@ -31,6 +30,3 @@ public:
 
 
 };
-
-
-#endif // GAME_H

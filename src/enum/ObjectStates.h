@@ -1,5 +1,4 @@
-#ifndef OBJECTSTATES_H
-#define OBJECTSTATES_H
+#pragma once
 
 
 enum ObjectStates
@@ -13,6 +12,3 @@ enum ObjectStates
     LAST_STATE
 
 };
-
-
-#endif //OBJECTSTATES_H
