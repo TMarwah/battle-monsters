@@ -9,8 +9,8 @@ class Player{
     public:
     Player(); //player constructor
 
-    std::string GetName(); //return player name
+    std::string getName(); //return player name
 
-    //GetBench(); //TODO implement bench
+    //getBench(); //TODO implement bench
 
 };
