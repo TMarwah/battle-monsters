@@ -27,7 +27,7 @@ TEST(GameClassTests, testGetInputMethod) {
     // further Player class implementation required...
 
     //ACT
-    // game.GetInput();
+    // game.getInput();
 
     //Assert
     EXPECT_TRUE(false);
@@ -38,7 +38,7 @@ TEST(GameClassTests, testUpdateMethod) {
     Game game;
 
     //Act
-    game.Update();
+    game.update();
 
     //Assert
     EXPECT_TRUE(game.stateChanged());
