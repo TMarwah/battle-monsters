@@ -17,10 +17,10 @@ public:
     ~Game();
 
     // MUTATORS
-    void Init();
-    void Update();
-    void GetInput();
-    void Draw();
+    void init();
+    void update();
+    void getInput();
+    void draw();
 
     // ACCESSORS
     Player* getPlayers() const;

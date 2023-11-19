@@ -12,20 +12,20 @@ Game::~Game() {
 }
 
 //Mutators
-void Game::Init() {
+void Game::init() {
     // Init function implementation
     enableState(ACTIVE);
 }
 
-void Game::Update() {
+void Game::update() {
     updateStates();
 }
 
-void Game::Draw() {
+void Game::draw() {
     // visual functions update required
 }
 
-void Game::GetInput() {
+void Game::getInput() {
     // player class implementation required
 }
 
