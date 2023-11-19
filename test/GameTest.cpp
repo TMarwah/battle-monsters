@@ -15,7 +15,7 @@ TEST(GameClassTests, testInitMethod){
     //Arrange
     Game game;
     //ACT
-    game.Init();
+    game.init();
     //Assert
     EXPECT_TRUE(game.checkState(ACTIVE));
 }
