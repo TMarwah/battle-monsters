@@ -18,7 +18,7 @@ class MainMenu
     void blankNameMenu()
     {
         std::cout << "Player 1's name: \n";
-        std::cout << "Player 2's name: \n";
+        std::cout << "Player 2's name: \n\n";
     }
     // void updatedNameMenu(); //will update current display
     // void draftMenu();   //will update current display
