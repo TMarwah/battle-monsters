@@ -11,6 +11,10 @@ std::string Player::getName(){
     return _name;
 }
 
+void Player::setName(std::string name) {
+    _name = name;
+}
+
 //TODO implement bench class
 /*
 Player::getBench(){
