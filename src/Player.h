@@ -11,6 +11,9 @@ class Player{
 
     std::string getName(); //return player name
 
+    //setName() method that sets player name
+    void setName(std::string name); 
+
     //getBench(); //TODO implement bench
 
 };
