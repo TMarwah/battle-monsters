@@ -8,14 +8,14 @@
 int main() {
 
     Game game;
-    Input input;
+    // Input input;
 
-    Timer timer;
+    // Timer timer;
 
-    std::this_thread::sleep_for(std::chrono::seconds(2));
-    std::cout << "main time: " << timer.elapsed() << std::endl;
+    // std::this_thread::sleep_for(std::chrono::seconds(2));
+    // std::cout << "main time: " << timer.elapsed() << std::endl;
 
-    timer.mark();
+    // timer.mark();
 
     game.init();
 
@@ -43,7 +43,7 @@ int main() {
         game.render();
 
         // TODO: possilbly add sleep function here for timing (60 fps?)
-        std::cout << "timer: " << timer.elapsed() << std::endl;
+        // std::cout << "timer: " << timer.elapsed() << std::endl;
 
 
     }

@@ -4,7 +4,7 @@
 struct Event
 {
     EventType eventType {EventType::NULL_EVENT};
-    const char* data1 = "null";
-    const char* data2 = "null";
+    std::string data = "null";
+    std::string data2 = "null";
 
 };

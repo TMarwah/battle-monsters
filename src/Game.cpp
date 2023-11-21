@@ -39,11 +39,6 @@ void Game::handleEvents() {
 
 }
 
-void Game::draw() {
-    // visual functions update required
-}
-
-
 Player* Game::getPlayers() const{
     return _players;
 }
@@ -82,7 +77,7 @@ void Game::addEventHandler(Event event) {
     {
 
         // if 3 seconds has passed switch to INIT state
-        if(_timer.elapsed() > 3) {
+        if(_timer.elapsed() > 1) {
             // disable START_UP states
             disableState(START_UP);
             _display.disableState(START_UP);

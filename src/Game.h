@@ -1,5 +1,4 @@
-#ifndef GAME_H
-#define GAME_H
+#pragma once
 #include "enum/ObjectStates.h"
 #include "States.h"
 #include "Event.h"
@@ -43,6 +42,3 @@ public:
     void update();
 
 };
-
-
-#endif // GAME_H

@@ -80,7 +80,7 @@ void Input::getPlayerNamesInput() {
     std::cin.ignore(100, '\n');
     // std::cin >> name2;
 
-    _event.data1 = name1;
+    _event.data = name1;
     _event.data2 = name2;
     _event.eventType = EventType::SET_NAMES;
 

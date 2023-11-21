@@ -12,9 +12,12 @@ class Player : public States {
     public:
 
 
-    std::string GetName(); //return player name
+    std::string getName() const; //return player name
 
-    //GetBench(); //TODO implement bench
+    //setName() method that sets player name
+    void setName(std::string name); 
+
+    //getBench(); //TODO implement bench
 
     // VIRTUAL OVERRIDES
     void addEventHandler(Event event);

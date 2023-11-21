@@ -13,8 +13,8 @@ void Display::render(const Player& player1, const Player& player2) const {
     }
     else if(checkState(DRAFT)) {
         std::cout << "renderDraft()" << std::endl;
-        std::cout << "p1: stubName1\n";
-        std::cout << "p2: stubName2\n";
+        std::cout << "p1: " << player1.getName() << "\n";
+        std::cout << "p2: " << player2.getName() << "\n";
     }
     else if(checkState(BATTLE)) {
         std::cout << "renderBattle()" << std::endl;

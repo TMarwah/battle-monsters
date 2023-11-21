@@ -27,7 +27,7 @@ TEST(GameClassTests, testGetInputMethod) {
     // further Player class implementation required...
 
     //ACT
-    // game.GetInput();
+    // game.getInput();
 
     //Assert
     EXPECT_TRUE(false);
