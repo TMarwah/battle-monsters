@@ -1,6 +1,11 @@
 add_library(swatLibrary
   States.cpp
   Game.cpp
+  Input.cpp
+  Helper.cpp
+  Timer.cpp
+  Display.cpp
+  Player.cpp
 )
 
 find_library(M_LIB m)
