@@ -1,11 +1,7 @@
 #pragma once
-#include "enum/ObjectStates.h"
 #include "States.h"
-#include "Event.h"
 #include "Player.h"
-#include "Input.h"
-#include "Display.h"
-#include "Timer.h"
+#include "enum/ObjectStates.h"
 
 
 class Game: public States   // a public inheritance of State class
@@ -13,10 +9,6 @@ class Game: public States   // a public inheritance of State class
 
 private:
     Player* _players;
-    Input _input;
-    Display _display;
-    Timer _timer;
-    
 
 
 public:
@@ -26,19 +18,15 @@ public:
 
     // MUTATORS
     void init();
+    void update();
     void getInput();
-    // void draw();
-    void handleEvents();
+    void draw();
 
     // ACCESSORS
-    void render() const;
     Player* getPlayers() const;
-    bool isRunning() const;
+
 
     // OPERATOR OVERLOADS
 
-    // VIRTUAL OVERRIDES
-    void addEventHandler(Event event);
-    void update();
 
 };

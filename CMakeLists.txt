@@ -13,10 +13,3 @@ link_directories(${LIBRARY_OUTPUT_PATH})
 
 add_subdirectory(src)
 add_subdirectory(test)
-
-# COMMENT
-add_executable(monsterBattle
-    src/main.cpp
-)
-
-target_link_libraries(monsterBattle swatLibrary)

@@ -10,7 +10,7 @@ TEST(GameClassTests, testConstructor) {
     ASSERT_TRUE(game.getPlayers()); 
 }
 
-// Test init() method using checkState() method
+// Test Init() method using checkState() method
 TEST(GameClassTests, testInitMethod){
     //Arrange
     Game game;
