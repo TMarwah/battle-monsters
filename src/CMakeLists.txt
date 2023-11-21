@@ -1,4 +1,5 @@
 add_library(swatLibrary
+  Player.cpp
   States.cpp
   Game.cpp
   Input.cpp
