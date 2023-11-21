@@ -7,7 +7,7 @@ Player::Player(){
     _name = "";
 }
 
-std::string Player::getName(){
+std::string Player::getName() const {
     return _name;
 }
 
@@ -23,3 +23,15 @@ Player::getBench(){
 }
 
 */
+
+// VIRTUAL OVERRIDES
+void Player::addEventHandler(Event event) {
+    if(event.eventType == EventType::SET_NAMES) {
+        setName(event.data); 
+    }
+
+}
+
+void Player::update() {
+
+}
