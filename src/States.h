@@ -1,5 +1,4 @@
-#ifndef STATES_H
-#define STATES_H
+#pragma once
 #include <map>
 #include "enum/ObjectStates.h"
 
@@ -31,6 +30,3 @@ public:
     States& operator=(const States& rhs);
 
 };
-
-
-#endif // STATES_H

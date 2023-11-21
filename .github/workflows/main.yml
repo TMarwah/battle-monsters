@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master, wkim107/**, atill006/**, tmarw001/**, szhan240/** ]
   pull_request:
     branches: [ master ]
 
@@ -20,10 +20,6 @@ jobs:
       with:
         submodules: recursive
 
-    # Runs a single command using the runners shell
-    - name: Run a one-line script
-      run: echo Hello, world!
-
     # Runs a set of commands using the runners shell
     - name: Run a multi-line script
       run: |
@@ -31,9 +27,8 @@ jobs:
         echo test, and deploy your project.
 
     # Runs a Unit Test
-    - name: Run a multi-line script
+    - name: Running a mutiple Unit Tests
       run: |
-        cmake . -B build/
-        cd build
+        cmake .
         make
         ./bin/runAllTests

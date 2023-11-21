@@ -10,12 +10,12 @@ TEST(GameClassTests, testConstructor) {
     ASSERT_TRUE(game.getPlayers()); 
 }
 
-// Test Init() method using checkState() method
+// Test init() method using checkState() method
 TEST(GameClassTests, testInitMethod){
     //Arrange
     Game game;
     //ACT
-    game.Init();
+    game.init();
     //Assert
     EXPECT_TRUE(game.checkState(ACTIVE));
 }
@@ -27,7 +27,7 @@ TEST(GameClassTests, testGetInputMethod) {
     // further Player class implementation required...
 
     //ACT
-    // game.GetInput();
+    // game.getInput();
 
     //Assert
     EXPECT_TRUE(false);
@@ -38,7 +38,7 @@ TEST(GameClassTests, testUpdateMethod) {
     Game game;
 
     //Act
-    game.Update();
+    game.update();
 
     //Assert
     EXPECT_TRUE(game.stateChanged());

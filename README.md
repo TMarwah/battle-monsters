@@ -99,26 +99,35 @@ Quit Game Screen Layout:
 
  The game will be state driven and the superclass States is inherited by all other objects. The Game class is responsible for movement through the phases of the game. Player and Draft class are composed within Game to initialize and then branch out to other classes to build up the game logic.
 
+## Class Diagram after incoporating S.O.L.I.D. principle guidelines
 
- > ## Phase III
- > You will need to schedule a check-in for the second scrum meeting with the same reader you had your first scrum meeting with (using Calendly). Your entire team must be present. This meeting will occur on Zoom and should be conducted by Wednesday of week 8.
- 
- > BEFORE the meeting you should do the following:
- > * Update your class diagram from Phase II to include any feedback you received from your TA/grader.
- > * Considering the SOLID design principles, reflect back on your class diagram and think about how you can use the SOLID principles to improve your design. You should then update the README.md file by adding the following:
- >   * A new class diagram incorporating your changes after considering the SOLID principles.
- >   * For each update in your class diagram, you must explain in 3-4 sentences:
- >     * What SOLID principle(s) did you apply?
- >     * How did you apply it? i.e. describe the change.
- >     * How did this change help you write better code?
- > * Perform a new sprint plan like you did in Phase II.
- > * You should also make sure that your README file (and Project board) are up-to-date reflecting the current status of your project and the most recent class diagram. Previous versions of the README file should still be visible through your commit history.
- 
-> During the meeting with your reader you will discuss: 
- > * How effective your last sprint was (each member should talk about what they did)
- > * Any tasks that did not get completed last sprint, and how you took them into consideration for this sprint
- > * Any bugs you've identified and created issues for during the sprint. Do you plan on fixing them in the next sprint or are they lower priority?
- > * What tasks you are planning for this next sprint.
+## Class Diagram reflection after using S.O.L.I.D. principles to improve the design
+
+### Single Responsiility Principle (S):
+- We created an input class and display class to handle input and display responsibilities (**Single Responsibility Principle**)
+
+### Open-Closed Principle (O):
+- We created a Monster class that aligns with the **Open-Closed Principle** because it has a vector of MoveSet * which is open to extension by the Liskov's Substitution Principle, but does not require Monster class to change its code (closed for modification).
+  
+<img width="317" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/4895db2b-586f-4a93-9ad9-aedb78766299">
+
+
+### Liskov's Substitution Principle (L):
+- We created a MoveSets class that aligns with the **Liskov's Substitution Principle** because it is replaceable with instances of their subtype(specific moves) without altering the correctness of that program.
+
+<img width="337" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/4010e9e3-e762-417a-a54c-27d30e943d2b">
+
+
+### Interface Segregation Principle (I):
+- All of the classes within our class diagram adhere to the **Interface Segregation Principle** as we have made sure that all classes require all interfaces of the class they depend on to be implemented and no classes implement unused interfaces
+
+<img width="239" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/99a13975-2b28-407a-96e4-bb01fc5f0d7b">
+
+
+- For example, here, every object of the Monster class requires full implementation of a MoveSet object to be utilized. No MoveSet member goes unused.
+
+### Dependency Inversion Principle (D):
+- /**Blank**/
 
  
  > ## Final deliverable
