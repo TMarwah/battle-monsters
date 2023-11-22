@@ -131,7 +131,7 @@ Quit Game Screen Layout:
 - For example, here, every object of the Monster class requires full implementation of a MoveSet object to be utilized. No MoveSet member goes unused.
 
 ### Dependency Inversion Principle (D):
-- /**Blank**/
+- 
 
  
  > ## Final deliverable
