@@ -130,7 +130,9 @@ Quit Game Screen Layout:
 - For example, here, every object of the Monster class requires full implementation of a MoveSet object to be utilized. No MoveSet member goes unused.
 
 ### Dependency Inversion Principle (D):
-- 
+- The monster class is not dependent on the MoveSet class. But it depends on the abstraction of the Movesets in the MoveSet class. This is an example of the Dependency Inversion Principle that our class diagram has.
+![image](https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/12e805a9-55f9-4e3b-8f88-cc86dd7b3d43)
+
 
  
  > ## Final deliverable
