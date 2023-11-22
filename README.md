@@ -100,6 +100,8 @@ Quit Game Screen Layout:
  The game will be state driven and the superclass States is inherited by all other objects. The Game class is responsible for movement through the phases of the game. Player and Draft class are composed within Game to initialize and then branch out to other classes to build up the game logic.
 
 ## Class Diagram after incoporating S.O.L.I.D. principle guidelines
+<img width="640" alt="Class diagram 1" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/80b702b5-0e93-4c2f-a8a4-3acbff011b7b">
+<img width="648" alt="Class diagram 2" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/a1510be4-e170-406f-995e-7c1aa53a7740">
 
 ## Class Diagram reflection after using S.O.L.I.D. principles to improve the design
 
