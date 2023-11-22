@@ -106,22 +106,24 @@ Quit Game Screen Layout:
 ## Class Diagram reflection after using S.O.L.I.D. principles to improve the design
 
 ### Single Responsiility Principle (S):
-- We created an input class and display class to handle input and display responsibilities (**Single Responsibility Principle**)
+- We created an input class and display class to handle input and display responsibilities (**Single Responsibility Principle**). The change we made was by incorporating a new class boxes to our diagram labeled input class and display class, assigning functions to their respective classes to handle specific functionality. By following the guidelines of the first principle our code looks a lot cleaner and less clumped up together.
+<img width="218" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/36d7302f-494b-42f1-bf84-bff64b81daa8">
+
 
 ### Open-Closed Principle (O):
-- We created a Monster class that aligns with the **Open-Closed Principle** because it has a vector of MoveSet * which is open to extension by the Liskov's Substitution Principle, but does not require Monster class to change its code (closed for modification).
+- We created a Monster class that aligns with the **Open-Closed Principle** because it has a vector of MoveSet * which is open to extension by the Liskov's Substitution Principle. But this does not require Monster class to change its code (closed for modification). This is an example from our previous diagram that contains the Open-Closed Principle.
   
 <img width="317" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/4895db2b-586f-4a93-9ad9-aedb78766299">
 
 
 ### Liskov's Substitution Principle (L):
-- We created a MoveSets class that aligns with the **Liskov's Substitution Principle** because it is replaceable with instances of their subtype(specific moves) without altering the correctness of that program.
+- We created a MoveSets class that aligns with the **Liskov's Substitution Principle** because it is replaceable with instances of their subtype(specific moves) without altering the correctness of that program. Since we already have a class that contains similar qualities of the Liskov's Substitution principle we decided to use it as an example. The below image showcases the MoveSets class that we decided to use.
 
 <img width="337" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/4010e9e3-e762-417a-a54c-27d30e943d2b">
 
 
 ### Interface Segregation Principle (I):
-- All of the classes within our class diagram adhere to the **Interface Segregation Principle** as we have made sure that all classes require all interfaces of the class they depend on to be implemented and no classes implement unused interfaces
+- All of the classes within our class diagram adhere to the **Interface Segregation Principle**. This is because we have made sure that all our classes require all interfaces of the class they depend on to be implemented and no classes implement unused interfaces.
 
 <img width="239" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/99a13975-2b28-407a-96e4-bb01fc5f0d7b">
 
