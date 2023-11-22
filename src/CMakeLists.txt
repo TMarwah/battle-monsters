@@ -7,6 +7,7 @@ add_library(swatLibrary
   Timer.cpp
   Display.cpp
   Player.cpp
+  MoveSet.cpp
 )
 
 find_library(M_LIB m)

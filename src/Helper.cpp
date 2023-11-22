@@ -27,7 +27,7 @@ void Helper::logEvent(Event event,
     std::cout << "Helper::logEvent\n";
     std::cout << "\tcall location: " << callLocation << "\n";
     std::cout << "\t\teventType: " << event.eventType << "\n";
-    std::cout << "\t\tdata1  : " << event.data1 << "\n";
+    std::cout << "\t\tdata1  : " << event.data << "\n";
     std::cout << "\t\tdata2  : " << event.data2 << "\n";
     std::cout << '\n';
 
