@@ -8,6 +8,7 @@ add_executable(runAllTests
     StatesTest.cpp
     PlayerTest.cpp
     MoveSetTest.cpp
+    HealthBarTest.cpp
 )
 
 target_link_libraries(runAllTests gmock gtest gtest_main)

@@ -8,6 +8,7 @@ add_library(swatLibrary
   Display.cpp
   Player.cpp
   MoveSet.cpp
+  HealthBar.cpp
 )
 
 find_library(M_LIB m)
