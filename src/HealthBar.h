@@ -8,7 +8,7 @@ class HealthBars
 
     public:
         //Constructor
-        HealthBars();   //<- need to fix my constructor
+        HealthBars();
 
         //Setters for monster's HP
         void setMonster1HP(int firstMonsterHP);
