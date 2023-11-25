@@ -1,30 +1,30 @@
 #pragma once
 #include <iostream>
+#include <cstring>
+#include "State.h"
+#include "GameComponents.h"
 #include "Event.h"
-#include "States.h"
 
 
-class Input : public States
+class Input : public State
 {
+
 private:
     // MEMBERS
     Event _event;
 
-
 public:
     // MUTATORS
-    // bool pollEvent(Event& gameEvent);
-    void getInput();
+    void getInput(const GameComponents& gameComponents);
 
     // ACCESSORS
     Event getEvent() const;
 
-
 private:
     // PRIVATE HELPERS
-    void getPlayerNamesInput();
+    void getPlayersSetupInput();
     void getDraftInput();
     void getBattleInput();
-    void getReplayInput();
+    void getPlayAgainInput();
 
 };

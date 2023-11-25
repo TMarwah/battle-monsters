@@ -1,36 +1,20 @@
 #include "Game.h"
-#include "Player.h"
-#include "Helper.h"
-#include "Event.h"
-
-
-/*******************************************************************************
-* CONSTRUCTOR & DESTRUCTOR
-*******************************************************************************/
-Game::Game() {
-    _players = new Player[2];
-}
-
-Game::~Game() {
-    delete[] _players;
-}
+// #include "Player.h"
+// #include "Helper.h"
+// #include "Event.h"
 
 
 /*******************************************************************************
 * MUTATORS
 *******************************************************************************/
 void Game::init() {
-    // Init function implementation
-    enableState(RUNNING);
-    enableState(START_UP);
-    _display.enableState(START_UP);
-    // _input.enableState(INIT);
-    // enableState(ATTACKING);
-    // enableState(BATTLE_OVER);
+    _isRunning = true;
+    setState(START_UP_ST);
+    _display.setState(START_UP_ST);
 }
 
 void Game::getInput() {
-    _input.getInput();
+    _input.getInput(_gameComponents);
     
 }
 
@@ -39,22 +23,17 @@ void Game::handleEvents() {
 
 }
 
-Player* Game::getPlayers() const{
-    return _players;
-}
-
 
 /*******************************************************************************
 * ACCESSORS
 *******************************************************************************/
 bool Game::isRunning() const {
-    return checkState(RUNNING);
+    return _isRunning;
 
 }
 
-void Game::render() const {
-    std::cout << _timer.elapsed() << std::endl;
-    _display.render(_players[0], _players[1]);
+void Game::render() {
+    _display.render(_gameComponents);
 
 }
 
@@ -62,95 +41,150 @@ void Game::render() const {
 /*******************************************************************************
 * VIRTUAL OVERRIDES
 *******************************************************************************/
-void Game::addEventHandler(Event event) {
+void Game::addEventHandler(const Event& event) {
 
-    // event.logEvent("Game::addEventHandler");
-    Helper::logEvent(event, "Game::addEventHandler");
-    Helper::logState(*this, "game");
+    // output logs during development
+    // Helper::logEvent(event, "Game::addEventHandler");
+    // Helper::logState("game", getState());
 
-    // handle member events
-    // _players.addEventHandler(event);
-
-
-    // handle Game events
-    if(checkState(START_UP))
+    // handle member based on state events
+    switch(getState()) 
     {
 
-        // if 3 seconds has passed switch to INIT state
-        if(_timer.elapsed() > 1) {
-            // disable START_UP states
-            disableState(START_UP);
-            _display.disableState(START_UP);
+        case START_UP_ST:
+            handleStartUp();
+            break;
 
-            // enable INIT states
-            enableState(INIT);
-            _display.enableState(INIT);
-            _input.enableState(INIT);
-            _players[0].enableState(INIT);
-            _players[1].enableState(INIT);
+        case PLAYERS_SETUP_ST:
+            handlePlayersSetup(event);
+            break;
 
-        }
+        case DRAFT_ST:
+            handleDraft(event);
+            break;
 
+        case BATTLE_ST:
+            handleBattle(event);
+            break;
 
-        // _input.enableState(INIT);
-        // _display.enableState(INIT);
-        // _players[0].enableState(INIT);
-        // _players[1].enableState(INIT);
+        case BATTLE_OVER_ST:
+            handleBattleOver();
+            break;
 
-    }
-    else if(checkState(INIT))
-    {
-        if(event.eventType == EventType::SET_NAMES) {
-            _players[0].addEventHandler(event);
-            _players[1].addEventHandler(event);
+        case PLAY_AGAIN_ST:
+            handlePlayAgain(event);
+            break;
 
-            disableState(INIT);
-            _input.disableState(INIT);
-            _display.disableState(INIT);
-            _players[0].disableState(INIT);
-            _players[1].disableState(INIT);
+        case QUIT_ST:
+            handleQuit();
+            break;
 
-            enableState(DRAFT);
-            _input.enableState(DRAFT);
-            _display.enableState(DRAFT);
-            
-        }
-
-        
-    }
-    else if(checkState(DRAFT))
-    {
-        std::cout << "DRAFT STATE" << std::endl;
-
-    }
-    else if(checkState(BATTLE))
-    {
-        std::cout << "BATTLE STATE" << std::endl;
-
-    }
-    else if(checkState(REPLAY))
-    {
-        switch(event.eventType)
-        {
-            case EventType::A :
-                disableState(BATTLE_OVER);
-                disableState(RUNNING);
-                break;
-            case EventType::B:
-                disableState(BATTLE_OVER);
-                enableState(DRAFT);
-                break;
-        }
     }
 
 }
 
-void Game::update() {
 
-    _players[0].update();
-    _players[1].update();
+/*******************************************************************************
+* PRIVATE HELPERS
+*******************************************************************************/
+void Game::setGameState(GameState state) {
+    setState(state);
+    _input.setState(state);
+    _gameComponents.setState(state);
+    _display.setState(state);
+
+}
+
+void Game::quit() {
+    _isRunning = false;
+
+}
+
+/*******************************************************************************
+* PRIVATE HELPERS - HANDLERS
+*******************************************************************************/
+void Game::handleStartUp() {
+
+    if(_display.getState() != START_UP_ST) {
+        // switch states: START_UP_ST ==> PLAYERS_SETUP_ST
+        setGameState(PLAYERS_SETUP_ST);
+    }
+
+}
 
 
+void Game::handlePlayersSetup(const Event& event) {
 
-    updateStates();
+    // pass event to game components
+    _gameComponents.addEventHandler(event);
+
+    // test to see if the player setup has completed
+    if(_gameComponents.getState() != PLAYERS_SETUP_ST) {
+        // switch states: PLAYERS_SETUP_ST ==> DRAFT_ST
+        setGameState(DRAFT_ST);
+    }
+
+}
+
+
+void Game::handleDraft(const Event& event) {
+
+    // pass event to game components
+    _gameComponents.addEventHandler(event);
+
+    // test to see if the DRAFT_ST has completed
+    if(_gameComponents.getState() != DRAFT_ST) {
+        
+        // switch states: DRAFT_ST ==> BATTLE_ST
+        setGameState(BATTLE_ST);
+
+    }
+
+}
+
+
+void Game::handleBattle(const Event& event) {
+
+    // pass event to game components
+    _gameComponents.addEventHandler(event);
+
+    if(_gameComponents.getState() != BATTLE_ST) {
+        // switch states: BATTLE_ST ==> BATTLE_OVER_ST
+        setGameState(BATTLE_OVER_ST);
+    }
+
+}
+
+
+void Game::handleBattleOver() {
+
+    if(_display.getState() != BATTLE_OVER_ST) {
+        // switch states: BATTLE_OVER_ST ==> PLAY_AGAIN_ST
+        setGameState(PLAY_AGAIN_ST);
+    }
+
+}
+
+
+void Game::handlePlayAgain(const Event& event) {
+
+    if(event.eventType == EventType::REPLAY) {
+        // TODO: reset player benches and DRAFT_ST bench
+        setGameState(DRAFT_ST);
+    }
+    else if(event.eventType == EventType::QUIT) {
+        setGameState(QUIT_ST);
+    }
+    // TODO: should an assert go here?
+
+}
+
+
+void Game::handleQuit() {
+
+    // quit program after _display has shown exit screen
+    if(_display.getState() != QUIT_ST) {
+        quit();
+    }
+
 }
