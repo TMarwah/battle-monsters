@@ -5,25 +5,38 @@ int main ()
 {
     MainMenu object;
     int choices;
-    int Tries {1}; //attempts to add a name
-    object.displayMenu();
-    do
-    {
-        std::cout << "\n0. Quit\n1. Names\n\n";
+    object.renderTitle();
+    // do
+    // {
+        std::cout << "\n0. Quit\n1. Names\n2. Play Game\n3. _testEndScreen \n\n";
         std::cin >> choices;
         switch (choices)
         {
             case 0:
             {
-                object.creditsMenu();
+                object.renderCredits();
                 break;
             }
             case 1:
             {
-                object.blankNameMenu();
+                object.renderBlankNames();
+                //make it so i can input names
+                //make it so i can edit names
+                //make a confirmation message
+                break;
+            }
+            case 2:
+            {
+                object.draftMenu();
+                break;
+            }
+            case 3:
+            {
+                object.renderEndScreen();
+                break;
             }
         }
-    }while(choices != 0);
+    // }while(choices != 0);
 }
 
 // a better implementation would be to use states

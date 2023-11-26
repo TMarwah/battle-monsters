@@ -5,11 +5,12 @@ add_subdirectory(googletest)
 
 add_executable(runAllTests
     GameTest.cpp
-    StatesTest.cpp
-    PlayerTest.cpp
     MoveSetTest.cpp
     HealthBarTest.cpp
+    PlayerTest.cpp
+    StateTest.cpp
 )
 
 target_link_libraries(runAllTests gmock gtest gtest_main)
 target_link_libraries(runAllTests swatLibrary)
+

@@ -1,11 +1,11 @@
 #pragma once
 
 enum EventType {
-    NULL_EVENT,
     SET_NAMES,
-    P1_ATTACK,
-    P2_ATTACK,
-    A,
-    B
-
+    DRAFT_SELECTION,
+    ATTACK,
+    REPLAY,
+    QUIT,
+    NULL_EVENT,
+    
 };

@@ -1,9 +1,13 @@
 #pragma once
+#include "enum/GameState.h"
+#include "Event.h"
 
 
 class EventHandler {
     
-    virtual void addEventHandler(Event event) = 0;
-    virtual void update() = 0;
-    
-}
+private:
+
+    // PURE VIRTUAL FUNCTIONS
+    virtual void addEventHandler(const Event& event) = 0;
+
+};
