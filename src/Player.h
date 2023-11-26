@@ -1,10 +1,10 @@
 #pragma once
 #include <string>
-#include "States.h"
+#include "State.h"
 #include "Event.h"
 
 //TODO import bench once complete
-class Player : public States {
+class Player : public State {
     protected:
     //Bench _bench;
     std::string _name;
@@ -20,7 +20,6 @@ class Player : public States {
     //getBench(); //TODO implement bench
 
     // VIRTUAL OVERRIDES
-    void addEventHandler(Event event);
-    void update();
+    void addEventHandler(const Event& event);
     Player(); //player constructor
 };

@@ -1,14 +1,14 @@
 add_library(swatLibrary
-  Player.cpp
-  States.cpp
+  State.cpp
   Game.cpp
   Input.cpp
-  Helper.cpp
-  Timer.cpp
+  GameComponents.cpp
   Display.cpp
+  Timer.cpp
+  Players.cpp
   Player.cpp
   MoveSet.cpp
+  Helper.cpp
 )
 
-find_library(M_LIB m)
-target_link_libraries(swatLibrary ${M_LIB})
+target_link_libraries(swatLibrary)

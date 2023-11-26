@@ -1,53 +1,29 @@
 #include "Input.h"
 
 
-
-
 /*******************************************************************************
 * MUTATORS
 *******************************************************************************/
-/*
-bool Input::pollEvent(Event& gameEvent) {
+void Input::getInput(const GameComponents& gameComponents) {
 
-    std::cout << "Input::pollEvent  |  peek  |  "; 
-    std::cout << std::cin.peek() << std::endl;
-
-    char byte;
-    bool isInput = false;       // assume input stream empty
-
-    // extract from stdin
-    if(std::cin >> byte)
+    switch(getState())
     {
-        isInput = true;
+        case PLAYERS_SETUP_ST:
+            getPlayersSetupInput();
+            break;
 
-        // set event based off of stdin
-        if(byte == 'a')
-            gameEvent.setEvent(GameEvent::A);
-        else if(byte == 'b')
-            gameEvent.setEvent(GameEvent::B);
-        else
-            gameEvent.setEvent(GameEvent::NULL_EVENT);
+        case DRAFT_ST:
+            getDraftInput();
+            break;
 
-    }
+        case BATTLE_ST:
+            getBattleInput();
+            break;
 
+        case PLAY_AGAIN_ST:
+            getPlayAgainInput();
+            break;
 
-    return isInput;
-    
-}
-*/
-
-void Input::getInput() {
-    if(checkState(INIT)) {
-        getPlayerNamesInput();
-    }
-    else if(checkState(DRAFT)) {
-        getDraftInput();
-    }
-    else if(checkState(BATTLE)) {
-        getBattleInput();
-    }
-    else if(checkState(REPLAY)) {
-        getReplayInput();
     }
 }
 
@@ -64,23 +40,23 @@ Event Input::getEvent() const {
 /*******************************************************************************
 * PRIVATE HELPERS
 *******************************************************************************/
-void Input::getPlayerNamesInput() {
+void Input::getPlayersSetupInput() {
     
-    // char name1[80] = {"name1"};
-    // char name2[80] = {"name2"};
+    // TODO: validate input
+
     char name1[80];
     char name2[80];
     
     std::cout << "Player 1 name: ";
     std::cin.get(name1, 80);
     std::cin.ignore(100, '\n');
-    // std::cin >> name1;
+
     std::cout << "Player 2 name: ";
     std::cin.get(name2, 80);
     std::cin.ignore(100, '\n');
-    // std::cin >> name2;
 
-    _event.data = name1;
+    // set event data
+    _event.data1 = name1;
     _event.data2 = name2;
     _event.eventType = EventType::SET_NAMES;
 
@@ -89,16 +65,68 @@ void Input::getPlayerNamesInput() {
 
 void Input::getDraftInput() {
 
-    // hold here for now
-    std::cout << "getDraftInput()" << std::endl;
-    std::cin.get();
+    // TODO: validate input
+
+    char draftSelection[80];
+
+    std::cout << "Draft Selection: ";
+    std::cin.get(draftSelection, 80);
+    std::cin.ignore(100, '\n');
+
+    // set event data
+    _event.data1 = draftSelection;
+    _event.data2 = "null";
+    _event.eventType = EventType::DRAFT_SELECTION;
 
 }
+
 
 void Input::getBattleInput() {
 
+    // TODO: validate input
+
+    char attack[80];
+
+    std::cout << "Select your attack move: ";
+    std::cin.get(attack, 80);
+    std::cin.ignore(100, '\n');
+
+    // set event data
+    _event.data1 = attack;
+    _event.data2 = "null";
+    _event.eventType = EventType::ATTACK;
+
 }
 
-void Input::getReplayInput() {
+
+void Input::getPlayAgainInput() {
+    
+    // TODO: validate input
+    // TODO: write less ugly code in here
+
+    char userSelection[80];
+
+    std::cout << "Play Again? (Y/N): ";
+    std::cin.get(userSelection, 80);
+    std::cin.ignore(100, '\n');
+
+    // set event data
+    _event.data1 = "null";
+    _event.data2 = "null";
+
+    // std::cout << "USER SELECTED " << userSelection << std::endl;
+
+    if( !strcmp(userSelection, "Y") ) {
+        std::cout << "EventType::REPLAY " << std::endl;
+        _event.eventType = EventType::REPLAY;
+    }
+    else if( !strcmp(userSelection, "N") ) {
+        std::cout << "EventType::QUIT " << std::endl;
+        _event.eventType = EventType::QUIT;
+
+    }
+
+    // std::cin.get();
+    // std::cin.ignore(100, '\n');
 
 }

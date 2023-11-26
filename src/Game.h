@@ -1,44 +1,53 @@
 #pragma once
-#include "enum/ObjectStates.h"
-#include "States.h"
+#include "State.h"
+#include "abstract/EventHandler.h"
+#include "enum/GameState.h"
+#include "enum/EventType.h"
+#include "Input.h"
+#include "GameComponents.h"
+#include "Display.h"
 #include "Event.h"
 #include "Player.h"
-#include "Input.h"
-#include "Display.h"
 #include "Timer.h"
+#include "Helper.h"
 
 
-class Game: public States   // a public inheritance of State class
+class Game: public State,   // a public inheritance of State class
+            public EventHandler
 {
 
 private:
-    Player* _players;
+    bool _isRunning;
     Input _input;
+    GameComponents _gameComponents;
     Display _display;
-    Timer _timer;
+    // Timer _timer;
     
 
 
 public:
-    // CONSTRUCTOR & DESTRUCTOR
-    Game();
-    ~Game();
-
     // MUTATORS
     void init();
     void getInput();
-    // void draw();
     void handleEvents();
 
     // ACCESSORS
-    void render() const;
-    Player* getPlayers() const;
+    void render();
     bool isRunning() const;
 
-    // OPERATOR OVERLOADS
-
     // VIRTUAL OVERRIDES
-    void addEventHandler(Event event);
-    void update();
+    void addEventHandler(const Event& event);
+
+private:
+    // PRIVATE HELPERS
+    void setGameState(GameState state);
+    void quit();
+    void handleStartUp();
+    void handlePlayersSetup(const Event& event);
+    void handleDraft(const Event& event);
+    void handleBattle(const Event& event);
+    void handleBattleOver();
+    void handlePlayAgain(const Event& event);
+    void handleQuit();
 
 };
