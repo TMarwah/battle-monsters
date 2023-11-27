@@ -122,8 +122,6 @@ void Display::renderPlayAgain() const {
     std::cout << "|======================================|\n";
     std::cout << "|                                      |\n";
     std::cout << "|                                      |\n";
-    std::cout << "|       <getName> is Victorious!       |\n";
-    std::cout << "|                                      |\n";
     std::cout << "|           Play Again (Y/N)           |\n";
     std::cout << "|                                      |\n";
     std::cout << "|                                      |\n";
