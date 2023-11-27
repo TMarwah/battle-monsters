@@ -22,21 +22,19 @@ TEST(GameClassTests, testInitMethod){
 }
 
 // Test GetInput() method 
-TEST(GameClassTests, testGetInputMethod) {
+TEST(GameClassTests, testGetInputMethodToSetName) {
     //Arrange
     Game game;
-    // further Player class implementation required...
 
     //ACT
-    // game.getInput();
+    game.init();
+    if(game.isRunning()) {
+        game.getInput();
+    }
+
+    std::string name1 = game.getPlayers().getPlayer(0).getName();
+    std::string name2 = game.getPlayers().getPlayer(1).getName();
 
     //Assert
-    EXPECT_TRUE(false);
-}
-
-
-TEST(GameClassTests, testDrawMethod) {
-    // further visual representation functions required
-
-    EXPECT_TRUE(false);
+    EXPECT_TRUE(name1 != "" | name2 != "");
 }
