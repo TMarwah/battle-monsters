@@ -48,6 +48,7 @@ void Input::getPlayersSetupInput() {
     char name1[80];
     char name2[80];
 
+    // FIXME: when there is empty input '\n' it falls into infintie loop
     std::cout << "Player 1 name: ";
     std::cin.ignore(100, '\n');
     std::cin.get(name1, 80);
@@ -119,11 +120,12 @@ void Input::getPlayAgainInput() {
 
     // std::cout << "USER SELECTED " << userSelection << std::endl;
 
-    if( !strcmp(userSelection, "Y") ) {
+    // FIXED: it is not case sensetive
+    if( !strcmp(userSelection, "Y") | !strcmp(userSelection, "y") ) {
         std::cout << "EventType::REPLAY " << std::endl;
         _event.eventType = EventType::REPLAY;
     }
-    else if( !strcmp(userSelection, "N") ) {
+    else if( !strcmp(userSelection, "N") | !strcmp(userSelection, "n") ) {
         std::cout << "EventType::QUIT " << std::endl;
         _event.eventType = EventType::QUIT;
 
