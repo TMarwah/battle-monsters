@@ -56,9 +56,15 @@ void Display::render(const GameComponents& gameComponents) {
 * PRIVATE HELPERS
 *******************************************************************************/
 void Display::renderStartup() {
-    std::cout << "============" << '\n';
-    std::cout << "= START_UP =" << '\n';
-    std::cout << "============" << '\n' << '\n';
+    // std::cout << "=========" << '\n';
+    // std::cout << "= START =" << '\n';
+    // std::cout << "=========" << '\n' << '\n';
+    std::cout << "|===============================|\n";
+    std::cout << "|                               |\n";
+    std::cout << "|        Battle Monsters        |\n";
+    std::cout << "|                               |\n";
+    std::cout << "|===============================|\n";
+    std::cout << "\n";
 
     // show title screen for DISPLAY_UPTIME seconds
     _timer.sleep(DISPLAY_UPTIME);
@@ -110,17 +116,38 @@ void Display::renderBattleOver() {
 
 
 void Display::renderPlayAgain() const {
-    std::cout << "===============" << '\n';
-    std::cout << "= PLAY AGAIN? =" << '\n';
-    std::cout << "===============" << '\n' << '\n';
+    // std::cout << "===============" << '\n';
+    // std::cout << "= PLAY AGAIN? =" << '\n';
+    // std::cout << "===============" << '\n' << '\n';
+    std::cout << "|======================================|\n";
+    std::cout << "|                                      |\n";
+    std::cout << "|                                      |\n";
+    std::cout << "|       <getName> is Victorious!       |\n";
+    std::cout << "|                                      |\n";
+    std::cout << "|           Play Again (Y/N)           |\n";
+    std::cout << "|                                      |\n";
+    std::cout << "|                                      |\n";
+    std::cout << "|======================================|\n";
 
 }
 
 
 void Display::renderQuit() {
-    std::cout << "========" << '\n';
-    std::cout << "= QUIT =" << '\n';
-    std::cout << "========" << '\n' << '\n';
+    // std::cout << "========" << '\n';
+    // std::cout << "= QUIT =" << '\n';
+    // std::cout << "========" << '\n' << '\n';
+    std::cout << "|======================================|\n";
+    std::cout << "|                                      |\n";
+    std::cout << "|                                      |\n";
+    std::cout << "|          Thanks for playing :)       |\n";
+    std::cout << "|                                      |\n";
+    std::cout << "|             Stanley Zhang            |\n";
+    std::cout << "|              William Kim             |\n";
+    std::cout << "|             Andrew Tilles            |\n";
+    std::cout << "|             Tanmay Marwah            |\n";
+    std::cout << "|                                      |\n";
+    std::cout << "|                                      |\n";
+    std::cout << "|======================================|\n";
     
     // show exit screen for DISPLAY_UPTIME seconds
     _timer.sleep(DISPLAY_UPTIME);
