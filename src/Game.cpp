@@ -37,6 +37,9 @@ void Game::render() {
 
 }
 
+const Players& Game::getPlayers() const {
+    return _gameComponents.getPlayers();
+}
 
 /*******************************************************************************
 * VIRTUAL OVERRIDES

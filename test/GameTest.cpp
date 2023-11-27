@@ -20,23 +20,3 @@ TEST(GameClassTests, testInitMethod){
     EXPECT_TRUE(game.isRunning());
     EXPECT_TRUE(game.getState() == GameState::START_UP_ST);
 }
-
-// Test GetInput() method 
-TEST(GameClassTests, testGetInputMethod) {
-    //Arrange
-    Game game;
-    // further Player class implementation required...
-
-    //ACT
-    // game.getInput();
-
-    //Assert
-    EXPECT_TRUE(false);
-}
-
-
-TEST(GameClassTests, testDrawMethod) {
-    // further visual representation functions required
-
-    EXPECT_TRUE(false);
-}
