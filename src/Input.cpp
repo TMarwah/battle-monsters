@@ -1,4 +1,5 @@
 #include "Input.h"
+#include <iostream>
 
 
 /*******************************************************************************
@@ -46,14 +47,15 @@ void Input::getPlayersSetupInput() {
 
     char name1[80];
     char name2[80];
-    
+
     std::cout << "Player 1 name: ";
-    std::cin.get(name1, 80);
     std::cin.ignore(100, '\n');
+    std::cin.get(name1, 80);
+
 
     std::cout << "Player 2 name: ";
-    std::cin.get(name2, 80);
     std::cin.ignore(100, '\n');
+    std::cin.get(name2, 80);
 
     // set event data
     _event.data1 = name1;
