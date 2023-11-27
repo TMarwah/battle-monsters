@@ -43,10 +43,10 @@ bool HealthBars::checkIfZero()
     {
         return true;
     }
-    if (this->_health2 == 0)
-    {
-        return true;
-    }
+    // if (this->_health2 == 0)
+    // {
+    //     return true;
+    // }
     
     return false;
 }
