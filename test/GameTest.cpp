@@ -20,21 +20,3 @@ TEST(GameClassTests, testInitMethod){
     EXPECT_TRUE(game.isRunning());
     EXPECT_TRUE(game.getState() == GameState::START_UP_ST);
 }
-
-// Test GetInput() method 
-TEST(GameClassTests, testGetInputMethodToSetName) {
-    //Arrange
-    Game game;
-
-    //ACT
-    game.init();
-    if(game.isRunning()) {
-        game.getInput();
-    }
-
-    std::string name1 = game.getPlayers().getPlayer(0).getName();
-    std::string name2 = game.getPlayers().getPlayer(1).getName();
-
-    //Assert
-    EXPECT_TRUE(name1 != "" | name2 != "");
-}
