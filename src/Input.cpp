@@ -56,6 +56,7 @@ void Input::getPlayersSetupInput() {
     std::cout << "Player 2 name: ";
     std::cin.ignore(100, '\n');
     std::cin.get(name2, 80);
+    std::cin.ignore(100, '\n'); // prevent infinite loop
 
     // set event data
     _event.data1 = name1;
