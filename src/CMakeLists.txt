@@ -7,7 +7,7 @@ add_library(swatLibrary
   Timer.cpp
   Players.cpp
   Player.cpp
-  MoveSet.cpp
+  ./abstract/MoveSet.cpp
   Helper.cpp
 )
 
