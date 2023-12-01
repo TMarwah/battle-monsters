@@ -1,4 +1,5 @@
 #include "Game.h"
+#include "GetMonsterList.h"
 
 int main() {
 
@@ -7,6 +8,8 @@ int main() {
 
     // start game with initial conditions/state
     game.init();
+
+    Monster std::vector<Monster *> monsterList = getMonsterList();
 
     // main game loop
     while(game.isRunning())
@@ -27,6 +30,7 @@ int main() {
     }
 
     std::cout << "Goodbye" << std::endl;
+    delete[] monsterList;
     return 0;
 
 }
