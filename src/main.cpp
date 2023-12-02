@@ -1,9 +1,5 @@
 #include "Game.h"
-
-#ifndef MONSTER_IMPLEMENTED
-    #include "Monster.h"
-    #include "GetMonsterList.h"
-#endif
+#include "GetMonsterList.h"
 
 int main() {
 
@@ -13,10 +9,7 @@ int main() {
     // start game with initial conditions/state
     game.init();
 
-    if(MONSTER_IMPLEMENTED) {
-        // FIXME: uncomment this after implementing Monster class
-        // Monster std::vector<Monster *> monsterList = getMonsterList();
-    }
+    Monster std::vector<Monster *> monsterList = getMonsterList();
 
     // main game loop
     while(game.isRunning())
@@ -37,12 +30,7 @@ int main() {
     }
 
     std::cout << "Goodbye" << std::endl;
-
-    if(MONSTER_IMPLEMENTED) {
-        // FIXME: uncomment this after implementing Monster class
-        // delete[] monsterList;
-    }
-    
+    delete[] monsterList;
     return 0;
 
 }
