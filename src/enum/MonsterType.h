@@ -3,4 +3,4 @@
 enum MonsterType
 {
     NORMAL
-}
+};
