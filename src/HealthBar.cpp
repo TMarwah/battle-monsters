@@ -4,7 +4,6 @@
 HealthBar::HealthBar()
 {
     _health1 = 0;
-    _health2 = 0;
 }
 
 void HealthBar::setMonster1HP(int firstMonsterHP)
