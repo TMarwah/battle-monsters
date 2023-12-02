@@ -8,6 +8,7 @@ add_library(swatLibrary
   Players.cpp
   Player.cpp
   ./abstract/MoveSet.cpp
+  NormalAttack.cpp
   Helper.cpp
 )
 
