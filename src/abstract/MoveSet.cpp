@@ -1,11 +1,13 @@
 #include "MoveSet.h"
 #include <iomanip>
+
 //Default constructor
-MoveSet::MoveSet(){
-    _defaultAccuracy = 0.0;
-    _defaultDamage = 0;
-    _priority = 0;
-}
+MoveSet::MoveSet(const std::string& name, float accuracy, int damage, int priority) :
+    _moveName(name),
+    _defaultAccuracy(accuracy),
+    _defaultDamage(damage),
+    _priority(priority)
+{ }
 
 void MoveSet::SetAccuracy(float accuracy){
     this->_defaultAccuracy = accuracy;
@@ -31,4 +33,8 @@ int MoveSet::GetDamage(){
 
 int MoveSet::GetPriority(){
     return _priority;
+}
+
+const std::string& MoveSet::getName() {
+    return _moveName;
 }
