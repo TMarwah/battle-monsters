@@ -52,7 +52,7 @@ int Monster::getDefense() const{
     return _baseDefense;
 }
 
-HealthBar& Monster::getHealthBar() {
+HealthBar& Monster::getHealthBar(){
     return _health;
 }
 
@@ -84,7 +84,7 @@ void Monster::setType(MonsterType type) {
 
 
 // Helpers
-bool Monster::isDead() const{
+bool Monster::isDead() {
     return getHealthBar().isZero();
 }
 

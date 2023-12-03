@@ -28,7 +28,7 @@ class Monster{
         const std::vector<MoveSet *>& getMoves() const;
         int getPower() const;
         int getDefense() const;
-        HealthBar& getHealthBar() ;
+        HealthBar& getHealthBar();
         int getHealthPoint() const;
         MonsterType getType() const;
         const std::string& getName() const;
@@ -43,7 +43,7 @@ class Monster{
         void addMoves(std::vector<MoveSet *> newMoves);
 
         // Helpers
-        bool isDead() const;
+        bool isDead();
         void deductHP(int amount);
 
 };
