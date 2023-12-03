@@ -1,6 +1,6 @@
 #pragma once
 #include "HealthBar.h"
-#include "MoveSet.h"
+#include "./abstract/MoveSet.h"
 #include <vector>
 
 class Monster{
@@ -31,6 +31,7 @@ class Monster{
         MonsterType getType();
 
         // SETTERS
+
             // will be implemented...
 
         //setup monster moveset by creating moveset vector
