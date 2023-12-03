@@ -43,7 +43,7 @@ class Monster{
         void addMoves(std::vector<MoveSet *> newMoves);
 
         // Helpers
-        bool isDead() const;
+        bool isDead();
         void deductHP(int amount);
 
 };
