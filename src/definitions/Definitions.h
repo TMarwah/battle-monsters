@@ -5,8 +5,7 @@
 #define DISPLAY_UPTIME 3.0f     // type: float (in seconds)
 #define CLEAR_SCREEN true       // toggle system("clear") command
 
-// FIXME: make this true after implementing Monster class
-#define MONSTER_IMPLEMENTED false
+#define MONSTER_IMPLEMENTED true
 
 
 
