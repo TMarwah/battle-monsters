@@ -9,6 +9,7 @@ MoveSet::MoveSet(const std::string& name, float accuracy, int damage, int priori
     _priority(priority)
 { }
 
+// setters
 void MoveSet::setAccuracy(float accuracy){
     this->_defaultAccuracy = accuracy;
 }
@@ -35,6 +36,6 @@ int MoveSet::getPriority() const{
     return _priority;
 }
 
-const std::string& MoveSet::getName() {
+const std::string& MoveSet::getName() const{
     return _moveName;
 }

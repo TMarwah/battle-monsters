@@ -16,7 +16,7 @@ class HealthBar
         int getHP() const;
 
         //
-        void deductHP(int incomingDamage);
+        bool deductHP(int incomingDamage);
         bool isZero();
 
 };
