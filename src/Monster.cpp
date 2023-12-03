@@ -84,7 +84,7 @@ void Monster::setType(MonsterType type) {
 
 
 // Helpers
-bool Monster::isDead() {
+bool Monster::isDead() const{
     return getHealthBar().isZero();
 }
 
