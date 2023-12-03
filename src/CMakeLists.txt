@@ -11,6 +11,8 @@ add_library(swatLibrary
   
   Players.cpp
   Player.cpp
+
+  Monster.cpp
   
   HealthBar.cpp
   
