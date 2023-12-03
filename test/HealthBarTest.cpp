@@ -8,83 +8,72 @@ TEST(HealthBarTest, DefaultConstructorTest)
     HealthBar _healthbar;
 
     //Assert
-    EXPECT_EQ(_healthbar.getMonster1HP(), 0);
+    EXPECT_EQ(_healthbar.getHP(), 100);
 }
 
-TEST(HealthBarTest, Monster1HealthSetter_1)
+TEST(HealthBarTest, MonsterHealthSetter)
 {
     //Arrange 
     HealthBar _healthbar;
 
     //Act
-    _healthbar.setMonster1HP(50);
+    _healthbar.setHP(50);
 
     //Assert
-    EXPECT_EQ(_healthbar.getMonster1HP(), 50);
+    EXPECT_EQ(_healthbar.getHP(), 50);
 }
 
-TEST(HealthBarTest, Monster1HealthSetter_2)
+TEST(HealthBarTest, ReduceMonsterHealth)
 {
     //Arrange
     HealthBar _healthbar;
 
     //Act
-    _healthbar.setMonster1HP(150);
+    _healthbar.setHP(50);
+    _healthbar.deductHP(25);
 
     //Assert
-    EXPECT_EQ(_healthbar.getMonster1HP(), 150);
+    EXPECT_EQ(_healthbar.getHP(), 25);
 }
 
-TEST(HealthBarTest, ReduceMonster1Health_1)
+TEST(HealthBarTest, CheckForZeroHP)
 {
     //Arrange
     HealthBar _healthbar;
 
     //Act
-    _healthbar.setMonster1HP(50);
-    _healthbar.deductHealthMonster1(25);
+    _healthbar.setHP(150);
+    _healthbar.deductHP(150);
 
     //Assert
-    EXPECT_EQ(_healthbar.getMonster1HP(), 25);
+    EXPECT_EQ(_healthbar.getHP(), 0);
+    EXPECT_TRUE(_healthbar.isZero());
 }
 
-TEST(HealthBarTest, ReduceMonster1Health_2)
+TEST(HealthBarTest, CheckForZeroHPWhenFatalDamage)
 {
     //Arrange
     HealthBar _healthbar;
 
     //Act
-    _healthbar.setMonster1HP(150);
-    _healthbar.deductHealthMonster1(59);
+    _healthbar.setHP(100);
+    _healthbar.deductHP(150);
 
     //Assert
-    EXPECT_EQ(_healthbar.getMonster1HP(), 91);
+    EXPECT_EQ(_healthbar.getHP(), 0);
+    EXPECT_TRUE(_healthbar.isZero());
 }
 
-TEST(HealthBarTest, CheckForZeroHP_monster1)
+TEST(HealthBarTest, CheckForNonZeroHP) 
 {
     //Arrange
     HealthBar _healthbar;
 
     //Act
-    _healthbar.setMonster1HP(150);
-    _healthbar.deductHealthMonster1(150);
+    _healthbar.setHP(150);
+    _healthbar.deductHP(100);
 
     //Assert
-    EXPECT_EQ(_healthbar.getMonster1HP(), 0);
-    EXPECT_TRUE(_healthbar.checkIfZero());
-}
-
-TEST(HealthBarTest, CheckForZeroHP_monster1_1) //suppose to fail
-{
-    //Arrange
-    HealthBar _healthbar;
-
-    //Act
-    _healthbar.setMonster1HP(150);
-    _healthbar.deductHealthMonster1(100);
-
-    //Assert
-    EXPECT_EQ(_healthbar.getMonster1HP(), 0);
-    EXPECT_TRUE(_healthbar.checkIfZero());
+    EXPECT_EQ(_healthbar.getHP(), 50);
+    EXPECT_FALSE(_healthbar.isZero());
 }
