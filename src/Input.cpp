@@ -50,12 +50,11 @@ void Input::getPlayersSetupInput() {
 
     // FIXME: when there is empty input '\n' it falls into infintie loop
     std::cout << "Player 1 name: ";
-    std::cin.ignore(100, '\n');
     std::cin.get(name1, 80);
+    std::cin.ignore(100, '\n');
 
 
     std::cout << "Player 2 name: ";
-    std::cin.ignore(100, '\n');
     std::cin.get(name2, 80);
     std::cin.ignore(100, '\n'); // prevent infinite loop
 
