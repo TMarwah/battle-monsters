@@ -34,6 +34,7 @@ public:
     // ACCESSORS
     void render();
     bool isRunning() const;
+    const Players& getPlayers() const;
 
     // VIRTUAL OVERRIDES
     void addEventHandler(const Event& event);
