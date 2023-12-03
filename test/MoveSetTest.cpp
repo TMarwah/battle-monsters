@@ -15,9 +15,9 @@ TEST(MoveSetTest, DefaultConstructorTest) {
 
     //Assert
     EXPECT_EQ(move->getName(), "Rock_bottom");
-    EXPECT_NEAR(move->GetAccuracy(), 0.0, 0.001);
-    EXPECT_NEAR(move->GetDamage(), 0.0, 0.001);
-    EXPECT_NEAR(move->GetPriority(), 0.0, 0.001);
+    EXPECT_NEAR(move->getAccuracy(), 0.0, 0.001);
+    EXPECT_NEAR(move->getDamage(), 0.0, 0.001);
+    EXPECT_NEAR(move->getPriority(), 0.0, 0.001);
 }
 
 TEST(MoveSetTest, MoveSetterTest) {
@@ -25,9 +25,9 @@ TEST(MoveSetTest, MoveSetterTest) {
     MoveSet *move = new NormalAttack("Rock_bottom", 0.6, 50, 1);
 
     //Assert
-    EXPECT_NEAR(move->GetAccuracy(), 0.6, 0.001);
-    EXPECT_NEAR(move->GetDamage(), 50, 0.001);
-    EXPECT_NEAR(move->GetPriority(), 1, 0.001);
+    EXPECT_NEAR(move->getAccuracy(), 0.6, 0.001);
+    EXPECT_NEAR(move->getDamage(), 50, 0.001);
+    EXPECT_NEAR(move->getPriority(), 1, 0.001);
 }
 
    
