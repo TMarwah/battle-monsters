@@ -3,20 +3,20 @@
 class HealthBar
 {
     private:
-        int _health1;   //base health of monster1
+        int _health;   //base health of monster1
 
     public:
         //Constructor
         HealthBar();
 
         //Setters for monster's HP
-        void setMonster1HP(int firstMonsterHP);
+        void setHP(int firstMonsterHP);
 
         //Getters for monster's HP
-        int getMonster1HP();
+        int getHP();
 
         //
-        void deductHealthMonster1(int incomingDamage);
-        bool checkIfZero();
+        void deductHP(int incomingDamage);
+        bool isZero();
 
 };

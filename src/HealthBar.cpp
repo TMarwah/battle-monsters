@@ -3,28 +3,39 @@
 
 HealthBar::HealthBar()
 {
-    _health1 = 0;
+    // initialize health as 100 by default
+    _health = 100;
 }
 
-void HealthBar::setMonster1HP(int firstMonsterHP)
+void HealthBar::setHP(int monsterHP)
 {
-    this->_health1 = firstMonsterHP;
+    this->_health = monsterHP;
 }
 
-int HealthBar::getMonster1HP()
+int HealthBar::getHP()
 {
-    return this->_health1;
+    return this->_health;
 }
 
-void HealthBar::deductHealthMonster1(int incomingDamage)
+void HealthBar::deductHP(int incomingDamage)
 {
-    this->_health1 = this->_health1 - incomingDamage;
+    // if incoming damage is not greater than current HP
+    if(this->_health >= incomingDamage) 
+    {
+        this->_health = this->_health - incomingDamage;
+    }
+
+    // if damage is fatal
+    else 
+    {
+        _health = 0;
+    }
 }
 
 
-bool HealthBar::checkIfZero()
+bool HealthBar::isZero()
 {
-    if (this->_health1 == 0)
+    if (this->_health == 0)
     {
         return true;
     }
