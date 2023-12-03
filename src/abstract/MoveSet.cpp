@@ -9,6 +9,7 @@ MoveSet::MoveSet(const std::string& name, float accuracy, int damage, int priori
     _priority(priority)
 { }
 
+// setters
 void MoveSet::setAccuracy(float accuracy){
     this->_defaultAccuracy = accuracy;
 }
@@ -21,6 +22,7 @@ void MoveSet::setPriority(int priority){
     this->_priority = priority;
 }
 
+// getters
 float MoveSet::getAccuracy(){
     std::setprecision(2);
     return _defaultAccuracy;
