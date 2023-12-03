@@ -9,12 +9,25 @@ Monster::~Monster(){
     
     delete Monster;
 }
-int Monster::Move(Monster* defendingMonster, string _type, int _basePower){}
 
-const Attack& Monster::attack() const{}
+int Monster::Move(Monster* defendingMonster, string _type, int _basePower) {
 
-bool Monster::defend(const Attack& attack);
+}
 
-void addMoves(std::vector newMoves<MoveSet *>){
+int Monster::attack() const{
+    return 10;
+}
+
+bool Monster::defend(int attack) {
+
+    // use battle calculator to figure out final
+    // value to deduct from health
+    this->deductHealth(attack);
+    
+    // return true/false if monster died from attack
+    return true;
+}
+
+void Monster::addMoves(std::vector newMoves<MoveSet *>){
     _moveset = newMoves;
 }

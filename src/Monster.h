@@ -16,8 +16,8 @@ class Monster{
         ~Monster();
         //member function for use when attacking a monster
         int Move(Monster* defendingMonster, string _type, int _basePower);
-        const Attack& attack() const;
-        bool defend(const Attack& attack);
+        int attack() const;
+        bool defend(int attack);
 
         //setup monster moveset by creating moveset vector
         void addMoves(std::vector newMoves<MoveSet *>);
