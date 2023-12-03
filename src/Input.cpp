@@ -51,14 +51,10 @@ void Input::getPlayersSetupInput() {
     // FIXME: when there is empty input '\n' it falls into infintie loop
     // USED GETLINE INSTEAD OF GET + IGNORE
     std::cout << "Player 1 name: ";
-    // std::cin.ignore(100, '\n');
     std::cin.getline(name1, 80);
 
-
     std::cout << "Player 2 name: ";
-    // std::cin.ignore(100, '\n');
     std::cin.getline(name2, 80);
-    // std::cin.ignore(100, '\n'); // prevent infinite loop
 
     // set event data
     _event.data1 = name1;
