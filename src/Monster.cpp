@@ -33,3 +33,29 @@ bool Monster::defend(int attack) {
 void Monster::addMoves(std::vector newMoves<MoveSet *>){
     _moveset = newMoves;
 }
+
+
+// GETTERS
+const vector<MoveSet *>& Monster::getMoves() {
+    return _moveset;
+}
+
+int Monster::getPower() {
+    return _basePower;
+}
+
+int Monster::getDefense() {
+    return _baseDefense;
+}
+
+HealthBar& Monster::getHealthBar() {
+    return _health;
+}
+
+int Monster::getHealthPoint() {
+    return _health.getHP();
+}
+
+MonsterType Monster::getType() {
+    return _type;
+}
