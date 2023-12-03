@@ -23,8 +23,8 @@ class MoveSet{
         void setPriority(int priority);
 
         //Getters for move stats
-        const std::string& getName();
-        float getAccuracy();
-        int getDamage();
-        int getPriority();
+        const std::string& getName() const;
+        float getAccuracy() const;
+        int getDamage() const;
+        int getPriority() const;
 };

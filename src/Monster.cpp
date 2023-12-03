@@ -40,31 +40,31 @@ void Monster::addMoves(std::vector <MoveSet *> newMoves){
 
 
 // GETTERS
-const std::vector<MoveSet *>& Monster::getMoves() {
+const std::vector<MoveSet *>& Monster::getMoves() const{
     return _moveset;
 }
 
-int Monster::getPower() {
+int Monster::getPower() const{
     return _basePower;
 }
 
-int Monster::getDefense() {
+int Monster::getDefense() const{
     return _baseDefense;
 }
 
-HealthBar& Monster::getHealthBar() {
+HealthBar& Monster::getHealthBar(){
     return _health;
 }
 
-int Monster::getHealthPoint() {
+int Monster::getHealthPoint() const{
     return _health.getHP();
 }
 
-MonsterType Monster::getType() {
+MonsterType Monster::getType() const{
     return _type;
 }
 
-const std::string& Monster::getName() {
+const std::string& Monster::getName() const{
     return _name;
 }
 

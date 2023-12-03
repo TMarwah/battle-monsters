@@ -48,15 +48,11 @@ void Input::getPlayersSetupInput() {
     char name1[80];
     char name2[80];
 
-    // FIXME: when there is empty input '\n' it falls into infintie loop
     std::cout << "Player 1 name: ";
-    std::cin.get(name1, 80);
-    std::cin.ignore(100, '\n');
-
+    std::cin.getline(name1, 80);
 
     std::cout << "Player 2 name: ";
-    std::cin.get(name2, 80);
-    std::cin.ignore(100, '\n'); // prevent infinite loop
+    std::cin.getline(name2, 80);
 
     // set event data
     _event.data1 = name1;
@@ -73,8 +69,7 @@ void Input::getDraftInput() {
     char draftSelection[80];
 
     std::cout << "Draft Selection: ";
-    std::cin.get(draftSelection, 80);
-    std::cin.ignore(100, '\n');
+    std::cin.getline(draftSelection, 80);
 
     // set event data
     _event.data1 = draftSelection;
@@ -91,8 +86,7 @@ void Input::getBattleInput() {
     char attack[80];
 
     std::cout << "Select your attack move: ";
-    std::cin.get(attack, 80);
-    std::cin.ignore(100, '\n');
+    std::cin.getline(attack, 80);
 
     // set event data
     _event.data1 = attack;
@@ -110,8 +104,7 @@ void Input::getPlayAgainInput() {
     char userSelection[80];
 
     std::cout << "Play Again? (Y/N): ";
-    std::cin.get(userSelection, 80);
-    std::cin.ignore(100, '\n');
+    std::cin.getline(userSelection, 80);
 
     // set event data
     _event.data1 = "null";

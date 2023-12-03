@@ -25,13 +25,13 @@ class Monster{
 
         // GETTERS
         // member function to call the list of moves
-        const std::vector<MoveSet *>& getMoves();
-        int getPower();
-        int getDefense();
+        const std::vector<MoveSet *>& getMoves() const;
+        int getPower() const;
+        int getDefense() const;
         HealthBar& getHealthBar();
-        int getHealthPoint();
-        MonsterType getType();
-        const std::string& getName();
+        int getHealthPoint() const;
+        MonsterType getType() const;
+        const std::string& getName() const;
 
         // SETTERS
         void setPower(int power);

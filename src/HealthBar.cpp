@@ -12,12 +12,12 @@ void HealthBar::setHP(int monsterHP)
     this->_health = monsterHP;
 }
 
-int HealthBar::getHP()
+int HealthBar::getHP() const
 {
     return this->_health;
 }
 
-bool HealthBar::deductHP(int incomingDamage)
+bool HealthBar::deductHP(int incomingDamage) 
 {
     // if incoming damage is not greater than current HP
     if(this->_health >= incomingDamage) 
