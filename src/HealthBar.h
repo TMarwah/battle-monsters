@@ -13,7 +13,7 @@ class HealthBar
         void setHP(int firstMonsterHP);
 
         //Getters for monster's HP
-        int getHP();
+        int getHP() const;
 
         //
         void deductHP(int incomingDamage);

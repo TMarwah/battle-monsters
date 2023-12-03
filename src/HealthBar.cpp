@@ -12,7 +12,7 @@ void HealthBar::setHP(int monsterHP)
     this->_health = monsterHP;
 }
 
-int HealthBar::getHP()
+int HealthBar::getHP() const
 {
     return this->_health;
 }

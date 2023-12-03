@@ -21,17 +21,17 @@ void MoveSet::setPriority(int priority){
     this->_priority = priority;
 }
 
-float MoveSet::getAccuracy(){
+float MoveSet::getAccuracy() const{
     std::setprecision(2);
     return _defaultAccuracy;
 
 }
 
-int MoveSet::getDamage(){
+int MoveSet::getDamage() const{
     return _defaultDamage;
 }
 
-int MoveSet::getPriority(){
+int MoveSet::getPriority() const{
     return _priority;
 }
 

@@ -24,7 +24,7 @@ class MoveSet{
 
         //Getters for move stats
         const std::string& getName();
-        float getAccuracy();
-        int getDamage();
-        int getPriority();
+        float getAccuracy() const;
+        int getDamage() const;
+        int getPriority() const;
 };
