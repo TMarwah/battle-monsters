@@ -28,7 +28,7 @@ class Monster{
         const std::vector<MoveSet *>& getMoves() const;
         int getPower() const;
         int getDefense() const;
-        HealthBar& getHealthBar() const;
+        HealthBar& getHealthBar() ;
         int getHealthPoint() const;
         MonsterType getType() const;
         const std::string& getName() const;

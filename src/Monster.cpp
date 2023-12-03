@@ -52,7 +52,7 @@ int Monster::getDefense() const{
     return _baseDefense;
 }
 
-HealthBar& Monster::getHealthBar() const{
+HealthBar& Monster::getHealthBar() {
     return _health;
 }
 
