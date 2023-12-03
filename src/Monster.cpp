@@ -59,3 +59,17 @@ int Monster::getHealthPoint() {
 MonsterType Monster::getType() {
     return _type;
 }
+
+// Setters
+
+void setPower(int power) {
+    _basePower = power;
+}
+
+void setDefense(int defense) {
+    _baseDefense = defense;
+}
+
+void setType(Type type) {
+    _type = type;
+}

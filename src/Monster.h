@@ -31,7 +31,9 @@ class Monster{
         MonsterType getType();
 
         // SETTERS
-
+        void setPower(int power);
+        void setDefense(int defense);
+        void setType(Type type);
             // will be implemented...
 
         //setup monster moveset by creating moveset vector
