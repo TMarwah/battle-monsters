@@ -6,6 +6,7 @@ add_subdirectory(googletest)
 add_executable(runAllTests
     GameTest.cpp
     MoveSetTest.cpp
+    HealthBarTest.cpp
     PlayerTest.cpp
     StateTest.cpp
 )
