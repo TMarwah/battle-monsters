@@ -35,6 +35,8 @@ void HealthBar::deductHP(int incomingDamage)
 
 bool HealthBar::isZero()
 {
+    // when optimize replace this function with following line of code
+        // return !(_health) // this will only return true when _health == 0
     if (this->_health == 0)
     {
         return true;
