@@ -15,6 +15,8 @@ int Monster::Move(Monster* defendingMonster, string _type, int _basePower) {
 }
 
 int Monster::attack() const{
+
+    // currently a stub of 10
     return 10;
 }
 
@@ -22,7 +24,7 @@ bool Monster::defend(int attack) {
 
     // use battle calculator to figure out final
     // value to deduct from health
-    this->deductHealth(attack);
+    this->deductHP(attack);
     
     // return true/false if monster died from attack
     return true;
