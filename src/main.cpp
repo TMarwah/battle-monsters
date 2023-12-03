@@ -11,8 +11,7 @@ int main() {
     // start game with initial conditions/state
     game.init();
 
-    // FIXME: uncomment this when Monster Class is implemented
-    // Monster std::vector<Monster *> monsterList = getMonsterList();
+    std::vector<Monster *> monsterList = getMonsterList();
 
     // main game loop
     while(game.isRunning())
@@ -34,8 +33,10 @@ int main() {
 
     std::cout << "Goodbye" << std::endl;
 
-    // FIXME: uncomment this when Monster Class is implemented
-    // delete[] monsterList;
+    for(unsigned int i = 0; i < monsterList.size(); ++i) {
+        delete monsterList.at(i);
+    }
+
     return 0;
 
 }
