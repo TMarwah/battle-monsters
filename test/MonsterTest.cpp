@@ -120,3 +120,40 @@ void setType(Type type);
 
 //setup monster moveset by creating moveset vector
 */
+
+
+/*
+void Monster::operator= (const Monster& target) :
+    _name(target._name),
+    _type(target._type),
+    _basePower(target._basePower),
+    _baseDefense(target._baseDefense)
+{ }
+
+void Monster::operator= (Monster* target) :
+    _name(target->_name),
+    _type(target->_type),
+    _basePower(target->_basePower),
+    _baseDefense(target->_baseDefense)
+{ }
+*/
+
+// Overloaded Operators
+TEST(MonsterTestSuite, AssignmentOperatorOverload_ByReference) {
+    // ARRANGE
+    Monster monster1 = Monster("Andrewsaurus", NORMAL, 1, 1);
+    Monster monster2 = Monster("Willzilla", NORMAL, 0, 0);
+
+    // QUICK CHECK
+    EXPECT_NE(monster1.getName(), monster2.getName());
+    EXPECT_NE(monster1.getPower(), monster2.getPower());
+    EXPECT_NE(monster1.getDefense(), monster2.getDefense());
+
+    // ACT
+    monster1 = monster2;
+
+    // ASSERT
+    EXPECT_EQ(monster1.getName(), monster2.getName());
+    EXPECT_EQ(monster1.getPower(), monster2.getPower());
+    EXPECT_EQ(monster1.getDefense(), monster2.getDefense());
+}
