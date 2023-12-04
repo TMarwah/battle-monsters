@@ -7,6 +7,13 @@ Monster::Monster(const std::string& name, MonsterType type, int basePower, int b
     _basePower(basePower),
     _baseDefense(baseDefense)
 {}
+// Copy constructor
+Monster::Monster (const Monster& target):  
+    _name (target._name),
+    _type (target._type),
+    _basePower (target._basePower),
+    _baseDefense (target._baseDefense)
+{ }
 
 Monster::~Monster(){
     for(unsigned int i = 0; i < _moveset.size(); ++i){
