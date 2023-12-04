@@ -91,3 +91,11 @@ bool Monster::isDead() {
 void Monster::deductHP(int amount) {
     getHealthBar().deductHP(amount);
 }
+
+// Overloaded Operators
+void Monster::operator= (const Monster& target) {
+    _name = target._name;
+    _type = target._type;
+    _basePower = target._basePower;
+    _baseDefense = target._baseDefense;
+}

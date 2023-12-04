@@ -46,4 +46,7 @@ class Monster{
         bool isDead();
         void deductHP(int amount);
 
+        // Operator Overloads
+        void operator= (const Monster& target); 
+
 };
