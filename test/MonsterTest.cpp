@@ -138,7 +138,20 @@ void Monster::operator= (Monster* target) :
 { }
 */
 
-// Overloaded Operators
+// Overloaded Operators & Constructor
+TEST(MonsterTestSuite, CopyConstructor) {
+    // ARRANGE
+    Monster monster1 = Monster("Andrewsaurus", NORMAL, 1, 1);
+
+    // ACT
+    Monster monster2 = monster1;
+
+    // ASSERT
+    EXPECT_EQ(monster1.getName(), monster2.getName());
+    EXPECT_EQ(monster1.getPower(), monster2.getPower());
+    EXPECT_EQ(monster1.getDefense(), monster2.getDefense());
+}
+
 TEST(MonsterTestSuite, AssignmentOperatorOverload_ByReference) {
     // ARRANGE
     Monster monster1 = Monster("Andrewsaurus", NORMAL, 1, 1);
