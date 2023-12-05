@@ -6,7 +6,7 @@ Monster::Monster(const std::string& name, MonsterType type, int basePower, int b
     _type(type),
     _basePower(basePower),
     _baseDefense(baseDefense)
-{}
+{ }
 // Copy constructor
 Monster::Monster (const Monster& target):  
     _name (target._name),
@@ -23,7 +23,9 @@ Monster::Monster (const Monster& target):
 
 Monster::~Monster(){
     for(unsigned int i = 0; i < _moveset.size(); ++i){
-        delete _moveset.at(i);
+        if(_moveset.at(i) != nullptr) {
+            delete _moveset.at(i);
+        }
     }
 }
 
@@ -48,6 +50,13 @@ bool Monster::defend(int attack) {
 }
 
 void Monster::addMoves(std::vector <MoveSet *> newMoves){
+    // delete moves before assigning new moves
+    for(unsigned int i = 0; i < _moveset.size(); ++i) {
+        if(_moveset.at(i) != nullptr) {
+            delete _moveset.at(i);
+        }
+    }
+
     _moveset = newMoves;
 }
 
