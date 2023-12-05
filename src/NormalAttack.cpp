@@ -20,3 +20,7 @@ void NormalAttack::skillMethod(MonsterType baseType, int baseAttack, int baseOpp
 
     // I have made a calculation for a damage but we haven't figured out how to send this data to another Monster's Healthbar
 }
+
+MoveSet* NormalAttack::clone() const {
+    return new NormalAttack(*this);
+}
