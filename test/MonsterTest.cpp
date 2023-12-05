@@ -12,7 +12,10 @@ Monster(MonsterType _type, int _basePower=0, int _baseDefense=0);
 
 TEST(MonsterTestSuite, ConstructorNoThrow) {
     // ARRANGE & ACT & ASSERT
-    ASSERT_NO_THROW(Monster* monster = new Monster("Andrewsaurus"));
+    Monster* monster;
+    ASSERT_NO_THROW(monster = new Monster("Andrewsaurus"));
+
+    delete monster;
 }
 
 TEST(MonsterTestSuite, ConstructorNameSetup) {
@@ -21,6 +24,8 @@ TEST(MonsterTestSuite, ConstructorNameSetup) {
 
     // ACT & ASSERT
     EXPECT_EQ(monster->getName(), "Andrewsaurus");
+
+    delete monster;
 }
 
 TEST(MonsterTestSuite, ConstructorTypeSetup) {
@@ -29,6 +34,8 @@ TEST(MonsterTestSuite, ConstructorTypeSetup) {
 
     // ACT & ASSERT
     EXPECT_EQ(monster->getType(), NORMAL);
+
+    delete monster;
 }
 
 TEST(MonsterTestSuite, ConstructorBasePowerSetup) {
@@ -37,6 +44,8 @@ TEST(MonsterTestSuite, ConstructorBasePowerSetup) {
 
     // ACT & ASSERT
     EXPECT_NEAR(monster->getPower(), 0.0, 0.001);
+
+    delete monster;
 }
 
 TEST(MonsterTestSuite, ConstructorBaseDefenseSetup) {
@@ -45,6 +54,8 @@ TEST(MonsterTestSuite, ConstructorBaseDefenseSetup) {
 
     // ACT & ASSERT
     EXPECT_NEAR(monster->getDefense(), 0.0, 0.001);
+
+    delete monster;
 }
 
 TEST(MonsterTestSuite, AttackTest) {
@@ -55,6 +66,8 @@ TEST(MonsterTestSuite, AttackTest) {
     // FIXME: attackDamage should be arbitrary later when attack method is implemented
     int attackDamage = 10;
     EXPECT_EQ(monster->attack(), attackDamage);
+
+    delete monster;
 }
 
 TEST(MonsterTestSuite, DefenseTest) {
@@ -64,6 +77,8 @@ TEST(MonsterTestSuite, DefenseTest) {
     // ACT & ASSERT
     // this should be the amount that return true since the health is 100 and attack damage is < 100
     EXPECT_TRUE(monster->defend(99));
+
+    delete monster;
 }
 
 TEST(MonsterTestSuite, AddingMovesNoThrow) {
@@ -76,6 +91,8 @@ TEST(MonsterTestSuite, AddingMovesNoThrow) {
 
     // ACT
     EXPECT_NO_THROW(monster->addMoves(AndrewsaurusMoveset));
+
+    delete monster;
 }
 
 TEST(MonsterTestSuite, AddingMovesTest) {
@@ -99,6 +116,8 @@ TEST(MonsterTestSuite, AddingMovesTest) {
     // 2. check if moves are in the correct order
     EXPECT_EQ(rockBottom->getName(), "Rock-bottom");
     EXPECT_EQ(charge->getName(), "Charge");
+
+    delete monster;
 }
 
 // Things to write Unit Test About
