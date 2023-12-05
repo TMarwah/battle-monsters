@@ -122,6 +122,12 @@ void Monster::operator= (const Monster& target) {
     _baseDefense = target._baseDefense;
     _health = target._health;
 
+    for(unsigned int i = 0; i < _moveset.size(); ++i) {
+        if(_moveset.at(i) != nullptr) {
+            delete _moveset.at(i);
+        }
+    }
+
     for(unsigned int i = 0; i < target._moveset.size(); ++i) {
         MoveSet* copyMove = target._moveset.at(i)->clone();
         _moveset.push_back(copyMove);
