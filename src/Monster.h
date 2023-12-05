@@ -16,6 +16,7 @@ class Monster{
     public:
         //constructor for monster object with stat parameters
         Monster(const std::string& name, MonsterType type=NORMAL, int basePower=0, int baseDefense=0);
+        Monster(const Monster& target);
         ~Monster();
 
         //member function for use when attacking a monster
@@ -45,5 +46,8 @@ class Monster{
         // Helpers
         bool isDead();
         void deductHP(int amount);
+
+        // Operator Overloads
+        void operator= (const Monster& target); 
 
 };
