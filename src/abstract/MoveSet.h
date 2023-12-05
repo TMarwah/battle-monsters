@@ -13,6 +13,7 @@ class MoveSet{
     public:
         //Virtual function to be implemented by inherited class
         virtual void skillMethod(MonsterType baseType=NORMAL, int baseAttack=0, int baseOpponentDefense=0) = 0;
+        virtual MoveSet* clone() const = 0;
 
         //Constructor
         MoveSet(const std::string& _moveName, float accuracy=0.0, int damage=0, int priority=0);

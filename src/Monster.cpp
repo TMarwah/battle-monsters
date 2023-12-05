@@ -12,8 +12,14 @@ Monster::Monster (const Monster& target):
     _name (target._name),
     _type (target._type),
     _basePower (target._basePower),
-    _baseDefense (target._baseDefense)
-{ }
+    _baseDefense (target._baseDefense),
+    _health(target._health)
+{ 
+    for(unsigned int i = 0; i < target._moveset.size(); ++i) {
+        MoveSet* copyMove = target._moveset.at(i)->clone();
+        _moveset.push_back(copyMove);
+    }
+}
 
 Monster::~Monster(){
     for(unsigned int i = 0; i < _moveset.size(); ++i){
@@ -105,4 +111,10 @@ void Monster::operator= (const Monster& target) {
     _type = target._type;
     _basePower = target._basePower;
     _baseDefense = target._baseDefense;
+    _health = target._health;
+
+    for(unsigned int i = 0; i < target._moveset.size(); ++i) {
+        MoveSet* copyMove = target._moveset.at(i)->clone();
+        _moveset.push_back(copyMove);
+    }
 }
