@@ -4,7 +4,7 @@
 /*******************************************************************************
 * ACCESSORS
 *******************************************************************************/
-void Display::render(const GameComponents& gameComponents) {
+void Display::render(GameComponents& gameComponents) {
 
     if(CLEAR_SCREEN) {
         system("clear");
@@ -106,7 +106,8 @@ void Display::renderDraft(const std::string& p1_name,
         std::cout << "\t  type: Normal" << "\n";
         for(unsigned j = 0; j < draftBoard->at(i).getMoves().size(); ++j) {
             MoveSet* currentMove = draftBoard->at(i).getMoves().at(j);
-            std::cout << "\t  " << currentMove->getName() << ": Damage( \033[1;31m" << currentMove->getDamage() << "\033[0m ), Accuracy( "<< currentMove->getAccuracy() * 100 << "% )\n";
+            const std::string name = (currentMove->getName());
+            std::cout << "\t  " << name << ": Damage( \033[1;31m" << (currentMove->getDamage()) << "\033[0m ), Accuracy( "<< (currentMove->getAccuracy() * 100 )<< "% )\n";
         }
         std::cout << '\n';
     }

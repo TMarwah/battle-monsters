@@ -13,7 +13,7 @@ private:
 
 public:
     // ACCESSORS
-    void render(const GameComponents& gameComponents);
+    void render(GameComponents& gameComponents);
 
 private:
     // PRIVATE HELPERS
