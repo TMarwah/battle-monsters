@@ -23,10 +23,15 @@ void Players::setNames(const Event& event) {
 
 }
 
+void Players::reset() {
+    _players[0].reset();
+    _players[1].reset();
+}
+
 /*******************************************************************************
 * ACCESSORS
 *******************************************************************************/
-const Player& Players::getPlayer(unsigned index) const {
+Player& Players::getPlayer(unsigned index) const {
     assert(index < NUM_OF_PLAYERS);
 
     return _players[index];

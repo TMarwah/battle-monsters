@@ -171,6 +171,8 @@ void Game::handleBattleOver() {
 
 void Game::handlePlayAgain(const Event& event) {
 
+    _gameComponents.addEventHandler(event);
+
     if(event.eventType == EventType::REPLAY) {
         // TODO: reset player benches and DRAFT_ST bench
         setGameState(DRAFT_ST);

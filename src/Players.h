@@ -15,8 +15,9 @@ public:
 
     // MUTATORS
     void setNames(const Event& event);
+    void reset();
 
     // ACCESSORS
-    const Player& getPlayer(unsigned index) const;
+    Player& getPlayer(unsigned index) const;
 
 };
