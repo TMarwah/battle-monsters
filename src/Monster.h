@@ -4,6 +4,7 @@
 #include "./enum/MonsterType.h"
 #include "./abstract/MoveSet.h"
 #include <vector>
+#include <iostream>
 
 class Monster{
     private:
@@ -23,8 +24,8 @@ class Monster{
 
         //member function for use when attacking a monster
         // int Move(Monster* defendingMonster, MonsterType _type, int _basePower);
-        int attack() const;
-        bool defend(int attack);
+        Skillset& attack();
+        bool defend(Skillset& enemySkillset);
 
         // GETTERS
         // member function to call the list of moves
@@ -37,7 +38,7 @@ class Monster{
         int getHP() const;
         const std::vector<MoveSet *>& getMoves() const;
 
-        const Skillset& getSkillset() const;
+        Skillset& getSkillset();
 
         // SETTERS
         void setName(const std::string& name);

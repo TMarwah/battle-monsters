@@ -28,17 +28,21 @@ Monster::~Monster(){
 //     return 0;
 // }
 
-int Monster::attack() const{
+Skillset& Monster::attack() {
+
+    std::cout << "Monster::attack" << "\n";
     // currently a stub of 10
-    return 10;
+    return _skillset;
 }
 
-bool Monster::defend(int attack) {
+bool Monster::defend(Skillset& enemySkillset) {
+
+    std::cout << "Monster::defend" << "\n";
 
     // use battle calculator to figure out final
     // value to deduct from health
-    // deductHP(attack);
-    
+    deductHP(enemySkillset.getPower() - getDefense() * 0.3);
+    std::cout << "\n\ngetHP(): " << getHP() << "\n\n";
     // return true/false if monster died from attack
     return true;
 }
@@ -62,7 +66,7 @@ int Monster::getHP() const {
     return _health.getHP();
 }
 
-const Skillset& Monster::getSkillset() const {
+Skillset& Monster::getSkillset() {
     return _skillset;
 }
 
