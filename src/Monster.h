@@ -19,7 +19,7 @@ class Monster{
     public:
         //constructor for monster object with stat parameters
         Monster(const std::string& name = "nullMonster", MonsterType type=NORMAL, int power=0, int defense=0);
-        Monster(const Monster& target);
+        // Monster(const Monster& target);
         ~Monster();
 
         //member function for use when attacking a monster
@@ -56,6 +56,6 @@ class Monster{
         void deductHP(int amount);
 
         // Operator Overloads
-        void operator= (const Monster& target); 
+        // void operator= (const Monster& target); 
 
 };

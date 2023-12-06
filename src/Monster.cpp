@@ -10,15 +10,15 @@ Monster::Monster(const std::string& name, MonsterType type, int power, int defen
 }
 
 // Copy constructor
-Monster::Monster (const Monster& target):  
-    _name (target._name),
-    _skillset(target._skillset)
-{ }
+// Monster::Monster (const Monster& target):  
+//     _name (target._name),
+//     _skillset(target._skillset)
+// { }
 
 Monster::~Monster(){
-    // for(unsigned int i = 0; i < _moveset.size(); ++i){
-    //     if(_moveset.at(i) != nullptr) {
-    //         delete _moveset.at(i);
+    // for(unsigned int i = 0; i < _skillset.getMoves().size(); ++i){
+    //     if(_skillset.getMoves().at(i) != nullptr) {
+    //         delete _skillset.getMoves().at(i);
     //     }
     // }
 }
@@ -97,8 +97,8 @@ void Monster::deductHP(int amount) {
 }
 
 // Overloaded Operators
-void Monster::operator= (const Monster& target) {
-    _name = target._name;
-    _health = target._health;
-    _skillset = target._skillset;
-}
+// void Monster::operator= (const Monster& target) {
+//     _name = target._name;
+//     _health = target._health;
+//     _skillset = target._skillset;
+// }
