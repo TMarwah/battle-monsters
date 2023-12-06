@@ -7,7 +7,7 @@
 *******************************************************************************/
 void Input::getInput(const GameComponents& gameComponents) {
 
-    std::string p1_name = gameComponents.getPlayers().getPlayer(0).getName();
+    // std::string p1_name = gameComponents.getPlayers().getPlayer(0).getName();
 
     switch(getState())
     {
@@ -89,8 +89,8 @@ void Input::getBattleInput(const GameComponents& gameComponents) {
     char p2_attack[80];
 
 
-    const Bench* p1_bench = gameComponents.getPlayers().getPlayer(0).getBench();
-    const Bench* p2_bench = gameComponents.getPlayers().getPlayer(1).getBench();
+    // const Bench* p1_bench = gameComponents.getPlayers().getPlayer(0).getBench();
+    // const Bench* p2_bench = gameComponents.getPlayers().getPlayer(1).getBench();
 
     std::cout << "\n\nPlayer 1 Select your move: ";
     std::cin.getline(p1_attack, 80);
