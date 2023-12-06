@@ -95,7 +95,7 @@ void Input::getBattleInput(const GameComponents& gameComponents) {
     std::cout << "\n\nPlayer 1 Select your move: ";
     std::cin.getline(p1_attack, 80);
 
-    std::cout << "\n\nPlayer 2 Select your move: ";
+    std::cout << "\nPlayer 2 Select your move: ";
     std::cin.getline(p2_attack, 80);
 
     // set event data

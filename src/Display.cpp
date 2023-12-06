@@ -133,6 +133,7 @@ void Display::renderBattle(const std::string& p1_name,
     }
 
     // p2 display
+    std::cout << '\n';
     std::cout << "p2: " << p2_name << '\n';
     std::cout << "\t" << p2_bench->getCurrent().getName() << '\n';
     std::cout << "\t" << p2_bench->getCurrent().getHP() << '\n';
