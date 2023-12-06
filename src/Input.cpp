@@ -102,8 +102,6 @@ void Input::getBattleInput(const GameComponents& gameComponents) {
     _event.data1 = p1_attack;
     _event.data2 = p2_attack;
     _event.eventType = EventType::ATTACK;
-
-    playerTurn = !playerTurn;
     
 }
 
