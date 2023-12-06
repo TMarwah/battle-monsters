@@ -13,6 +13,7 @@ enum GameState
     BATTLE_OVER_ST,
     PLAY_AGAIN_ST,
     QUIT_ST,
+    DEFEATED_ST,
     NULL_ST,
     // add any new state you want above this line. as long as LAST_STATE is the
     // last state in the enum our loops will not need updating
