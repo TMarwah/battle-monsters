@@ -120,42 +120,74 @@ TEST(MonsterTestSuite, AddingMovesTest) {
     delete monster;
 }
 
-// Things to write Unit Test About
-
 /*
-//member function for use when attacking a monster
-int Move(Monster* defendingMonster, string _type, int _basePower);
+TEST(MonsterTestSuite, AttackFunctionTest) {
+    // ARRANGE
+    Monster* monsterA = new Monster("MonsterA");
+    std::vector<MoveSet *> MonsterA_MoveSet;
+    Monster* monsterB= new Monster("MonsterB");
+    std::vector<MoveSet *> MonsterB_MoveSet;
 
-// GETTERS
-// member function to call the list of moves
-HealthBar& getHealthBar();
-int getHealthPoint();
+    // MoveSets("name", accuracy, base_damage, priority(0 as default));
+    MonsterA_MoveSet.push_back(new NormalAttack("Tackle", 0.9, 25, 1));
+    MonsterB_MoveSet.push_back(new NormalAttack("Headbutt", 0.9, 25, 1));
 
-// SETTERS
-void setPower(int power);
-void setDefense(int defense);
-void setType(Type type);
-    // will be implemented...
+    //establish corresponding monster movesets
+    monsterA->addMoves(MonsterA_MoveSet);
+    monsterB->addMoves(MonsterB_MoveSet);
 
-//setup monster moveset by creating moveset vector
+    //setup specific move pointers
+    MoveSet* Tackle = monsterA->getMoves().at(0);
+    MoveSet* Headbutt = monsterB->getMoves().at(0);
+
+    // ACT & ASSERT
+    // this should be the amount that return true since the health is 100 and attack damage is < 100
+    EXPECT_TRUE(monster->defend(99));
+
+    delete monster;
+}
 */
 
 
-/*
-void Monster::operator= (const Monster& target) :
-    _name(target._name),
-    _type(target._type),
-    _basePower(target._basePower),
-    _baseDefense(target._baseDefense)
-{ }
+TEST(MonsterTestSuite, HealthBarGetterTest) {
+    // ARRANGE
+    Monster* monsterA = new Monster("MonsterA");
+    HealthBar* monsterA_HealthBar = new HealthBar();
 
-void Monster::operator= (Monster* target) :
-    _name(target->_name),
-    _type(target->_type),
-    _basePower(target->_basePower),
-    _baseDefense(target->_baseDefense)
-{ }
-*/
+    Monster* monsterB = new Monster("MonsterB");
+    HealthBar* monsterB_HealthBar = new HealthBar();
+
+    // ACT
+    monsterA_HealthBar->deductHP(25);
+    monsterB_HealthBar->deductHP(50);
+
+    // ASSERT
+    EXPECT_EQ(monsterA_HealthBar->getHP(), 75);
+    EXPECT_EQ(monsterB_HealthBar->getHP(), 50);
+
+    delete monsterA;
+    delete monsterA_HealthBar;
+    delete monsterB;
+    delete monsterB_HealthBar;
+}
+
+TEST(MonsterTestSuite, StatSetterTest) {
+    // ARRANGE
+    Monster* monster = new Monster("Tanmaysaurus");
+
+   // ACT
+    monster->setPower(55);
+    monster->setDefense(10);
+    monster->setType(NORMAL);
+
+   // ASSERT
+    EXPECT_EQ(monster->getPower(), 55);
+    EXPECT_EQ(monster->getDefense(), 10);
+    EXPECT_EQ(monster->getType(), NORMAL);
+
+    delete monster;
+    
+}
 
 // Overloaded Operators & Constructor
 TEST(MonsterTestSuite, CopyConstructor) {
