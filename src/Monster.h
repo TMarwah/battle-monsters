@@ -3,18 +3,15 @@
 #include "Skillset.h"
 #include "./enum/MonsterType.h"
 #include "./abstract/MoveSet.h"
+#include "State.h"
 #include <vector>
 #include <iostream>
 
-class Monster{
+class Monster: public State{
     private:
         std::string _name;
         HealthBar _health;
         Skillset _skillset;
-        // MonsterType _type;
-        // int _basePower;
-        // int _baseDefense;
-        // std::vector<MoveSet *> _moveset;
 
     public:
         //constructor for monster object with stat parameters
@@ -36,6 +33,9 @@ class Monster{
 
         const std::string& getName() const;
         int getHP() const;
+        int getLostHealth() const;
+
+        MoveSet* getMove();
         const std::vector<MoveSet *>& getMoves() const;
 
         Skillset& getSkillset();
@@ -53,6 +53,7 @@ class Monster{
 
         // Helpers
         bool isDead();
+        bool isMissed();
         void deductHP(int amount);
 
         // Operator Overloads
