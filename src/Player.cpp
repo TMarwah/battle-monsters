@@ -18,6 +18,15 @@ void Player::setName(std::string name) {
     _name = name;
 }
 
+void Player::reset() {
+    _bench.reset();
+}
+
+void Player::draft(const Monster& monster) {
+    _bench.addMonster(monster);
+
+}
+
 //TODO implement bench class
 /*
 Player::getBench(){
@@ -32,6 +41,10 @@ Player::getBench(){
 *******************************************************************************/
 std::string Player::getName() const {
     return _name;
+}
+
+const Bench* Player::getBench() const {
+    return &_bench;
 }
 
 
