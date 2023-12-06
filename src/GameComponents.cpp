@@ -4,6 +4,10 @@
 /*******************************************************************************
 * ACCESSORS
 *******************************************************************************/
+Players& GameComponents::getPlayers() {
+    return _players;
+}
+
 const Players& GameComponents::getPlayers() const {
     return _players;
 }
@@ -78,13 +82,19 @@ void GameComponents::handleDraft(const Event& event)
 
 void GameComponents::handleBattle(const Event& event) {
 
+    std::cout << "GameComponents::handleBattle" << "\n";
     // TODO: handle BATTLE_ST events
     // keep battling until one of the players has no monsters left
-    
+    _players.addEventHandler(event);
+
     if(event.eventType == EventType::ATTACK) {
         if(event.data1 == "qq") {
             setState(NULL_ST);
         }
+    }
+
+    if(_players.getState() != GameState::BATTLE_ST) {
+        setState(NULL_ST);
     }
 
 }

@@ -14,6 +14,7 @@ private:
 public:
 
     // GETTERS
+    Players& getPlayers();
     const Players& getPlayers() const;
     // const DraftBoard& getDraftBoard() const;
     const DraftBoard* getDraftBoard() const;
