@@ -15,7 +15,10 @@ void Display::render(const GameComponents& gameComponents) {
     std::string p1_name = gameComponents.getPlayers().getPlayer(0).getName();
     std::string p2_name = gameComponents.getPlayers().getPlayer(1).getName();
     // TODO: extract bench data
+    const Bench* p1_bench = gameComponents.getPlayers().getPlayer(0).getBench();
+    const Bench* p2_bench = gameComponents.getPlayers().getPlayer(1).getBench();
     // TODO: extract draft bench data
+    const DraftBoard* draftBoard = gameComponents.getDraftBoard();
 
     // display based off of current game state
     switch(getState())
@@ -29,11 +32,11 @@ void Display::render(const GameComponents& gameComponents) {
             break;
 
         case DRAFT_ST:
-            renderDraft(p1_name, p2_name);
+            renderDraft(p1_name, p2_name, draftBoard);
             break;
 
         case BATTLE_ST:
-            renderBattle();
+            renderBattle(p1_name, p2_name, p1_bench, p2_bench);
             break;
 
         case BATTLE_OVER_ST:
@@ -82,7 +85,8 @@ void Display::renderPlayersSetup() const {
 
 
 void Display::renderDraft(const std::string& p1_name,
-                          const std::string& p2_name) const 
+                          const std::string& p2_name,
+                          const DraftBoard* draftBoard) const 
 {
     std::cout << "=========" << std::endl;
     std::cout << "= DRAFT =" << std::endl;
@@ -91,14 +95,34 @@ void Display::renderDraft(const std::string& p1_name,
     std::cout << "\tp2: " << p2_name << '\n' << '\n';
     // TODO: display player benches
     // TODO: display draft bench
+    std::cout << "DRAFTBOARD: \n";
+    // for(unsigned i = 0; i < BENCH_SIZE * 2; i++) {
+    //     std::cout << draftBoard[i].getName() << "\t|\t";
+    // }
+    for(unsigned i = 0; i < draftBoard->size(); i++) {
+        std::cout << "\tname: " << draftBoard->at(i).getName() << '\n';
+        std::cout << "\thealth: " << draftBoard->at(i).getHP() << "\n\n";
+    }
+    std::cout << '\n';
 
 }
 
 
-void Display::renderBattle() const {
+void Display::renderBattle(const std::string& p1_name,
+                           const std::string& p2_name,
+                           const Bench* p1_bench,
+                           const Bench* p2_bench) const {
     std::cout << "==========" << '\n';
     std::cout << "= BATTLE =" << '\n';
     std::cout << "==========" << '\n' << '\n';
+
+    std::cout << "p1: " << p1_name << '\n';
+    std::cout << "\t" << p1_bench->getCurrent().getName() << '\n';
+    std::cout << "\t" << p1_bench->getCurrent().getHP() << '\n';
+
+    std::cout << "p2: " << p2_name << '\n';
+    std::cout << "\t" << p2_bench->getCurrent().getName() << '\n';
+    std::cout << "\t" << p2_bench->getCurrent().getHP() << '\n';
 
 }
 

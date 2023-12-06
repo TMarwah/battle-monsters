@@ -20,8 +20,12 @@ private:
     void renderStartup();
     void renderPlayersSetup() const;
     void renderDraft(const std::string& p1_name,
-                     const std::string& p2_name) const;
-    void renderBattle() const;
+                     const std::string& p2_name,
+                     const DraftBoard* draftBoard) const;
+    void renderBattle(const std::string& p1_name,
+                     const std::string& p2_name,
+                     const Bench* p1_bench,
+                     const Bench* p2_bench) const;
     void renderBattleOver();
     void renderPlayAgain() const;
     void renderQuit();
