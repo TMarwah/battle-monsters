@@ -88,19 +88,10 @@ void Input::getBattleInput(const GameComponents& gameComponents) {
     char p1_attack[80];
     char p2_attack[80];
 
-    // true = p1's turn
-    // false = p2's turn
-    bool playerTurn = true;
 
     const Bench* p1_bench = gameComponents.getPlayers().getPlayer(0).getBench();
     const Bench* p2_bench = gameComponents.getPlayers().getPlayer(1).getBench();
 
-    // ==============
-    if(p1_bench->getCurrent().isDead() || p2_bench->getCurrent().isDead()) {
-        // FIXME: move on to the next phase
-        // _event.eventType = EventType::
-    }
-    // ==============
     std::cout << "\n\nPlayer 1 Select your move: ";
     std::cin.getline(p1_attack, 80);
 
