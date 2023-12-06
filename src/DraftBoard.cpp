@@ -6,34 +6,40 @@
 *******************************************************************************/
 DraftBoard::DraftBoard() {
 
-    // std::cout << "DraftBoard::DraftBoard" << '\n';
-
-    /*
-    std::string str = "";
-
-    for(unsigned i = 0; i < BENCH_SIZE * 2; i++) {
-        str = "monster_" + std::to_string(i);
-        _draftBoard.push_back(str);
+    if(FLAG_ON) {
+        std::cout << "DraftBoard::DraftBoard" << '\n';
     }
-    */
 
-    _draftBoard = new Monster[BENCH_SIZE * 2];
+   // FIXME: later change it to BENCH_SIZE * 2
+    _draftBoard = new Monster[BENCH_SIZE * 4];
 
-    _draftBoard[0] = Monster("Andrewsaurus", NORMAL, 50, 70);
+    _draftBoard[0] = Monster("Andrewsaurus", NORMAL, 40, 80);
     _draftBoard[1] = Monster("Willzilla", NORMAL, 60, 60);
+    _draftBoard[2] = Monster("Tanmystic", NORMAL, 80, 40);
+    _draftBoard[3] = Monster("John Wink", NORMAL, 100, 20);
 
     // 120 as a balance factor of stats = attack + defense
     // Monster* Andrewsaurus = new Monster("Andrewsaurus");
     std::vector<MoveSet *> AndrewsaurusMoveset;
     // MoveSets("name", accuracy, base_damage, priority(0 as default));
-    AndrewsaurusMoveset.push_back(new NormalAttack("Rock-bottom", 0.9, 25, 1));
-    AndrewsaurusMoveset.push_back(new NormalAttack("Charge", 0.70, 35, 0));
+    AndrewsaurusMoveset.push_back(new NormalAttack("Rock-bottom", 0.8, 30, 1));
+    AndrewsaurusMoveset.push_back(new NormalAttack("Charge", 0.70, 40, 0));
     _draftBoard[0].addMoves(AndrewsaurusMoveset);
 
     std::vector<MoveSet *> WillzillaMoveSet;
-    WillzillaMoveSet.push_back(new NormalAttack("Lazer Breath", 0.4, 50, 0));
-    WillzillaMoveSet.push_back(new NormalAttack("Stomp", 1, 27, 0));
+    WillzillaMoveSet.push_back(new NormalAttack("Lazer Breath", 0.3, 60, 0));
+    WillzillaMoveSet.push_back(new NormalAttack("Stomp", 1, 35, 0));
     _draftBoard[1].addMoves(WillzillaMoveSet);
+
+    std::vector<MoveSet *> TanmysticMoveset;
+    TanmysticMoveset.push_back(new NormalAttack("Crunch", 0.9, 25, 0));
+    TanmysticMoveset.push_back(new NormalAttack("Focus Shot", 0.33, 55, 0));
+    _draftBoard[2].addMoves(TanmysticMoveset);
+
+    std::vector<MoveSet *> JohnWinkMoveSet;
+    JohnWinkMoveSet.push_back(new NormalAttack("Punch", 0.9, 30, 0));
+    JohnWinkMoveSet.push_back(new NormalAttack("Gun", 0.3, 60, 1));
+    _draftBoard[3].addMoves(JohnWinkMoveSet);
     
 
 }
@@ -96,7 +102,8 @@ Monster DraftBoard::at(unsigned index) const {
 // }
 
 unsigned DraftBoard::size() const {
-    return BENCH_SIZE * 2;
+    // FIXME: later change it to BENCH_SIZE * 2
+    return BENCH_SIZE * 4;
 }
 
 
