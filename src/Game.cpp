@@ -37,7 +37,7 @@ void Game::render() {
 
 }
 
-const Players& Game::getPlayers() const {
+Players& Game::getPlayers() {
     return _gameComponents.getPlayers();
 }
 
@@ -95,6 +95,7 @@ void Game::setGameState(GameState state) {
     _input.setState(state);
     _gameComponents.setState(state);
     _display.setState(state);
+    _gameComponents.getPlayers().setState(state);
 
 }
 
