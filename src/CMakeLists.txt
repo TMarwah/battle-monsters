@@ -9,12 +9,14 @@ add_library(swatLibrary
   
   GameComponents.cpp
   
+  DraftBoard.cpp
   Players.cpp
   Player.cpp
-
-  Monster.cpp
+  Bench.cpp
   
+  Monster.cpp 
   HealthBar.cpp
+  Skillset.cpp
   
   ./abstract/MoveSet.cpp
   NormalAttack.cpp

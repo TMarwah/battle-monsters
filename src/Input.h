@@ -24,7 +24,7 @@ private:
     // PRIVATE HELPERS
     void getPlayersSetupInput();
     void getDraftInput();
-    void getBattleInput();
+    void getBattleInput(const GameComponents& gameComponents);
     void getPlayAgainInput();
 
 };

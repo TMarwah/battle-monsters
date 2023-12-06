@@ -37,7 +37,7 @@ void Game::render() {
 
 }
 
-const Players& Game::getPlayers() const {
+Players& Game::getPlayers() {
     return _gameComponents.getPlayers();
 }
 
@@ -95,6 +95,7 @@ void Game::setGameState(GameState state) {
     _input.setState(state);
     _gameComponents.setState(state);
     _display.setState(state);
+    _gameComponents.getPlayers().setState(state);
 
 }
 
@@ -170,6 +171,8 @@ void Game::handleBattleOver() {
 
 
 void Game::handlePlayAgain(const Event& event) {
+
+    _gameComponents.addEventHandler(event);
 
     if(event.eventType == EventType::REPLAY) {
         // TODO: reset player benches and DRAFT_ST bench

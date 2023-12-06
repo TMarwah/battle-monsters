@@ -19,4 +19,7 @@ class HealthBar
         bool deductHP(int incomingDamage);
         bool isZero();
 
+        // OPERATOR OVERLOADS
+        void operator=(const HealthBar& rhs);
+
 };

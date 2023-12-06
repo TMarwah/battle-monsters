@@ -1,135 +1,104 @@
 #include "Monster.h"
 
 //Monster constructor
-Monster::Monster(const std::string& name, MonsterType type, int basePower, int baseDefense) :
-    _name(name),
-    _type(type),
-    _basePower(basePower),
-    _baseDefense(baseDefense)
-{ }
-// Copy constructor
-Monster::Monster (const Monster& target):  
-    _name (target._name),
-    _type (target._type),
-    _basePower (target._basePower),
-    _baseDefense (target._baseDefense),
-    _health(target._health)
-{ 
-    for(unsigned int i = 0; i < target._moveset.size(); ++i) {
-        MoveSet* copyMove = target._moveset.at(i)->clone();
-        _moveset.push_back(copyMove);
-    }
+Monster::Monster(const std::string& name, MonsterType type, int power, int defense) : 
+    _name(name) 
+{
+    _skillset.setType(type);
+    _skillset.setPower(power);
+    _skillset.setDefense(defense);
 }
+
+// Copy constructor
+// Monster::Monster (const Monster& target):  
+//     _name (target._name),
+//     _skillset(target._skillset)
+// { }
 
 Monster::~Monster(){
-    for(unsigned int i = 0; i < _moveset.size(); ++i){
-        if(_moveset.at(i) != nullptr) {
-            delete _moveset.at(i);
-        }
-    }
+    // for(unsigned int i = 0; i < _skillset.getMoves().size(); ++i){
+    //     if(_skillset.getMoves().at(i) != nullptr) {
+    //         delete _skillset.getMoves().at(i);
+    //     }
+    // }
 }
 
-int Monster::Move(Monster* defendingMonster, MonsterType _type, int _basePower) {
-    // FIXME: implement
-    return 0;
-}
+// int Monster::Move(Monster* defendingMonster, MonsterType _type, int _basePower) {
+//     // FIXME: implement
+//     return 0;
+// }
 
-int Monster::attack() const{
+Skillset& Monster::attack() {
+
+    std::cout << "Monster::attack" << "\n";
     // currently a stub of 10
-    return 10;
+    return _skillset;
 }
 
-bool Monster::defend(int attack) {
+bool Monster::defend(Skillset& enemySkillset) {
+
+    std::cout << "Monster::defend" << "\n";
 
     // use battle calculator to figure out final
     // value to deduct from health
-    deductHP(attack);
-    
+    deductHP(enemySkillset.getPower() - getDefense() * 0.3);
+    std::cout << "\n\ngetHP(): " << getHP() << "\n\n";
     // return true/false if monster died from attack
     return true;
 }
 
-void Monster::addMoves(std::vector <MoveSet *> newMoves){
-    // delete moves before assigning new moves
-    for(unsigned int i = 0; i < _moveset.size(); ++i) {
-        if(_moveset.at(i) != nullptr) {
-            delete _moveset.at(i);
-        }
-    }
+// SETTERS
+void Monster::setName(const std::string& name) {
+    _name = name;
+}
 
-    _moveset = newMoves;
+void Monster::addMoves(const std::vector<MoveSet *>& newMoves) {
+    _skillset.addMoves(newMoves);
 }
 
 
 // GETTERS
-const std::vector<MoveSet *>& Monster::getMoves() const{
-    return _moveset;
-}
-
-int Monster::getPower() const{
-    return _basePower;
-}
-
-int Monster::getDefense() const{
-    return _baseDefense;
-}
-
-HealthBar& Monster::getHealthBar(){
-    return _health;
-}
-
-int Monster::getHealthPoint() const{
-    return _health.getHP();
-}
-
-MonsterType Monster::getType() const{
-    return _type;
-}
-
 const std::string& Monster::getName() const{
     return _name;
 }
 
-// Setters
-
-void Monster::setPower(int power) {
-    _basePower = power;
+int Monster::getHP() const {
+    return _health.getHP();
 }
 
-void Monster::setDefense(int defense) {
-    _baseDefense = defense;
+Skillset& Monster::getSkillset() {
+    return _skillset;
 }
 
-void Monster::setType(MonsterType type) {
-    _type = type;
+MonsterType Monster::getType() const {
+    return _skillset.getType();
+}
+
+int Monster::getPower() const {
+    return _skillset.getPower();
+}
+
+int Monster::getDefense() const {
+    return _skillset.getDefense();
+}
+
+const std::vector<MoveSet *>& Monster::getMoves() const {
+    return _skillset.getMoves();
 }
 
 
 // Helpers
 bool Monster::isDead() {
-    return getHealthBar().isZero();
+    return _health.isZero();
 }
 
 void Monster::deductHP(int amount) {
-    getHealthBar().deductHP(amount);
+    _health.deductHP(amount);
 }
 
 // Overloaded Operators
-void Monster::operator= (const Monster& target) {
-    _name = target._name;
-    _type = target._type;
-    _basePower = target._basePower;
-    _baseDefense = target._baseDefense;
-    _health = target._health;
-
-    for(unsigned int i = 0; i < _moveset.size(); ++i) {
-        if(_moveset.at(i) != nullptr) {
-            delete _moveset.at(i);
-        }
-    }
-
-    for(unsigned int i = 0; i < target._moveset.size(); ++i) {
-        MoveSet* copyMove = target._moveset.at(i)->clone();
-        _moveset.push_back(copyMove);
-    }
-}
+// void Monster::operator= (const Monster& target) {
+//     _name = target._name;
+//     _health = target._health;
+//     _skillset = target._skillset;
+// }

@@ -46,3 +46,8 @@ bool HealthBar::isZero()
     
     return false;
 }
+
+
+void HealthBar::operator=(const HealthBar& rhs) {
+    _health = rhs._health;
+}

@@ -7,6 +7,8 @@
 *******************************************************************************/
 void Input::getInput(const GameComponents& gameComponents) {
 
+    // std::string p1_name = gameComponents.getPlayers().getPlayer(0).getName();
+
     switch(getState())
     {
         case PLAYERS_SETUP_ST:
@@ -18,7 +20,7 @@ void Input::getInput(const GameComponents& gameComponents) {
             break;
 
         case BATTLE_ST:
-            getBattleInput();
+            getBattleInput(gameComponents);
             break;
 
         case PLAY_AGAIN_ST:
@@ -79,20 +81,28 @@ void Input::getDraftInput() {
 }
 
 
-void Input::getBattleInput() {
+void Input::getBattleInput(const GameComponents& gameComponents) {
 
     // TODO: validate input
 
-    char attack[80];
+    char p1_attack[80];
+    char p2_attack[80];
 
-    std::cout << "Select your attack move: ";
-    std::cin.getline(attack, 80);
+
+    // const Bench* p1_bench = gameComponents.getPlayers().getPlayer(0).getBench();
+    // const Bench* p2_bench = gameComponents.getPlayers().getPlayer(1).getBench();
+
+    std::cout << "\n\nPlayer 1 Select your move: ";
+    std::cin.getline(p1_attack, 80);
+
+    std::cout << "\nPlayer 2 Select your move: ";
+    std::cin.getline(p2_attack, 80);
 
     // set event data
-    _event.data1 = attack;
-    _event.data2 = "null";
+    _event.data1 = p1_attack;
+    _event.data2 = p2_attack;
     _event.eventType = EventType::ATTACK;
-
+    
 }
 
 
