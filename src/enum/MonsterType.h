@@ -2,5 +2,6 @@
 
 enum MonsterType
 {
+    NULL_TYPE,
     NORMAL
 };
