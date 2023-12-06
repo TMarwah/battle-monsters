@@ -102,12 +102,11 @@ void Display::renderDraft(const std::string& p1_name,
     for(unsigned i = 0; i < draftBoard->size(); i++) {
         std::cout << "\t" << ( i + 1 ) << ". \033[1;37m" << draftBoard->at(i).getName() << "\033[0m\n";
         std::cout << "\thealth: \033[1;32m" << draftBoard->at(i).getHP() << "\033[0m\n";
-        std::cout << "\tskill set:\n";
-        std::cout << "\t  type: Normal" << "\n";
+        std::cout << "\t  type: Normal  |  power: " << draftBoard->at(i).getPower() << "  |  defense: " << draftBoard->at(i).getDefense() << "\n";
         for(unsigned j = 0; j < draftBoard->at(i).getMoves().size(); ++j) {
             MoveSet* currentMove = draftBoard->at(i).getMoves().at(j);
             const std::string name = (currentMove->getName());
-            std::cout << "\t  [ " << name << " ] Damage( \033[1;31m" << (currentMove->getDamage()) << "\033[0m ), Accuracy( "<< (currentMove->getAccuracy() * 100 )<< "% )\n";
+            std::cout << "\t  [ \033[1;36m" << name << "\033[0m ] Damage( \033[1;31m" << (currentMove->getDamage()) << "\033[0m ), Accuracy( "<< (currentMove->getAccuracy() * 100 )<< "% )\n";
         }
         std::cout << '\n';
     }
@@ -133,7 +132,7 @@ void Display::renderBattle(const std::string& p1_name,
     std::cout << "\t[ \033[1;32m" << p1_monster.getHP() << "\033[0m / 100 ]\n";
     for(unsigned i = 0; i < p1_monster.getMoves().size(); ++i) {
         MoveSet* currentMove = p1_monster.getMoves().at(i);
-        std::cout << "\t" << i+1 << ": [" << currentMove->getName() << "] Damage( \033[1;31m" << currentMove->getDamage() << "\033[0m ), Accuracy( "<< currentMove->getAccuracy() * 100 << "% )\n";
+        std::cout << "\t" << i+1 << ": [ \033[1;36m" << currentMove->getName() << "\033[0m ] Damage( \033[1;31m" << currentMove->getDamage() << "\033[0m ), Accuracy( "<< currentMove->getAccuracy() * 100 << "% )\n";
     }
 
     // p2 display
@@ -143,7 +142,7 @@ void Display::renderBattle(const std::string& p1_name,
     std::cout << "\t[ \033[1;32m" << p2_monster.getHP() << "\033[0m / 100 ]\n";
     for(unsigned i = 0; i < p2_monster.getMoves().size(); ++i) {
         MoveSet* currentMove = p2_monster.getMoves().at(i);
-        std::cout << "\t" << i+1 << ": [" << currentMove->getName() << "] Damage( \033[1;31m" << currentMove->getDamage() << "\033[0m ), Accuracy( "<< currentMove->getAccuracy() * 100 << "% )\n";
+        std::cout << "\t" << i+1 << ": [ \033[1;36m" << currentMove->getName() << "\033[0m ] Damage( \033[1;31m" << currentMove->getDamage() << "\033[0m ), Accuracy( "<< currentMove->getAccuracy() * 100 << "% )\n";
     }
 
 
@@ -151,7 +150,7 @@ void Display::renderBattle(const std::string& p1_name,
     if(p1_monster.getState() == GameState::BATTLE_ST && p2_monster.getState() == GameState::BATTLE_ST) {
         std::cout << "\n\n\n";
         // previous situation display
-        std::cout << "\033[1;37m" << p1_monster.getName() << "\033[0m used " << p1_monster.getMove()->getName();
+        std::cout << "\033[1;37m" << p1_monster.getName() << "\033[0m used \033[1;36m" << p1_monster.getMove()->getName() << "\033[0m";
         if(p1_monster.isMissed()) {
             std::cout << "\n\t>> Attack Missed!\n\n";
         }   else {
@@ -162,7 +161,7 @@ void Display::renderBattle(const std::string& p1_name,
             std::cout << " damage to \033[1;37m" << p2_monster.getName() << "\033[0m\n";
         }
 
-        std::cout << "\033[1;37m" << p2_monster.getName() << "\033[0m used " << p2_monster.getMove()->getName();
+        std::cout << "\033[1;37m" << p2_monster.getName() << "\033[0m used \033[1;36m" << p2_monster.getMove()->getName() << "\033[0m";
         if(p2_monster.isMissed()) {
             std::cout << "\n\t>> Attack Missed!\n\n";
         }   else {
@@ -186,10 +185,12 @@ void Display::renderBattleOver(GameComponents& gameComponents) {
     std::cout << "|                                      |\n";
     std::cout << "|              Battle Over             |\n";
 
-    if(gameComponents.getPlayers().getPlayer(0).isDefeated()) {
+    if(gameComponents.getPlayers().getPlayer(0).isDefeated() && gameComponents.getPlayers().getPlayer(1).isDefeated()) {
+        std::cout << "|                 \033[1;37mDRAW\033[0m                 |\n";
+    }
+    else if(gameComponents.getPlayers().getPlayer(0).isDefeated()) {
         std::cout << "|           Winner: \033[1;35mPlayer 2\033[0m           |\n";
     }   
-    
     else {
         std::cout << "|           Winner: \033[1;34mPlayer 1\033[0m           |\n";
     }
