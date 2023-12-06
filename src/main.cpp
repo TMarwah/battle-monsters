@@ -27,7 +27,7 @@ int main() {
         game.render();
 
         // TODO: possilbly add sleep function here for timing (60 fps?)
-        std::cout << "time since program launch: " << timer.elapsed() << std::endl;
+        // std::cout << "time since program launch: " << timer.elapsed() << std::endl;
 
     }
 
