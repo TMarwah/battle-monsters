@@ -5,6 +5,7 @@ HealthBar::HealthBar()
 {
     // initialize health as 100 by default
     _health = 100;
+    _healthLost = 0;
 }
 
 void HealthBar::setHP(int monsterHP)
@@ -15,6 +16,10 @@ void HealthBar::setHP(int monsterHP)
 int HealthBar::getHP() const
 {
     return this->_health;
+}
+
+int HealthBar::getLostHealth() const {
+    return _healthLost;
 }
 
 bool HealthBar::deductHP(int incomingDamage) 
@@ -30,6 +35,8 @@ bool HealthBar::deductHP(int incomingDamage)
     {
         _health = 0;
     }
+
+    _healthLost = incomingDamage;
 
     return isZero();
 }
