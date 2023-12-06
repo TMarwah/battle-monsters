@@ -17,8 +17,8 @@ class Monster{
 
     public:
         //constructor for monster object with stat parameters
-        Monster(const std::string& name = "nullMonster");
-        // Monster(const Monster& target);
+        Monster(const std::string& name = "nullMonster", MonsterType type=NORMAL, int power=0, int defense=0);
+        Monster(const Monster& target);
         ~Monster();
 
         //member function for use when attacking a monster
@@ -29,16 +29,19 @@ class Monster{
         // GETTERS
         // member function to call the list of moves
         // const std::vector<MoveSet *>& getMoves() const;
-        // int getPower() const;
-        // int getDefense() const;
-        // HealthBar& getHealthBar();
-        void setName(const std::string& name);
+        int getPower() const;
+        int getDefense() const;
+        MonsterType getType() const;
+
         const std::string& getName() const;
         int getHP() const;
-        // int getHealthPoint() const;
-        // MonsterType getType() const;
+        const std::vector<MoveSet *>& getMoves() const;
+
+        const Skillset& getSkillset() const;
 
         // SETTERS
+        void setName(const std::string& name);
+        void addMoves(const std::vector<MoveSet *>& newMoves);
         // void setPower(int power);
         // void setDefense(int defense);
         // void setType(MonsterType type);

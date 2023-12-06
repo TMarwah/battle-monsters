@@ -1,21 +1,19 @@
 #include "Monster.h"
 
 //Monster constructor
-Monster::Monster(const std::string& name) : _name(name) {}
+Monster::Monster(const std::string& name, MonsterType type, int power, int defense) : 
+    _name(name) 
+{
+    _skillset.setType(type);
+    _skillset.setPower(power);
+    _skillset.setDefense(defense);
+}
 
 // Copy constructor
-// Monster::Monster (const Monster& target):  
-//     _name (target._name),
-//     _type (target._type),
-//     _basePower (target._basePower),
-//     _baseDefense (target._baseDefense),
-//     _health(target._health)
-// { 
-//     // for(unsigned int i = 0; i < target._moveset.size(); ++i) {
-//     //     MoveSet* copyMove = target._moveset.at(i)->clone();
-//     //     _moveset.push_back(copyMove);
-//     // }
-// }
+Monster::Monster (const Monster& target):  
+    _name (target._name),
+    _skillset(target._skillset)
+{ }
 
 Monster::~Monster(){
     // for(unsigned int i = 0; i < _moveset.size(); ++i){
@@ -45,47 +43,17 @@ bool Monster::defend(int attack) {
     return true;
 }
 
-// void Monster::addMoves(std::vector <MoveSet *> newMoves){
-//     // delete moves before assigning new moves
-//     // for(unsigned int i = 0; i < _moveset.size(); ++i) {
-//     //     if(_moveset.at(i) != nullptr) {
-//     //         delete _moveset.at(i);
-//     //     }
-//     // }
-
-//     // _moveset = newMoves;
-// }
-
-
-// GETTERS
-// const std::vector<MoveSet *>& Monster::getMoves() const{
-//     return _moveset;
-// }
-
-// int Monster::getPower() const{
-//     return _basePower;
-// }
-
-// int Monster::getDefense() const{
-//     return _baseDefense;
-// }
-
-// HealthBar& Monster::getHealthBar(){
-//     return _health;
-// }
-
-// int Monster::getHealthPoint() const{
-//     return _health.getHP();
-// }
-
-// MonsterType Monster::getType() const{
-//     return _type;
-// }
-
+// SETTERS
 void Monster::setName(const std::string& name) {
     _name = name;
 }
 
+void Monster::addMoves(const std::vector<MoveSet *>& newMoves) {
+    _skillset.addMoves(newMoves);
+}
+
+
+// GETTERS
 const std::string& Monster::getName() const{
     return _name;
 }
@@ -93,19 +61,26 @@ const std::string& Monster::getName() const{
 int Monster::getHP() const {
     return _health.getHP();
 }
-// Setters
 
-// void Monster::setPower(int power) {
-//     _basePower = power;
-// }
+const Skillset& Monster::getSkillset() const {
+    return _skillset;
+}
 
-// void Monster::setDefense(int defense) {
-//     _baseDefense = defense;
-// }
+MonsterType Monster::getType() const {
+    return _skillset.getType();
+}
 
-// void Monster::setType(MonsterType type) {
-//     _type = type;
-// }
+int Monster::getPower() const {
+    return _skillset.getPower();
+}
+
+int Monster::getDefense() const {
+    return _skillset.getDefense();
+}
+
+const std::vector<MoveSet *>& Monster::getMoves() const {
+    return _skillset.getMoves();
+}
 
 
 // Helpers
@@ -120,20 +95,6 @@ void Monster::deductHP(int amount) {
 // Overloaded Operators
 void Monster::operator= (const Monster& target) {
     _name = target._name;
-    // _type = target._type;
-    // _basePower = target._basePower;
-    // _baseDefense = target._baseDefense;
     _health = target._health;
     _skillset = target._skillset;
-
-    // for(unsigned int i = 0; i < _moveset.size(); ++i) {
-    //     if(_moveset.at(i) != nullptr) {
-    //         delete _moveset.at(i);
-    //     }
-    // }
-
-    // for(unsigned int i = 0; i < target._moveset.size(); ++i) {
-    //     MoveSet* copyMove = target._moveset.at(i)->clone();
-    //     _moveset.push_back(copyMove);
-    // }
 }
