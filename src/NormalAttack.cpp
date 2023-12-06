@@ -7,18 +7,22 @@ NormalAttack::NormalAttack(const std::string& name, float accuracy, int damage, 
     MoveSet(name, accuracy, damage, priority)
 {}
 
-void NormalAttack::skillMethod(MonsterType baseType, int baseAttack, int baseOpponentDefense) {
+int NormalAttack::skillMethod(MonsterType baseType, int basePower, int baseOpponentDefense) {
     // get random 0-99 value
     srand(time(0)); 
     int randomAccuracy = (rand() % 100) + 1;
     
     // if normal attack hits
-    float damage = 0;
+    int damage = 0;
     if(0.01*randomAccuracy <= getAccuracy()) {
-        damage = ( 0.5 * baseAttack ) + getAccuracy() - ( 0.3 * baseOpponentDefense );
+        damage = ( 0.5 * basePower ) + getDamage() - ( 0.75 * baseOpponentDefense );
+    }   
+    else {
+        // attack is missed
+        setState(GameState::ATTACK_MISSED_ST);
     }
 
-    // I have made a calculation for a damage but we haven't figured out how to send this data to another Monster's Healthbar
+    return damage;
 }
 
 MoveSet* NormalAttack::clone() const {
