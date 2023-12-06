@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <cassert>
 #include "State.h"
 #include "Event.h"
 #include "Bench.h"
@@ -20,9 +21,16 @@ public:
     void setName(std::string name); 
     void reset();
     void draft(const Monster& monster);
+    void setNextMove(const std::string& moveIndex);
+
+
+    void update();
+    bool isDefeated() const;
 
     //getBench(); //TODO implement bench
 
     // VIRTUAL OVERRIDES
-    void addEventHandler(const Event& event);
+    // void addEventHandler(const Event& event);
+
+    // void handleBattle();
 };
