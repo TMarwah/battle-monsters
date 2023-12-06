@@ -40,6 +40,10 @@ void Skillset::setDefense(int defense) {
 
 }
 
+void Skillset::setMoveIndex(unsigned index) {
+    _moveIndex = index;
+}
+
 void Skillset::addMoves(const std::vector<MoveSet *>& newMoves) {
     for(unsigned i = 0; i < _moveset.size(); ++i) {
         if(_moveset.at(i) != nullptr) {
@@ -70,6 +74,14 @@ int Skillset::getDefense() const {
 
 const std::vector<MoveSet *>& Skillset::getMoves() const {
     return _moveset;
+}
+
+unsigned Skillset::getMoveIdex() const {
+    return _moveIndex;
+}
+
+MoveSet* Skillset::getMove() const {
+    return _moveset.at(_moveIndex);
 }
 
 

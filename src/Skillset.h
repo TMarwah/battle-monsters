@@ -11,8 +11,8 @@ private:
     MonsterType _type;
     int _basePower;
     int _baseDefense;
-    // TODO: 
     std::vector<MoveSet *> _moveset;
+    unsigned _moveIndex;
 
 public:
     // CONSTRUCTOR
@@ -25,12 +25,15 @@ public:
     void setPower(int power);
     void setDefense(int defense);
     void addMoves(const std::vector<MoveSet *>& newMoves);
+    void setMoveIndex(unsigned index);
 
     // GETTERS
     MonsterType getType() const;
     int getPower() const;
     int getDefense() const;
     const std::vector<MoveSet *>& getMoves() const;
+    unsigned getMoveIdex() const;
+    MoveSet* getMove() const;
 
     // OPERATOR OVERLOADS
     void operator= (const Skillset& rhs); 
