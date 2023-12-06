@@ -12,6 +12,7 @@ add_library(swatLibrary
   DraftBoard.cpp
   Players.cpp
   Player.cpp
+  Bench.cpp
   
   Monster.cpp 
   HealthBar.cpp
