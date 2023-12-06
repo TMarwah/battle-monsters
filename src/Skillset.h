@@ -18,7 +18,7 @@ public:
     // CONSTRUCTOR
     Skillset(MonsterType type=NORMAL, int basePower=0, int baseDefense=0);
     // Copy Constructor
-    Skillset(const Skillset& target);
+    // Skillset(const Skillset& target);
     ~Skillset();
 
     // SETTERS
@@ -37,7 +37,7 @@ public:
     MoveSet* getMove() const;
 
     // OPERATOR OVERLOADS
-    void operator= (const Skillset& rhs); 
+    // void operator= (const Skillset& rhs); 
 
 };
 

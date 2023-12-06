@@ -10,23 +10,23 @@ Skillset::Skillset(MonsterType type, int basePower, int baseDefense) :
     _baseDefense(baseDefense)
 { }
 
-Skillset::Skillset(const Skillset& target) :
-    _type(target._type),
-    _basePower(target._basePower),
-    _baseDefense(target._baseDefense)
-{
-    for(unsigned int i = 0; i < target._moveset.size(); ++i) {
-        MoveSet* copyMove = target._moveset.at(i)->clone();
-        _moveset.push_back(copyMove);
-    }
-}
+// Skillset::Skillset(const Skillset& target) :
+//     _type(target._type),
+//     _basePower(target._basePower),
+//     _baseDefense(target._baseDefense)
+// {
+//     for(unsigned int i = 0; i < target._moveset.size(); ++i) {
+//         MoveSet* copyMove = target._moveset.at(i)->clone();
+//         _moveset.push_back(copyMove);
+//     }
+// }
 
 Skillset::~Skillset() {
-    for(unsigned int i = 0; i < _moveset.size(); ++i){
-        if(_moveset.at(i) != nullptr) {
-            delete _moveset.at(i);
-        }
-    }
+    // for(unsigned int i = 0; i < _moveset.size(); ++i){
+    //     if(_moveset.at(i) != nullptr) {
+    //         delete _moveset.at(i);
+    //     }
+    // }
 }
 
 /*******************************************************************************
@@ -95,21 +95,21 @@ MoveSet* Skillset::getMove() const {
 /*******************************************************************************
 * OVERLOADED OPERATORS
 *******************************************************************************/
-void Skillset::operator=(const Skillset& rhs) {
-    _type = rhs._type;
-    _basePower = rhs._basePower;
-    _baseDefense = rhs._baseDefense;
-    // TODO: add moveset copy
+// void Skillset::operator=(const Skillset& rhs) {
+//     _type = rhs._type;
+//     _basePower = rhs._basePower;
+//     _baseDefense = rhs._baseDefense;
+//     // TODO: add moveset copy
 
-    for(unsigned int i = 0; i < _moveset.size(); ++i) {
-        if(_moveset.at(i) != nullptr) {
-            delete _moveset.at(i);
-        }
-    }
+//     for(unsigned int i = 0; i < _moveset.size(); ++i) {
+//         if(_moveset.at(i) != nullptr) {
+//             delete _moveset.at(i);
+//         }
+//     }
 
-    for(unsigned int i = 0; i < rhs._moveset.size(); ++i) {
-        MoveSet* copyMove = rhs._moveset.at(i)->clone();
-        _moveset.push_back(copyMove);
-    }
+//     for(unsigned int i = 0; i < rhs._moveset.size(); ++i) {
+//         MoveSet* copyMove = rhs._moveset.at(i)->clone();
+//         _moveset.push_back(copyMove);
+//     }
 
-}
+// }
