@@ -1,11 +1,12 @@
 #pragma once
 #include "enum/MonsterType.h"
+#include "State.h"
 #include "./abstract/MoveSet.h"
 #include "NormalAttack.h"
 #include <vector>
 
 
-class Skillset
+class Skillset: public State
 {
 private:
     MonsterType _type;
@@ -32,6 +33,7 @@ public:
     MonsterType getType() const;
     int getPower() const;
     int getDefense() const;
+
     const std::vector<MoveSet *>& getMoves() const;
     unsigned getMoveIdex() const;
     MoveSet* getMove() const;

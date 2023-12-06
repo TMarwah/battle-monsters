@@ -92,10 +92,10 @@ void Input::getBattleInput(const GameComponents& gameComponents) {
     // const Bench* p1_bench = gameComponents.getPlayers().getPlayer(0).getBench();
     // const Bench* p2_bench = gameComponents.getPlayers().getPlayer(1).getBench();
 
-    std::cout << "\n\nPlayer 1 Select your move: ";
+    std::cout << "\n\n\033[1;34mPlayer 1\033[0m, Select your move\n\t>> ";
     std::cin.getline(p1_attack, 80);
 
-    std::cout << "\nPlayer 2 Select your move: ";
+    std::cout << "\n\033[1;35mPlayer 2\033[0m, Select your move\n\t>> ";
     std::cin.getline(p2_attack, 80);
 
     // set event data

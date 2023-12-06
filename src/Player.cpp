@@ -53,7 +53,10 @@ void Player::update() {
 }
 
 bool Player::isDefeated() const {
-    std::cout << "isDefeated" << (getState() == GameState::DEFEATED_ST) << "\n";
+    if(FLAG_ON) {
+        std::cout << "isDefeated" << (getState() == GameState::DEFEATED_ST) << "\n";
+    }
+    
     return getState() == GameState::DEFEATED_ST;
 }
 //TODO implement bench class

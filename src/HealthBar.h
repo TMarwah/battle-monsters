@@ -4,6 +4,7 @@ class HealthBar
 {
     private:
         int _health;   //base health of monster1
+        int _healthLost;
 
     public:
         //Constructor
@@ -14,6 +15,7 @@ class HealthBar
 
         //Getters for monster's HP
         int getHP() const;
+        int getLostHealth() const;
 
         //
         bool deductHP(int incomingDamage);

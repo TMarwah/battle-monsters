@@ -25,11 +25,14 @@ void Players::setNames(const Event& event) {
 
 void Players::fight(Monster& monster1, Monster& monster2) {
 
-    std::cout << "Players::fight" << "\n";
+    if(FLAG_ON) {
+        std::cout << "Players::fight" << "\n";
+    }
     
     // TODO: implement priority feature
     // TODO: decide or randomize which player goes first 
-    monster1.defend( monster2.attack() );
+        // attack() returns the _skillset component of Monster
+    monster1.defend( monster2.attack());
     monster2.defend( monster1.attack() );
 
     // test if battle is over
@@ -121,7 +124,9 @@ void Players::handleDraft(const Event& event) {
 
 void Players::handleBattle(const Event& event) {
 
-    std::cout << "Players::handleBattle" << "\n";
+    if(FLAG_ON) {
+        std::cout << "Players::handleBattle" << "\n";
+    }
 
     _players[0].setNextMove(event.data1);
     _players[1].setNextMove(event.data2);

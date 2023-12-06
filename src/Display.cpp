@@ -40,7 +40,7 @@ void Display::render(GameComponents& gameComponents) {
             break;
 
         case BATTLE_OVER_ST:
-            renderBattleOver();
+            renderBattleOver(gameComponents);
             break;
 
         case PLAY_AGAIN_ST:
@@ -88,11 +88,11 @@ void Display::renderDraft(const std::string& p1_name,
                           const std::string& p2_name,
                           const DraftBoard* draftBoard) const 
 {
-    std::cout << "=========" << std::endl;
-    std::cout << "= DRAFT =" << std::endl;
-    std::cout << "=========" << std::endl;
-    std::cout << "\tp1: " << p1_name << '\n';
-    std::cout << "\tp2: " << p2_name << '\n' << '\n';
+    std::cout << "====================================================" << std::endl;
+    std::cout << "=                      DRAFT                       =" << std::endl;
+    std::cout << "====================================================" << std::endl << std::endl;
+    std::cout << "\tp1: \033[1;34m" << p1_name << "\033[0m\n";
+    std::cout << "\tp2: \033[1;35m" << p2_name << "\033[0m\n\n";
     // TODO: display player benches
     // TODO: display draft bench
     std::cout << "DRAFTBOARD: \n";
@@ -100,8 +100,8 @@ void Display::renderDraft(const std::string& p1_name,
     //     std::cout << draftBoard[i].getName() << "\t|\t";
     // }
     for(unsigned i = 0; i < draftBoard->size(); i++) {
-        std::cout << "\tname: " << draftBoard->at(i).getName() << '\n';
-        std::cout << "\thealth: " << draftBoard->at(i).getHP() << "\n";
+        std::cout << "\tname: \033[1;37m" << draftBoard->at(i).getName() << "\033[0m\n";
+        std::cout << "\thealth: \033[1;32m" << draftBoard->at(i).getHP() << "\033[0m\n";
         std::cout << "\tskill set:\n";
         std::cout << "\t  type: Normal" << "\n";
         for(unsigned j = 0; j < draftBoard->at(i).getMoves().size(); ++j) {
@@ -120,39 +120,86 @@ void Display::renderBattle(const std::string& p1_name,
                            const std::string& p2_name,
                            const Bench* p1_bench,
                            const Bench* p2_bench) const {
-    std::cout << "==========" << '\n';
-    std::cout << "= BATTLE =" << '\n';
-    std::cout << "==========" << '\n' << '\n';
+    std::cout << "=====================================================" << std::endl;
+    std::cout << "=                      BATTLE                       =" << std::endl;
+    std::cout << "=====================================================" << std::endl << std::endl;
+
+    Monster& p1_monster = p1_bench->getCurrent();
+    Monster& p2_monster = p2_bench->getCurrent();
 
     // p1 display
-    std::cout << "p1: " << p1_name << '\n';
-    std::cout << "\t" << p1_bench->getCurrent().getName() << '\n';
-    std::cout << "\t" << p1_bench->getCurrent().getHP() << '\n';
-    for(unsigned i = 0; i < p1_bench->getCurrent().getMoves().size(); ++i) {
-        MoveSet* currentMove = p1_bench->getCurrent().getMoves().at(i);
+    std::cout << "p1: \033[1;34m" << p1_name << "\033[0m\n";
+    std::cout << "\t\033[1;37m" << p1_monster.getName() << "\033[0m\n";
+    std::cout << "\t[ \033[1;32m" << p1_monster.getHP() << "\033[0m / 100 ]\n";
+    for(unsigned i = 0; i < p1_monster.getMoves().size(); ++i) {
+        MoveSet* currentMove = p1_monster.getMoves().at(i);
         std::cout << "\t" << i+1 << ": [" << currentMove->getName() << "] Damage( \033[1;31m" << currentMove->getDamage() << "\033[0m ), Accuracy( "<< currentMove->getAccuracy() * 100 << "% )\n";
     }
 
     // p2 display
     std::cout << '\n';
-    std::cout << "p2: " << p2_name << '\n';
-    std::cout << "\t" << p2_bench->getCurrent().getName() << '\n';
-    std::cout << "\t" << p2_bench->getCurrent().getHP() << '\n';
-    for(unsigned i = 0; i < p2_bench->getCurrent().getMoves().size(); ++i) {
-        MoveSet* currentMove = p2_bench->getCurrent().getMoves().at(i);
+    std::cout << "p2: \033[1;35m" << p2_name << "\033[0m\n";
+    std::cout << "\t\033[1;37m" << p2_monster.getName() << "\033[0m\n";
+    std::cout << "\t[ \033[1;32m" << p2_monster.getHP() << "\033[0m / 100 ]\n";
+    for(unsigned i = 0; i < p2_monster.getMoves().size(); ++i) {
+        MoveSet* currentMove = p2_monster.getMoves().at(i);
         std::cout << "\t" << i+1 << ": [" << currentMove->getName() << "] Damage( \033[1;31m" << currentMove->getDamage() << "\033[0m ), Accuracy( "<< currentMove->getAccuracy() * 100 << "% )\n";
+    }
+
+
+    // if both monsters are in BATTLE_ST
+    if(p1_monster.getState() == GameState::BATTLE_ST && p2_monster.getState() == GameState::BATTLE_ST) {
+        std::cout << "\n\n\n";
+        // previous situation display
+        std::cout << "\033[1;37m" << p1_monster.getName() << "\033[0m used " << p1_monster.getMove()->getName();
+        if(p1_monster.isMissed()) {
+            std::cout << "\n\t>> Attack Missed!\n\n";
+        }   else {
+            std::cout << "\n\t>> \033[1;31m" << p2_monster.getLostHealth() << "\033[0m";
+            if(p2_monster.isDead()) {
+                std::cout << " fatal";
+            }
+            std::cout << " damage to \033[1;37m" << p2_monster.getName() << "\033[0m\n";
+        }
+
+        std::cout << "\033[1;37m" << p2_monster.getName() << "\033[0m used " << p2_monster.getMove()->getName();
+        if(p2_monster.isMissed()) {
+            std::cout << "\n\t>> Attack Missed!\n\n";
+        }   else {
+            std::cout << "\n\t>> \033[1;31m" << p1_monster.getLostHealth() << "\033[0m";
+            if(p1_monster.isDead()) {
+                std::cout << " fatal";
+            }
+            std::cout << " damage to \033[1;37m" << p1_monster.getName() << "\033[0m\n";
+        }
     }
 
 }
 
 
-void Display::renderBattleOver() {
-    std::cout << "===============" << '\n';
-    std::cout << "= BATTLE_OVER =" << '\n';
-    std::cout << "===============" << '\n' << '\n';
+void Display::renderBattleOver(GameComponents& gameComponents) {
+    // std::cout << "===============" << '\n';
+    // std::cout << "= BATTLE_OVER =" << '\n';
+    // std::cout << "===============" << '\n' << '\n';
+    std::cout << "|======================================|\n";
+    std::cout << "|                                      |\n";
+    std::cout << "|                                      |\n";
+    std::cout << "|              Battle Over             |\n";
 
-    // show title screen for DISPLAY_UPTIME seconds
-    _timer.sleep(DISPLAY_UPTIME);
+    if(gameComponents.getPlayers().getPlayer(0).isDefeated()) {
+        std::cout << "|           Winner: \033[1;35mPlayer 2\033[0m           |\n";
+    }   
+    
+    else {
+        std::cout << "|           Winner: \033[1;34mPlayer 1\033[0m           |\n";
+    }
+
+    std::cout << "|                                      |\n";
+    std::cout << "|                                      |\n";
+    std::cout << "|======================================|\n";
+
+    // show title screen for ENDING_UPTIME seconds
+    _timer.sleep(ENDING_UPTIME);
     setState(NULL_ST);
 
 }

@@ -26,7 +26,7 @@ private:
                      const std::string& p2_name,
                      const Bench* p1_bench,
                      const Bench* p2_bench) const;
-    void renderBattleOver();
+    void renderBattleOver(GameComponents& gameComponents);
     void renderPlayAgain() const;
     void renderQuit();
 
