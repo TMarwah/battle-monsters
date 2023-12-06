@@ -100,14 +100,14 @@ void Display::renderDraft(const std::string& p1_name,
     //     std::cout << draftBoard[i].getName() << "\t|\t";
     // }
     for(unsigned i = 0; i < draftBoard->size(); i++) {
-        std::cout << "\tname: \033[1;37m" << draftBoard->at(i).getName() << "\033[0m\n";
+        std::cout << "\t" << ( i + 1 ) << ". \033[1;37m" << draftBoard->at(i).getName() << "\033[0m\n";
         std::cout << "\thealth: \033[1;32m" << draftBoard->at(i).getHP() << "\033[0m\n";
         std::cout << "\tskill set:\n";
         std::cout << "\t  type: Normal" << "\n";
         for(unsigned j = 0; j < draftBoard->at(i).getMoves().size(); ++j) {
             MoveSet* currentMove = draftBoard->at(i).getMoves().at(j);
             const std::string name = (currentMove->getName());
-            std::cout << "\t  " << name << ": Damage( \033[1;31m" << (currentMove->getDamage()) << "\033[0m ), Accuracy( "<< (currentMove->getAccuracy() * 100 )<< "% )\n";
+            std::cout << "\t  [ " << name << " ] Damage( \033[1;31m" << (currentMove->getDamage()) << "\033[0m ), Accuracy( "<< (currentMove->getAccuracy() * 100 )<< "% )\n";
         }
         std::cout << '\n';
     }

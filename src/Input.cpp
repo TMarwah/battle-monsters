@@ -50,10 +50,10 @@ void Input::getPlayersSetupInput() {
     char name1[80];
     char name2[80];
 
-    std::cout << "Player 1 name: ";
+    std::cout << "\033[1;34mPlayer 1\033[0m name: ";
     std::cin.getline(name1, 80);
 
-    std::cout << "Player 2 name: ";
+    std::cout << "\033[1;35mPlayer 2\033[0m name: ";
     std::cin.getline(name2, 80);
 
     // set event data
@@ -68,14 +68,18 @@ void Input::getDraftInput() {
 
     // TODO: validate input
 
-    char draftSelection[80];
+    char p1_choice[80];
+    char p2_choice[80];
 
-    std::cout << "Draft Selection: ";
-    std::cin.getline(draftSelection, 80);
+    std::cout << "\n\n\033[1;34mPlayer 1\033[0m, Select your Monster  >> ";
+    std::cin.getline(p1_choice, 80);
+
+    std::cout << "\n\033[1;35mPlayer 2\033[0m, Select your Monster  >> ";
+    std::cin.getline(p2_choice, 80);
 
     // set event data
-    _event.data1 = draftSelection;
-    _event.data2 = "null";
+    _event.data1 = p1_choice;
+    _event.data2 = p2_choice;
     _event.eventType = EventType::DRAFT_SELECTION;
 
 }
@@ -92,10 +96,10 @@ void Input::getBattleInput(const GameComponents& gameComponents) {
     // const Bench* p1_bench = gameComponents.getPlayers().getPlayer(0).getBench();
     // const Bench* p2_bench = gameComponents.getPlayers().getPlayer(1).getBench();
 
-    std::cout << "\n\n\033[1;34mPlayer 1\033[0m, Select your move\n\t>> ";
+    std::cout << "\n\n\033[1;34mPlayer 1\033[0m, Select your move  >> ";
     std::cin.getline(p1_attack, 80);
 
-    std::cout << "\n\033[1;35mPlayer 2\033[0m, Select your move\n\t>> ";
+    std::cout << "\n\033[1;35mPlayer 2\033[0m, Select your move  >> ";
     std::cin.getline(p2_attack, 80);
 
     // set event data
