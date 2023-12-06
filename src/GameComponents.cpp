@@ -8,6 +8,10 @@ const Players& GameComponents::getPlayers() const {
     return _players;
 }
 
+const DraftBoard* GameComponents::getDraftBoard() const {
+    return &_draftBoard;
+}
+
 
 /*******************************************************************************
 * VIRTUAL OVERRIDES
@@ -28,7 +32,9 @@ void GameComponents::addEventHandler(const Event& event) {
             handleBattle(event);
             break;
 
-        // TODO: create RESET case and actions if user is REPLAY-ing
+        case PLAY_AGAIN_ST:
+            handlePlayAgain(event);
+            break;
 
     }
 }
@@ -59,6 +65,14 @@ void GameComponents::handleDraft(const Event& event)
         }
     }
 
+    if(event.eventType == EventType::DRAFT_SELECTION) {
+        if(event.data1 == "ww") {
+            _players.getPlayer(0).draft( _draftBoard.at(0) );
+            _players.getPlayer(1).draft( _draftBoard.at(1) );
+            setState(NULL_ST);
+        }
+    }
+
 }
 
 
@@ -66,6 +80,19 @@ void GameComponents::handleBattle(const Event& event) {
 
     // TODO: handle BATTLE_ST events
     // keep battling until one of the players has no monsters left
+    
+    if(event.eventType == EventType::ATTACK) {
+        if(event.data1 == "qq") {
+            setState(NULL_ST);
+        }
+    }
+
+}
+
+void GameComponents::handlePlayAgain(const Event& event) {
+
+    // TODO: handle PLAY_AGAIN_ST events
+    _players.reset();    
     
     if(event.eventType == EventType::ATTACK) {
         if(event.data1 == "qq") {
