@@ -85,7 +85,8 @@ void Input::getBattleInput(const GameComponents& gameComponents) {
 
     // TODO: validate input
 
-    char attack[80];
+    char p1_attack[80];
+    char p2_attack[80];
 
     // true = p1's turn
     // false = p2's turn
@@ -94,39 +95,25 @@ void Input::getBattleInput(const GameComponents& gameComponents) {
     const Bench* p1_bench = gameComponents.getPlayers().getPlayer(0).getBench();
     const Bench* p2_bench = gameComponents.getPlayers().getPlayer(1).getBench();
 
-    while(true) {
-        // FIXME: Move this part of the code to Display class
-        // ==============
-        if(p1_bench->getCurrent().isDead() || p2_bench->getCurrent().isDead()) {
-            break;
-        }
-        
-        std::cout << "\n\nmoves:\n";
-        if(playerTurn) {
-            for(unsigned i = 0; i < p1_bench->getCurrent().getMoves().size(); ++i) {
-                MoveSet* currentMove = p1_bench->getCurrent().getMoves().at(i);
-                std::cout << "\t" << i+1 << ": [" << currentMove->getName() << "] Damage( \033[1;31m" << currentMove->getDamage() << "\033[0m ), Accuracy( "<< currentMove->getAccuracy() * 100 << "% )\n";
-            }
-            std::cout << "Player1 ";
-        }   else {
-            for(unsigned i = 0; i < p2_bench->getCurrent().getMoves().size(); ++i) {
-                MoveSet* currentMove = p2_bench->getCurrent().getMoves().at(i);
-                std::cout << "\t" << i+1 << ": [" << currentMove->getName() << "] Damage( \033[1;31m" << currentMove->getDamage() << "\033[0m ), Accuracy( "<< currentMove->getAccuracy() * 100 << "% )\n";
-            }
-            std::cout << "Player2 ";
-        }
-        // ==============
-        std::cout << "Select your attack move: ";
-        std::cin.getline(attack, 80);
-
-        // set event data
-        _event.data1 = attack;
-        _event.data2 = "null";
-        _event.eventType = EventType::ATTACK;
-
-        playerTurn = !playerTurn;
+    // ==============
+    if(p1_bench->getCurrent().isDead() || p2_bench->getCurrent().isDead()) {
+        // FIXME: move on to the next phase
+        // _event.eventType = EventType::
     }
+    // ==============
+    std::cout << "\n\nPlayer 1 Select your move: ";
+    std::cin.getline(p1_attack, 80);
 
+    std::cout << "\n\nPlayer 2 Select your move: ";
+    std::cin.getline(p2_attack, 80);
+
+    // set event data
+    _event.data1 = p1_attack;
+    _event.data2 = p2_attack;
+    _event.eventType = EventType::ATTACK;
+
+    playerTurn = !playerTurn;
+    
 }
 
 

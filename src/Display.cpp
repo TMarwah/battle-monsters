@@ -123,13 +123,23 @@ void Display::renderBattle(const std::string& p1_name,
     std::cout << "= BATTLE =" << '\n';
     std::cout << "==========" << '\n' << '\n';
 
+    // p1 display
     std::cout << "p1: " << p1_name << '\n';
     std::cout << "\t" << p1_bench->getCurrent().getName() << '\n';
     std::cout << "\t" << p1_bench->getCurrent().getHP() << '\n';
+    for(unsigned i = 0; i < p1_bench->getCurrent().getMoves().size(); ++i) {
+        MoveSet* currentMove = p1_bench->getCurrent().getMoves().at(i);
+        std::cout << "\t" << i+1 << ": [" << currentMove->getName() << "] Damage( \033[1;31m" << currentMove->getDamage() << "\033[0m ), Accuracy( "<< currentMove->getAccuracy() * 100 << "% )\n";
+    }
 
+    // p2 display
     std::cout << "p2: " << p2_name << '\n';
     std::cout << "\t" << p2_bench->getCurrent().getName() << '\n';
     std::cout << "\t" << p2_bench->getCurrent().getHP() << '\n';
+    for(unsigned i = 0; i < p2_bench->getCurrent().getMoves().size(); ++i) {
+        MoveSet* currentMove = p2_bench->getCurrent().getMoves().at(i);
+        std::cout << "\t" << i+1 << ": [" << currentMove->getName() << "] Damage( \033[1;31m" << currentMove->getDamage() << "\033[0m ), Accuracy( "<< currentMove->getAccuracy() * 100 << "% )\n";
+    }
 
 }
 
