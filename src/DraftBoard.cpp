@@ -27,12 +27,12 @@ DraftBoard::DraftBoard() {
     std::vector<MoveSet *> AndrewsaurusMoveset;
     // MoveSets("name", accuracy, base_damage, priority(0 as default));
     AndrewsaurusMoveset.push_back(new NormalAttack("Rock-bottom", 0.9, 25, 1));
-    AndrewsaurusMoveset.push_back(new NormalAttack("Charge", 0.4, 50, 0));
+    AndrewsaurusMoveset.push_back(new NormalAttack("Charge", 0.70, 35, 0));
     _draftBoard[0].addMoves(AndrewsaurusMoveset);
 
     std::vector<MoveSet *> WillzillaMoveSet;
-    WillzillaMoveSet.push_back(new NormalAttack("Lazer Breath", 0.75, 35, 0));
-    WillzillaMoveSet.push_back(new NormalAttack("Stomp", 1, 28, 0));
+    WillzillaMoveSet.push_back(new NormalAttack("Lazer Breath", 0.4, 50, 0));
+    WillzillaMoveSet.push_back(new NormalAttack("Stomp", 1, 27, 0));
     _draftBoard[1].addMoves(WillzillaMoveSet);
     
 
