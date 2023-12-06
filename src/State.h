@@ -1,5 +1,6 @@
 #pragma once
 #include "enum/GameState.h"
+#include "definitions/Definitions.h"
 
 
 class State {

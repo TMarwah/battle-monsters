@@ -1,9 +1,11 @@
 #pragma once
 #include <string>
 #include "./enum/MonsterType.h"
+#include "State.h"
 
 
-class MoveSet{
+class MoveSet: public State 
+{
     private:
         std::string _moveName; //name of the move
         float _defaultAccuracy; //0-1 float accuracy value
@@ -12,7 +14,7 @@ class MoveSet{
     
     public:
         //Virtual function to be implemented by inherited class
-        virtual void skillMethod(MonsterType baseType=NORMAL, int baseAttack=0, int baseOpponentDefense=0) = 0;
+        virtual int skillMethod(MonsterType baseType=NORMAL, int basePower=0, int baseOpponentDefense=0) = 0;
         virtual MoveSet* clone() const = 0;
 
         //Constructor

@@ -10,6 +10,7 @@ enum GameState
     // ATTACKING_ST,
     // DEFENDING_ST,
     BATTLE_ST,
+    ATTACK_MISSED_ST,
     BATTLE_OVER_ST,
     PLAY_AGAIN_ST,
     QUIT_ST,

@@ -7,6 +7,8 @@ Monster::Monster(const std::string& name, MonsterType type, int power, int defen
     _skillset.setType(type);
     _skillset.setPower(power);
     _skillset.setDefense(defense);
+
+    setState(NULL_ST);
 }
 
 // Copy constructor
@@ -29,20 +31,44 @@ Monster::~Monster(){
 // }
 
 Skillset& Monster::attack() {
-
-    std::cout << "Monster::attack" << "\n";
-    // currently a stub of 10
+    setState(BATTLE_ST);
+    
+    if(FLAG_ON) {
+        std::cout << "Monster::attack" << "\n";
+    }
     return _skillset;
 }
 
 bool Monster::defend(Skillset& enemySkillset) {
 
-    std::cout << "Monster::defend" << "\n";
+    if(FLAG_ON) {
+        std::cout << "Monster::defend" << "\n";
+    }
 
     // use battle calculator to figure out final
     // value to deduct from health
-    deductHP(enemySkillset.getPower() - getDefense() * 0.3);
-    std::cout << "\n\ngetHP(): " << getHP() << "\n\n";
+    // .getMove() uses the move selected
+        // skillMethod(MonsterType baseType, int baseAttack, int baseOpponentDefense)
+    MonsterType enemyType = enemySkillset.getType();
+    int enemyPower = enemySkillset.getPower();
+
+
+    int damage = enemySkillset.getMove()->skillMethod(enemyType, enemyPower, _skillset.getDefense());
+    // if the state of the skill is set to the ATTACK_MISSED_ST, set up the flag
+    bool isSkillMissed = ( enemySkillset.getMove()->getState() == GameState::ATTACK_MISSED_ST );
+
+    deductHP(damage);
+
+    // if attack is missed, remove flag from the skill and set flag on the skillset of enemy
+    if(isSkillMissed) {
+        enemySkillset.getMove()->setState(NULL_ST);
+        enemySkillset.setState(ATTACK_MISSED_ST);
+    }
+
+    if(FLAG_ON) {
+        std::cout << "\n\ngetHP(): " << getHP() << "\n\n";
+    }
+
     // return true/false if monster died from attack
     return true;
 }
@@ -74,12 +100,20 @@ MonsterType Monster::getType() const {
     return _skillset.getType();
 }
 
+int Monster::getLostHealth() const {
+    return _health.getLostHealth();
+}
+
 int Monster::getPower() const {
     return _skillset.getPower();
 }
 
 int Monster::getDefense() const {
     return _skillset.getDefense();
+}
+
+MoveSet* Monster::getMove() {
+    return _skillset.getMove();
 }
 
 const std::vector<MoveSet *>& Monster::getMoves() const {
@@ -90,6 +124,15 @@ const std::vector<MoveSet *>& Monster::getMoves() const {
 // Helpers
 bool Monster::isDead() {
     return _health.isZero();
+}
+
+bool Monster::isMissed() {
+    bool missed = ( _skillset.getState() == GameState::ATTACK_MISSED_ST );
+    if(missed) {
+        _skillset.setState(NULL_ST);
+    }
+
+    return missed;
 }
 
 void Monster::deductHP(int amount) {
