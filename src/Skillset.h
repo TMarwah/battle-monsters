@@ -19,6 +19,7 @@ public:
     Skillset(MonsterType type=NORMAL, int basePower=0, int baseDefense=0);
     // Copy Constructor
     Skillset(const Skillset& target);
+    ~Skillset();
 
     // SETTERS
     void setType(MonsterType type);

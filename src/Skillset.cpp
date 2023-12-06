@@ -21,6 +21,13 @@ Skillset::Skillset(const Skillset& target) :
     }
 }
 
+Skillset::~Skillset() {
+    for(unsigned int i = 0; i < _moveset.size(); ++i){
+        if(_moveset.at(i) != nullptr) {
+            delete _moveset.at(i);
+        }
+    }
+}
 
 /*******************************************************************************
 * SETTERS
