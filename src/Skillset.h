@@ -24,11 +24,13 @@ public:
     void setType(MonsterType type);
     void setPower(int power);
     void setDefense(int defense);
+    void addMoves(const std::vector<MoveSet *>& newMoves);
 
     // GETTERS
     MonsterType getType() const;
     int getPower() const;
     int getDefense() const;
+    const std::vector<MoveSet *>& getMoves() const;
 
     // OPERATOR OVERLOADS
     void operator= (const Skillset& rhs); 

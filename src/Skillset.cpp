@@ -40,6 +40,16 @@ void Skillset::setDefense(int defense) {
 
 }
 
+void Skillset::addMoves(const std::vector<MoveSet *>& newMoves) {
+    for(unsigned i = 0; i < _moveset.size(); ++i) {
+        if(_moveset.at(i) != nullptr) {
+            delete _moveset.at(i);
+        }
+    }
+
+    _moveset = newMoves;
+}
+
 
 /*******************************************************************************
 * GETTERS
@@ -56,6 +66,10 @@ int Skillset::getPower() const {
 
 int Skillset::getDefense() const {
     return _baseDefense;
+}
+
+const std::vector<MoveSet *>& Skillset::getMoves() const {
+    return _moveset;
 }
 
 
