@@ -27,4 +27,8 @@ private:
     void getBattleInput(const GameComponents& gameComponents);
     void getPlayAgainInput();
 
+    // VALIDATORS
+    bool isValidDraftInput(const std::string& input1, const std::string& input2) const;
+    bool isValidBattleInput(const std::string& input1, const std::string& input2) const;
+
 };

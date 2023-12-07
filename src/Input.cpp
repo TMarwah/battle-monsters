@@ -66,8 +66,6 @@ void Input::getPlayersSetupInput() {
 
 void Input::getDraftInput() {
 
-    // TODO: validate input
-
     char p1_choice[80];
     char p2_choice[80];
 
@@ -80,22 +78,23 @@ void Input::getDraftInput() {
     // set event data
     _event.data1 = p1_choice;
     _event.data2 = p2_choice;
-    _event.eventType = EventType::DRAFT_SELECTION;
+
+    // validate input
+    if(isValidDraftInput(p1_choice, p2_choice)) {
+        _event.eventType = EventType::DRAFT_SELECTION;
+    } else {
+        _event.eventType = EventType::INVALID_INPUT;
+    }
 
 }
 
 
 void Input::getBattleInput(const GameComponents& gameComponents) {
 
-    // TODO: validate input
-
     char p1_attack[80];
     char p2_attack[80];
 
-
-    // const Bench* p1_bench = gameComponents.getPlayers().getPlayer(0).getBench();
-    // const Bench* p2_bench = gameComponents.getPlayers().getPlayer(1).getBench();
-
+    // get user input
     std::cout << "\n\n\033[1;34mPlayer 1\033[0m, Select your move  >> ";
     std::cin.getline(p1_attack, 80);
 
@@ -105,7 +104,13 @@ void Input::getBattleInput(const GameComponents& gameComponents) {
     // set event data
     _event.data1 = p1_attack;
     _event.data2 = p2_attack;
-    _event.eventType = EventType::ATTACK;
+
+    // validate input
+    if(isValidBattleInput(p1_attack, p2_attack)) {
+        _event.eventType = EventType::ATTACK;
+    }else {
+        _event.eventType = EventType::INVALID_INPUT;
+    }   
     
 }
 
@@ -137,7 +142,32 @@ void Input::getPlayAgainInput() {
 
     }
 
-    // std::cin.get();
-    // std::cin.ignore(100, '\n');
+}
 
+
+/*******************************************************************************
+* VALIDATORS
+*******************************************************************************/
+bool Input::isValidDraftInput(const std::string& input1, const std::string& input2) const {
+    bool input1Validity = input1 == "1" || input1 == "2" || input1 == "3" || input1 == "4";
+    bool inpu21Validity = input2 == "1" || input2 == "2" || input2 == "3" || input2 == "4";
+
+    bool noCoincidence = input1 != input2;
+
+    if(FLAG_ON) {
+        std::cout << input1Validity << ", " << inpu21Validity << ", " << noCoincidence << "\n";
+    }
+
+    return ( input1Validity && inpu21Validity && noCoincidence );
+}
+
+bool Input::isValidBattleInput(const std::string& input1, const std::string& input2) const {
+    bool input1Validity = input1 == "1" || input1 == "2";
+    bool inpu21Validity = input2 == "1" || input2 == "2";
+
+    if(FLAG_ON) {
+        std::cout << input1Validity << ", " << inpu21Validity << "\n";
+    }
+
+    return ( input1Validity && inpu21Validity );
 }
