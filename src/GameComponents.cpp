@@ -75,6 +75,37 @@ void GameComponents::handleDraft(const Event& event)
             _players.getPlayer(1).draft( _draftBoard.at(1) );
             setState(NULL_ST);
         }
+
+        if(isValidInput(event.data1, event.data2)) {
+            unsigned player1SelectIndex = 0;
+            if (event.data1 == "1") {
+                player1SelectIndex = 0;
+            }   else if (event.data1 == "2") {
+                player1SelectIndex = 1;
+            }   else if (event.data1 == "3") {
+                player1SelectIndex = 2;
+            }   else if (event.data1 == "4") {
+                player1SelectIndex = 3;
+            }   else {
+                // TODO: throw my computer
+            }
+            _players.getPlayer(0).draft( _draftBoard.at(player1SelectIndex) );
+
+            unsigned player2SelectIndex = 0;
+            if (event.data2 == "1") {
+                player2SelectIndex = 0;
+            }   else if (event.data2 == "2") {
+                player2SelectIndex = 1;
+            }   else if (event.data2 == "3") {
+                player2SelectIndex = 2;
+            }   else if (event.data2 == "4") {
+                player2SelectIndex = 3;
+            }   else {
+                // TODO: throw my computer
+            }
+            _players.getPlayer(1).draft( _draftBoard.at(player2SelectIndex) );
+            setState(NULL_ST);
+        }
     }
 
 }
@@ -110,4 +141,17 @@ void GameComponents::handlePlayAgain(const Event& event) {
         }
     }
 
+}
+
+bool GameComponents::isValidInput(const std::string& input1, const std::string& input2) const {
+    bool input1Validity = input1 == "1" || input1 == "2" || input1 == "3" || input1 == "4";
+    bool inpu21Validity = input2 == "1" || input2 == "2" || input2 == "3" || input2 == "4";
+
+    bool noCoincidence = input1 != input2;
+
+    if(FLAG_ON) {
+        std::cout << input1Validity << ", " << inpu21Validity << ", " << noCoincidence << "\n";
+    }
+
+    return ( input1Validity && inpu21Validity && noCoincidence );
 }
