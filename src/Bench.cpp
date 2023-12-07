@@ -32,11 +32,11 @@ Bench::~Bench() {
 
     // delete set of Monster*  
 
-    for(unsigned int i = 0; i < getCurrent().getMoves().size(); ++i){
-        if(getCurrent().getMoves().at(i) != nullptr) {
-            delete getCurrent().getMoves().at(i);
-        }
-    }
+    // for(unsigned int i = 0; i < getCurrent().getMoves().size(); ++i){
+    //     if(getCurrent().getMoves().at(i) != nullptr) {
+    //         delete getCurrent().getMoves().at(i);
+    //     }
+    // }
 
     delete[] _bench;
 }

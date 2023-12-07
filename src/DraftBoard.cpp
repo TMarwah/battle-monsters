@@ -47,11 +47,14 @@ DraftBoard::DraftBoard() {
 
 DraftBoard::~DraftBoard() {
 
-    // TODO: deallocate memory
-    // for(unsigned i = 0; i < _draftBoard.size(); i++) {
-    //     std::cout << "~DraftBoard " << _draftBoard.at(i)->getName() << '\n';
-    //     delete _draftBoard.at(i);
-    // }
+    for(unsigned i = 0; i < BENCH_SIZE * 4; i++) {
+        const std::vector<MoveSet* >& copyMoves = _draftBoard[i].getSkillset().getMoves();
+        for(unsigned j = 0; j < copyMoves.size(); ++j) {
+            if(copyMoves.at(j) != nullptr) {
+                delete copyMoves.at(j);
+            }
+        }
+    }
     delete[] _draftBoard;
 
 }
