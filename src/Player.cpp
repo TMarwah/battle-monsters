@@ -19,6 +19,7 @@ void Player::setName(std::string name) {
 }
 
 void Player::reset() {
+    setState(DRAFT_ST);
     _bench.reset();
 }
 
