@@ -8,7 +8,7 @@ Monster::Monster(const std::string& name, MonsterType type, int power, int defen
     _skillset.setPower(power);
     _skillset.setDefense(defense);
 
-    setState(NULL_ST);
+    setState(START_UP_ST);
 }
 
 // Copy constructor
