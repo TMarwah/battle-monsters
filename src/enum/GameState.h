@@ -6,6 +6,7 @@ enum GameState
     // RUNNING_ST,
     START_UP_ST,
     PLAYERS_SETUP_ST,
+    INVALID_INPUT_ST,
     DRAFT_ST,
     // ATTACKING_ST,
     // DEFENDING_ST,
