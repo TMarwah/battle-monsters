@@ -12,7 +12,11 @@ const Players& GameComponents::getPlayers() const {
     return _players;
 }
 
-const DraftBoard* GameComponents::getDraftBoard() const {
+// DraftBoard* GameComponents::getDraftBoard() const {
+//     return &_draftBoard;
+// }
+
+DraftBoard* GameComponents::getDraftBoard() {
     return &_draftBoard;
 }
 
@@ -63,49 +67,25 @@ void GameComponents::handleDraft(const Event& event)
     // remove monster from draftBench until both player1 bench and player2
     // bench are equal to BENCH_SIZE. Then turn off DRAFT_ST
 
-    if(event.eventType == EventType::DRAFT_SELECTION) {
-        if(event.data1 == "qq") {
-            setState(NULL_ST);
-        }
+    if(event.eventType == EventType::INVALID_INPUT) {
+        _draftBoard.setState(NULL_ST);
     }
+    else if(event.eventType == EventType::DRAFT_SELECTION) {
 
-    if(event.eventType == EventType::DRAFT_SELECTION) {
-        if(event.data1 == "ww") {
-            _players.getPlayer(0).draft( _draftBoard.at(0) );
-            _players.getPlayer(1).draft( _draftBoard.at(1) );
-            setState(NULL_ST);
-        }
+        if(FLAG_ON) {std::cout << event.data1 << "   " << event.data2 << '\n';}
 
-        if(isValidDraftInput(event.data1, event.data2)) {
-            unsigned player1SelectIndex = 0;
-            if (event.data1 == "1") {
-                player1SelectIndex = 0;
-            }   else if (event.data1 == "2") {
-                player1SelectIndex = 1;
-            }   else if (event.data1 == "3") {
-                player1SelectIndex = 2;
-            }   else if (event.data1 == "4") {
-                player1SelectIndex = 3;
-            }   else {
-                // TODO: throw my computer
-            }
-            _players.getPlayer(0).draft( _draftBoard.at(player1SelectIndex) );
+        // convert string to int
+        unsigned player1SelectIndex = std::stoi(event.data1);
+        unsigned player2SelectIndex = std::stoi(event.data2);
 
-            unsigned player2SelectIndex = 0;
-            if (event.data2 == "1") {
-                player2SelectIndex = 0;
-            }   else if (event.data2 == "2") {
-                player2SelectIndex = 1;
-            }   else if (event.data2 == "3") {
-                player2SelectIndex = 2;
-            }   else if (event.data2 == "4") {
-                player2SelectIndex = 3;
-            }   else {
-                // TODO: throw my computer
-            }
-            _players.getPlayer(1).draft( _draftBoard.at(player2SelectIndex) );
-            setState(NULL_ST);
-        }
+        // decrement for true index
+        player1SelectIndex -= 1;
+        player2SelectIndex -= 1;
+
+        // draft monsters
+        _players.getPlayer(0).draft( _draftBoard.at(player1SelectIndex) );
+        _players.getPlayer(1).draft( _draftBoard.at(player2SelectIndex) );
+        setState(NULL_ST);   
     }
 
 }
@@ -119,21 +99,16 @@ void GameComponents::handleBattle(const Event& event) {
 
     // TODO: handle BATTLE_ST events
     // keep battling until one of the players has no monsters left
-    if(isValidBattleInput(event.data1, event.data2)) {
-        _players.addEventHandler(event);
-    }   
-    // else {
-    //     // set up the invalid input flag
-    //     _players.setState(INVALID_INPUT_ST);
-    //     return;
-    // }
-
     if(event.eventType == EventType::ATTACK) {
-        if(event.data1 == "qq") {
-            setState(NULL_ST);
-        }
+        _players.addEventHandler(event);
+    }
+    else if(event.eventType == EventType::INVALID_INPUT) {
+        // setting both monsters to NULL_ST
+        _players.getPlayer(0).getBench()->getCurrent().setState(NULL_ST);
+        _players.getPlayer(1).getBench()->getCurrent().setState(NULL_ST);
     }
 
+    // test for battle over
     if(_players.getState() != GameState::BATTLE_ST) {
         setState(NULL_ST);
     }
@@ -153,26 +128,26 @@ void GameComponents::handlePlayAgain(const Event& event) {
 
 }
 
-bool GameComponents::isValidDraftInput(const std::string& input1, const std::string& input2) const {
-    bool input1Validity = input1 == "1" || input1 == "2" || input1 == "3" || input1 == "4";
-    bool inpu21Validity = input2 == "1" || input2 == "2" || input2 == "3" || input2 == "4";
+// bool GameComponents::isValidDraftInput(const std::string& input1, const std::string& input2) const {
+//     bool input1Validity = input1 == "1" || input1 == "2" || input1 == "3" || input1 == "4";
+//     bool inpu21Validity = input2 == "1" || input2 == "2" || input2 == "3" || input2 == "4";
 
-    bool noCoincidence = input1 != input2;
+//     bool noCoincidence = input1 != input2;
 
-    if(FLAG_ON) {
-        std::cout << input1Validity << ", " << inpu21Validity << ", " << noCoincidence << "\n";
-    }
+//     if(FLAG_ON) {
+//         std::cout << input1Validity << ", " << inpu21Validity << ", " << noCoincidence << "\n";
+//     }
 
-    return ( input1Validity && inpu21Validity && noCoincidence );
-}
+//     return ( input1Validity && inpu21Validity && noCoincidence );
+// }
 
-bool GameComponents::isValidBattleInput(const std::string& input1, const std::string& input2) const {
-    bool input1Validity = input1 == "1" || input1 == "2";
-    bool inpu21Validity = input2 == "1" || input2 == "2";
+// bool GameComponents::isValidBattleInput(const std::string& input1, const std::string& input2) const {
+//     bool input1Validity = input1 == "1" || input1 == "2";
+//     bool inpu21Validity = input2 == "1" || input2 == "2";
 
-    if(FLAG_ON) {
-        std::cout << input1Validity << ", " << inpu21Validity << "\n";
-    }
+//     if(FLAG_ON) {
+//         std::cout << input1Validity << ", " << inpu21Validity << "\n";
+//     }
 
-    return ( input1Validity && inpu21Validity );
-}
+//     return ( input1Validity && inpu21Validity );
+// }

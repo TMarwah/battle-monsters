@@ -41,6 +41,7 @@ DraftBoard::DraftBoard() {
     JohnWinkMoveSet.push_back(new NormalAttack("Gun", 0.3, 60, 1));
     _draftBoard[3].addMoves(JohnWinkMoveSet);
     
+    setState(DRAFT_ST);
 
 }
 

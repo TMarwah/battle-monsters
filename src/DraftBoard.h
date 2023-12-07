@@ -6,9 +6,10 @@
 #include "enum/GameState.h"
 #include "Monster.h"
 #include "NormalAttack.h"
+#include "State.h"
 
 
-class DraftBoard {
+class DraftBoard : public State {
 private:
     Monster* _draftBoard;
     // std::vector<std::string> _draftBoard;

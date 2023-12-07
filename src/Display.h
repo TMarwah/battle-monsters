@@ -21,7 +21,7 @@ private:
     void renderPlayersSetup() const;
     void renderDraft(const std::string& p1_name,
                      const std::string& p2_name,
-                     const DraftBoard* draftBoard) const;
+                     DraftBoard* draftBoard);
     void renderBattle(const std::string& p1_name,
                      const std::string& p2_name,
                      const Bench* p1_bench,
