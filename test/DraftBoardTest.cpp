@@ -16,6 +16,6 @@ TEST(DraftBoardTests, DraftBoardInit){
     // Assert
     EXPECT_TRUE(name1 == "Andrewsaurus");
     EXPECT_TRUE(name2 == "Willzilla");
-    EXPECT_EQ(draftBoard.size(), 2);
+    EXPECT_EQ(draftBoard.size(), 4);
 
 }
