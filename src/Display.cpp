@@ -18,7 +18,7 @@ void Display::render(GameComponents& gameComponents) {
     const Bench* p1_bench = gameComponents.getPlayers().getPlayer(0).getBench();
     const Bench* p2_bench = gameComponents.getPlayers().getPlayer(1).getBench();
     // TODO: extract draft bench data
-    const DraftBoard* draftBoard = gameComponents.getDraftBoard();
+    DraftBoard* draftBoard = gameComponents.getDraftBoard();
 
     // display based off of current game state
     switch(getState())
@@ -86,7 +86,7 @@ void Display::renderPlayersSetup() const {
 
 void Display::renderDraft(const std::string& p1_name,
                           const std::string& p2_name,
-                          const DraftBoard* draftBoard) const 
+                          DraftBoard* draftBoard) 
 {
     std::cout << "====================================================" << std::endl;
     std::cout << "=                      DRAFT                       =" << std::endl;
@@ -111,6 +111,12 @@ void Display::renderDraft(const std::string& p1_name,
         std::cout << '\n';
     }
     std::cout << '\n';
+
+    // if invalid input
+    if(draftBoard->getState() == GameState::NULL_ST) {
+        std::cout << red("\tMUST SELECT DIFFERENT MONSTERS (1-4)") << '\n';
+        draftBoard->setState(DRAFT_ST);
+    }
 
 }
 
@@ -150,7 +156,9 @@ void Display::renderBattle(const std::string& p1_name,
         std::cout << "\n\n" << red("[ INVALID INPUT ] please provide another valid input.");
     }
     // if both monsters are in BATTLE_ST && is not an invalid input
-    else */if(p1_monster.getState() == GameState::BATTLE_ST && p2_monster.getState() == GameState::BATTLE_ST) {
+    else */
+    
+    if(p1_monster.getState() == GameState::BATTLE_ST && p2_monster.getState() == GameState::BATTLE_ST) {
         std::cout << "\n\n\n";
         // previous situation display
         std::cout << white(p1_monster.getName()) << " used " << cyan(p1_monster.getMove()->getName());
@@ -168,6 +176,15 @@ void Display::renderBattle(const std::string& p1_name,
             std::cout << "\n\t>> " << red(p1_monster.getLostHealth());
             std::cout << " damage to " << white(p1_monster.getName()) << "\n";
         }
+    }
+    else if(p1_monster.getState() == GameState::NULL_ST || p2_monster.getState() == GameState::NULL_ST) {
+
+        std::cout << "\n\n";
+        std::cout << red("\tINVALID MOVE") << '\n';
+
+        p1_monster.setState(GameState::BATTLE_ST);
+        p2_monster.setState(GameState::BATTLE_ST);
+
     }
 
 }
