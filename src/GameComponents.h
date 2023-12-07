@@ -30,6 +30,8 @@ private:
     void handleDraft(const Event& event);
     void handleBattle(const Event& event);
     void handlePlayAgain(const Event& event);
-    bool isValidInput(const std::string& input1, const std::string& input2) const;
+
+    bool isValidDraftInput(const std::string& input1, const std::string& input2) const;
+    bool isValidBattleInput(const std::string& input1, const std::string& input2) const;
 
 };

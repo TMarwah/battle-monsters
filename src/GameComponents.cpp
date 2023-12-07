@@ -76,7 +76,7 @@ void GameComponents::handleDraft(const Event& event)
             setState(NULL_ST);
         }
 
-        if(isValidInput(event.data1, event.data2)) {
+        if(isValidDraftInput(event.data1, event.data2)) {
             unsigned player1SelectIndex = 0;
             if (event.data1 == "1") {
                 player1SelectIndex = 0;
@@ -113,10 +113,20 @@ void GameComponents::handleDraft(const Event& event)
 
 void GameComponents::handleBattle(const Event& event) {
 
-    std::cout << "GameComponents::handleBattle" << "\n";
+    if(FLAG_ON) {
+        std::cout << "GameComponents::handleBattle" << "\n";
+    }
+
     // TODO: handle BATTLE_ST events
     // keep battling until one of the players has no monsters left
-    _players.addEventHandler(event);
+    if(isValidBattleInput(event.data1, event.data2)) {
+        _players.addEventHandler(event);
+    }   
+    // else {
+    //     // set up the invalid input flag
+    //     _players.setState(INVALID_INPUT_ST);
+    //     return;
+    // }
 
     if(event.eventType == EventType::ATTACK) {
         if(event.data1 == "qq") {
@@ -143,7 +153,7 @@ void GameComponents::handlePlayAgain(const Event& event) {
 
 }
 
-bool GameComponents::isValidInput(const std::string& input1, const std::string& input2) const {
+bool GameComponents::isValidDraftInput(const std::string& input1, const std::string& input2) const {
     bool input1Validity = input1 == "1" || input1 == "2" || input1 == "3" || input1 == "4";
     bool inpu21Validity = input2 == "1" || input2 == "2" || input2 == "3" || input2 == "4";
 
@@ -154,4 +164,15 @@ bool GameComponents::isValidInput(const std::string& input1, const std::string& 
     }
 
     return ( input1Validity && inpu21Validity && noCoincidence );
+}
+
+bool GameComponents::isValidBattleInput(const std::string& input1, const std::string& input2) const {
+    bool input1Validity = input1 == "1" || input1 == "2";
+    bool inpu21Validity = input2 == "1" || input2 == "2";
+
+    if(FLAG_ON) {
+        std::cout << input1Validity << ", " << inpu21Validity << "\n";
+    }
+
+    return ( input1Validity && inpu21Validity );
 }
