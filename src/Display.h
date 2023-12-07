@@ -1,11 +1,12 @@
 #pragma once
 #include <iostream>
 #include "State.h"
-#include "GameComponents.h"
 #include "Timer.h"
+#include "GameComponents.h"
+#include "./interface/ColorInterface.h"
 
 
-class Display : public State
+class Display : public State, public ColorInterface
 {
     
 private:
@@ -30,15 +31,5 @@ private:
     void renderPlayAgain() const;
     void renderQuit();
 
-    // FORMATTING HELPRS
-    std::string red(const std::string& ) const;
-    std::string red(int message) const;
-    std::string red(float message) const;
-    std::string red_underline(const std::string& ) const;
-
-    std::string white(const std::string& ) const;
-    std::string cyan(const std::string& ) const;
-    std::string blue(const std::string& ) const;
-    std::string magenta(const std::string& ) const;
-    std::string green(int ) const;
+    
 };
