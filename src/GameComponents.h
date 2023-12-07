@@ -17,7 +17,8 @@ public:
     Players& getPlayers();
     const Players& getPlayers() const;
     // const DraftBoard& getDraftBoard() const;
-    const DraftBoard* getDraftBoard() const;
+    // DraftBoard* getDraftBoard() const;
+    DraftBoard* getDraftBoard();
     // TODO: getBench
 
     // VIRTUAL OVERRIDES
@@ -31,7 +32,7 @@ private:
     void handleBattle(const Event& event);
     void handlePlayAgain(const Event& event);
 
-    bool isValidDraftInput(const std::string& input1, const std::string& input2) const;
-    bool isValidBattleInput(const std::string& input1, const std::string& input2) const;
+    // bool isValidDraftInput(const std::string& input1, const std::string& input2) const;
+    // bool isValidBattleInput(const std::string& input1, const std::string& input2) const;
 
 };
