@@ -27,8 +27,8 @@ DraftBoard::DraftBoard() {
     _draftBoard[0].addMoves(AndrewsaurusMoveset);
 
     std::vector<MoveSet *> WillzillaMoveSet;
-    WillzillaMoveSet.push_back(new NormalAttack("Lazer Breath", 0.3, 60, 0));
     WillzillaMoveSet.push_back(new NormalAttack("Stomp", 1, 35, 0));
+    WillzillaMoveSet.push_back(new NormalAttack("Lazer Breath", 0.3, 60, 0));
     _draftBoard[1].addMoves(WillzillaMoveSet);
 
     std::vector<MoveSet *> TanmysticMoveset;
