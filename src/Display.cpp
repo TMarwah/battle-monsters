@@ -101,7 +101,7 @@ void Display::renderDraft(const std::string& p1_name,
     // }
     for(unsigned i = 0; i < draftBoard->size(); i++) {
         std::cout << "\t" << ( i + 1 ) << ". " << white(draftBoard->at(i).getName()) << "\n";
-        std::cout << "\thealth: " << green(draftBoard->at(i).getHP()) << "\n";
+        std::cout << "\thealth: [ " << green(draftBoard->at(i).getHP()) << " / 100 ] \n";
         std::cout << "\t  type: Normal  |  power: " << draftBoard->at(i).getPower() << "  |  defense: " << draftBoard->at(i).getDefense() << "\n";
         for(unsigned j = 0; j < draftBoard->at(i).getMoves().size(); ++j) {
             MoveSet* currentMove = draftBoard->at(i).getMoves().at(j);
