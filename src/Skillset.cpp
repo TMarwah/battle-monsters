@@ -1,4 +1,5 @@
 #include "Skillset.h"
+#include <cassert>
 
 
 /*******************************************************************************
@@ -49,6 +50,11 @@ void Skillset::setDefense(int defense) {
 
 void Skillset::setMoveIndex(unsigned index) {
     _moveIndex = index;
+}
+
+void Skillset::addMove(MoveSet* newMove) {
+    assert(newMove != nullptr);
+    _moveset.push_back(newMove);
 }
 
 void Skillset::addMoves(const std::vector<MoveSet *>& newMoves) {
