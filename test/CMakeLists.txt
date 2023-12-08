@@ -6,9 +6,9 @@ add_subdirectory(googletest)
 add_executable(runAllTests
     StateTest.cpp
     GameTest.cpp
+    GameComponentsTest.cpp
     PlayerTest.cpp
-    #MonsterTest.cpp
-    Monster2Test.cpp
+    PlayersTest.cpp
     DraftBoardTest.cpp
     BenchTest.cpp
     SkillsetTest.cpp
