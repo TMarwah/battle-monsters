@@ -1,4 +1,5 @@
 ![Deploy badge](https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/actions/workflows/main.yml/badge.svg)  
+![version](https://img.shields.io/badge/version-1.0.0-blue)
 
 <h1 align="center"> 
    Battle Monsters
