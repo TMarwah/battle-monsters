@@ -69,7 +69,7 @@ This Navigation Diagram represent the linear structure of game phases with the o
 
 
 Draft Board Screen Layout:
-* We se our two players, their empty stables (soon to have monsters), and the monsters available for drafting. We can also see each monsters type.
+* We see our two players, their empty stables (soon to have monsters), and the monsters available for drafting. We can also see each monsters type.
 * Players take turns and are prompted to select an available monster by the monsters indicator
 
 
