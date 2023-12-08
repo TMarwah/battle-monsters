@@ -146,7 +146,17 @@ Quit Game Screen Layout:
  ## Screenshots
  > Screenshots of the input/output after running your application
  ## Installation/Usage
- > Instructions on installing and running your application
+ > To build Monster Battle, execute the following from within the project directory
+> ```
+> cmake . -B build
+> cd build
+> make
+> ```
+> To run the executable
+> ```
+> ./bin/monsterBattle
+> ```
+> The game will prompt the user for there inputs. Enjoy! 😃
  ## Testing
  > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
  
