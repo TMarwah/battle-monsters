@@ -14,4 +14,5 @@ struct ColorInterface {
     std::string blue(const std::string& ) const;
     std::string magenta(const std::string& ) const;
     std::string green(int ) const;
+    std::string green(const std::string& ) const;
 };

@@ -41,6 +41,11 @@ std::string ColorInterface::green(int message) const {
     return formattedMessage;
 }
 
+std::string ColorInterface::green(const std::string& message) const {
+    std::string formattedMessage = "\033[1;32m" + message + "\033[0m";
+    return formattedMessage;
+}
+
 std::string ColorInterface::red_underline(const std::string& message) const {
     std::string formattedMessage = "\033[1;4;31m" + message + "\033[0m";
     return formattedMessage;
