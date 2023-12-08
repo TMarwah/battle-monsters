@@ -4,8 +4,9 @@
   # Battle Monsters
 </h1>
 <p align="center">
- Authors: <a href="https://github.com/antilles183">[Andrew Tilles]</a>, [Tanmay Marwah](https://github.com/TMarwah), [Stanley Zhang](https://github.com/StanleyZhang0), [William(Dongyeon) Kim](https://github.com/WilliamEKim)  
+ Authors: <a href="https://github.com/antilles183">[Andrew Tilles]</a>, [Tanmay Marwah](https://github.com/TMarwah), [Stanley Zhang](https://github.com/StanleyZhang0),  
 </p>
+[William(Dongyeon) Kim](https://github.com/WilliamEKim) 
 
 
 ## Project Description
