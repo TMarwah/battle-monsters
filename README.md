@@ -1,5 +1,10 @@
-![Deploy badge](https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/actions/workflows/main.yml/badge.svg)  
-![version](https://img.shields.io/badge/version-1.0.0-blue)
+<p align="center">
+   <img rel="Deploy badge" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/actions/workflows/main.yml/badge.svg">
+   <img rel="Version" src="https://img.shields.io/badge/version-1.0.0-blue">
+</p>
+
+<!-- ![Deploy badge](https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/actions/workflows/main.yml/badge.svg)  
+![version](https://img.shields.io/badge/version-1.0.0-blue) -->
 
 <h1 align="center"> 
    Battle Monsters
