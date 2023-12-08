@@ -111,13 +111,13 @@ Quit Game Screen Layout:
 
 
 ### Open-Closed Principle (O):
-- We created a Monster class that aligns with the **Open-Closed Principle** because it has a vector of MoveSet * which is open to extension by the Liskov's Substitution Principle. But this does not require Monster class to change its code (closed for modification). This is an example from our previous diagram that contains the Open-Closed Principle.
+- We created a Monster class that aligns with the **Open-Closed Principle** because it has a vector of `MoveSet *` which is open to extension by the Liskov's Substitution Principle. But this does not require Monster class to change its code (closed for modification). This is an example from our previous diagram that contains the Open-Closed Principle.
   
 <img width="317" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/4895db2b-586f-4a93-9ad9-aedb78766299">
 
 
 ### Liskov's Substitution Principle (L):
-- We created a MoveSets class that aligns with the **Liskov's Substitution Principle** because it is replaceable with instances of their subtype(specific moves) without altering the correctness of that program. Since we already have a class that contains similar qualities of the Liskov's Substitution principle we decided to use it as an example. The below image showcases the MoveSets class that we decided to use.
+- We created a `MoveSets` class that aligns with the **Liskov's Substitution Principle** because it is replaceable with instances of their subtype(specific moves) without altering the correctness of that program. Since we already have a class that contains similar qualities of the Liskov's Substitution principle we decided to use it as an example. The below image showcases the `MoveSets` class that we decided to use.
 
 <img width="337" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/4010e9e3-e762-417a-a54c-27d30e943d2b">
 
@@ -131,7 +131,7 @@ Quit Game Screen Layout:
 - For example, here, every object of the Monster class requires full implementation of a MoveSet object to be utilized. No MoveSet member goes unused.
 
 ### Dependency Inversion Principle (D):
-- The monster class is not dependent on the MoveSet class. But it depends on the abstraction of the Movesets in the MoveSet class. This is an example of the Dependency Inversion Principle that our class diagram has.
+- The monster class is not dependent on the MoveSet class. But it depends on the abstraction of the Movesets in the `MoveSet` class. This is an example of the Dependency Inversion Principle that our class diagram has.
 
 ![image](https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/12e805a9-55f9-4e3b-8f88-cc86dd7b3d43)
 
