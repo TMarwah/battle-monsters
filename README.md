@@ -1,5 +1,5 @@
  <p align="center">
-      ![Deploy badge](https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/actions/workflows/main.yml/badge.svg)  
+      ![Deploy badge](https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/actions/workflows/main.yml/badge.svg)   
  </p>
 
 # Battle Monsters
