@@ -22,6 +22,11 @@ int NormalAttack::skillMethod(MonsterType baseType, int basePower, int baseOppon
         setState(GameState::ATTACK_MISSED_ST);
     }
 
+    // check if damage is negative (it will heal if returned negative) and set it to zero
+    if(damage < 0) {
+        damage = 0;
+    }
+
     return damage;
 }
 

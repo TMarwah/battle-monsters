@@ -62,12 +62,12 @@ void Display::renderStartup() {
     // std::cout << "=========" << '\n';
     // std::cout << "= START =" << '\n';
     // std::cout << "=========" << '\n' << '\n';
-    std::cout << "|===============================|\n";
-    std::cout << "|                               |\n";
-    std::cout << "|        Battle Monsters        |\n";
-    std::cout << "|                               |\n";
-    std::cout << "|===============================|\n";
-    std::cout << "\n";
+    std::cout << "|==============================================================|\n";
+    std::cout << "|                                                              |\n";
+    std::cout << "|                        " << green("Battle Monsters") << "                       |\n";
+    std::cout << "|                                                              |\n";
+    std::cout << "|==============================================================|\n";
+    std::cout << "\n\n\n";
 
     // show title screen for DISPLAY_UPTIME seconds
     _timer.sleep(DISPLAY_UPTIME);
@@ -77,9 +77,9 @@ void Display::renderStartup() {
 
 
 void Display::renderPlayersSetup() const {
-    std::cout << "=================" << '\n';
-    std::cout << "= PLAYERS_SETUP =" << '\n';
-    std::cout << "=================" << '\n' << '\n';
+    std::cout << "====================================================" << std::endl;
+    std::cout << "=                  PLAYERS_SETUP                   =" << std::endl;
+    std::cout << "====================================================" << std::endl << std::endl;
 
 }
 
@@ -101,7 +101,7 @@ void Display::renderDraft(const std::string& p1_name,
     // }
     for(unsigned i = 0; i < draftBoard->size(); i++) {
         std::cout << "\t" << ( i + 1 ) << ". " << white(draftBoard->at(i).getName()) << "\n";
-        std::cout << "\thealth: " << green(draftBoard->at(i).getHP()) << "\n";
+        std::cout << "\thealth: [ " << green(draftBoard->at(i).getHP()) << " / 100 ] \n";
         std::cout << "\t  type: Normal  |  power: " << draftBoard->at(i).getPower() << "  |  defense: " << draftBoard->at(i).getDefense() << "\n";
         for(unsigned j = 0; j < draftBoard->at(i).getMoves().size(); ++j) {
             MoveSet* currentMove = draftBoard->at(i).getMoves().at(j);
@@ -114,7 +114,7 @@ void Display::renderDraft(const std::string& p1_name,
 
     // if invalid input
     if(draftBoard->getState() == GameState::NULL_ST) {
-        std::cout << red("\tMUST SELECT DIFFERENT MONSTERS (1-4)") << '\n';
+        std::cout << red("\t[ INVALID INPUT ] MUST SELECT DIFFERENT MONSTERS (1-4)") << '\n';
         draftBoard->setState(DRAFT_ST);
     }
 
@@ -180,7 +180,7 @@ void Display::renderBattle(const std::string& p1_name,
     else if(p1_monster.getState() == GameState::NULL_ST || p2_monster.getState() == GameState::NULL_ST) {
 
         std::cout << "\n\n";
-        std::cout << red("\tINVALID MOVE") << '\n';
+        std::cout << red("\t[ INVALID MOVE ]") << '\n';
 
         p1_monster.setState(GameState::BATTLE_ST);
         p2_monster.setState(GameState::BATTLE_ST);
@@ -252,84 +252,33 @@ void Display::renderPlayAgain() const {
     // std::cout << "===============" << '\n';
     // std::cout << "= PLAY AGAIN? =" << '\n';
     // std::cout << "===============" << '\n' << '\n';
-    std::cout << "|======================================|\n";
-    std::cout << "|                                      |\n";
-    std::cout << "|                                      |\n";
-    std::cout << "|           Play Again (Y/N)           |\n";
-    std::cout << "|                                      |\n";
-    std::cout << "|                                      |\n";
-    std::cout << "|======================================|\n";
+    std::cout << "|================================================|\n";
+    std::cout << "|                                                |\n";
+    std::cout << "|                                                |\n";
+    std::cout << "|              Play Again [ Y / N ]              |\n";
+    std::cout << "|                                                |\n";
+    std::cout << "|                                                |\n";
+    std::cout << "|================================================|\n\n";
 
 }
 
 
 void Display::renderQuit() {
-    // std::cout << "========" << '\n';
-    // std::cout << "= QUIT =" << '\n';
-    // std::cout << "========" << '\n' << '\n';
-    std::cout << "|======================================|\n";
-    std::cout << "|                                      |\n";
-    std::cout << "|                                      |\n";
-    std::cout << "|          Thanks for playing :)       |\n";
-    std::cout << "|                                      |\n";
-    std::cout << "|             Stanley Zhang            |\n";
-    std::cout << "|              William Kim             |\n";
-    std::cout << "|             Andrew Tilles            |\n";
-    std::cout << "|             Tanmay Marwah            |\n";
-    std::cout << "|                                      |\n";
-    std::cout << "|                                      |\n";
-    std::cout << "|======================================|\n";
+    std::cout << "|================================================|\n";
+    std::cout << "|                                                |\n";
+    std::cout << "|                                                |\n";
+    std::cout << "|              " << white("Thanks for playing :)") << "             |\n";
+    std::cout << "|                                                |\n";
+    std::cout << "|                  " << blue("Stanley Zhang") << "                 |\n";
+    std::cout << "|                   " << cyan("William Kim") << "                  |\n";
+    std::cout << "|                  " << magenta("Andrew Tilles") << "                 |\n";
+    std::cout << "|                  " << red("Tanmay Marwah") << "                 |\n";
+    std::cout << "|                                                |\n";
+    std::cout << "|                                                |\n";
+    std::cout << "|================================================|\n";
     
     // show exit screen for DISPLAY_UPTIME seconds
     _timer.sleep(DISPLAY_UPTIME);
     setState(NULL_ST);
 
-}
-
-
-
-// FORMATTING helpers
-
-std::string Display::red(const std::string& message) const {
-    std::string formattedMessage = "\033[1;31m" + message + "\033[0m";
-    return formattedMessage;
-}
-
-std::string Display::red(int message) const {
-    std::string formattedMessage = "\033[1;31m" + std::to_string(message) + "\033[0m";
-    return formattedMessage;
-}
-
-std::string Display::red(float message) const {
-    std::string formattedMessage = "\033[1;31m" + std::to_string(message) + "\033[0m";
-    return formattedMessage;
-}
-
-std::string Display::white(const std::string& message) const {
-    std::string formattedMessage = "\033[1;37m" + message + "\033[0m";
-    return formattedMessage;
-}
-
-std::string Display::cyan(const std::string& message) const {
-    std::string formattedMessage = "\033[1;36m" + message + "\033[0m";
-    return formattedMessage;
-}
-
-std::string Display::blue(const std::string& message) const {
-    std::string formattedMessage = "\033[1;34m" + message + "\033[0m";
-    return formattedMessage;
-}
-std::string Display::magenta(const std::string& message) const {
-    std::string formattedMessage = "\033[1;35m" + message + "\033[0m";
-    return formattedMessage;
-}
-
-std::string Display::green(int message) const {
-    std::string formattedMessage = "\033[1;32m" + std::to_string(message) + "\033[0m";
-    return formattedMessage;
-}
-
-std::string Display::red_underline(const std::string& message) const {
-    std::string formattedMessage = "\033[1;4;31m" + message + "\033[0m";
-    return formattedMessage;
 }
