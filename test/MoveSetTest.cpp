@@ -36,4 +36,17 @@ TEST(MoveSetTest, MoveSetterTest) {
     delete move;
 }
 
-   
+TEST(MoveSetTest, CloneTest) {
+    // Arrange 
+    MoveSet *move = new NormalAttack("Rock_bottom", 0.6, 50, 1);
+
+    // Act
+    MoveSet *move_clone = move->clone();
+
+    // Assert
+    EXPECT_EQ(move->getName(), move_clone->getName());
+    EXPECT_EQ(move->getDamage(), move_clone->getDamage());
+
+    delete move;
+    ASSERT_NO_THROW(delete move_clone);
+}

@@ -77,3 +77,20 @@ TEST(HealthBarTest, CheckForNonZeroHP)
     EXPECT_EQ(_healthbar.getHP(), 50);
     EXPECT_FALSE(_healthbar.isZero());
 }
+
+TEST(HealthBarTest, AssignmentOperatorOverload) 
+{
+    //Arrange
+    HealthBar _healthbar;
+    HealthBar _copy_healthbar;
+
+    //Act
+    _healthbar.setHP(150);
+    _copy_healthbar.setHP(0);
+
+    _copy_healthbar = _healthbar;
+
+    //Assert
+    EXPECT_EQ(_healthbar.getHP(), _copy_healthbar.getHP());
+    EXPECT_FALSE(_healthbar.isZero() && _copy_healthbar.isZero());
+}

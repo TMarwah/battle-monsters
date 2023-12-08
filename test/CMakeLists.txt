@@ -7,8 +7,7 @@ add_executable(runAllTests
     StateTest.cpp
     GameTest.cpp
     PlayerTest.cpp
-    #MonsterTest.cpp
-    Monster2Test.cpp
+    MonsterTest.cpp
     DraftBoardTest.cpp
     BenchTest.cpp
     SkillsetTest.cpp

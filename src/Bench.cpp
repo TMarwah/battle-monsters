@@ -7,16 +7,12 @@
 * CONSTRUCTOR & DESTRUCTOR
 *******************************************************************************/
 Bench::Bench() {
-
-    // std::cout << "Bench::Bench" << '\n';
+    if(FLAG_ON) {
+        std::cout << "Bench::Bench" << '\n';
+    }
 
     // allocate for Monster*
     _bench = new Monster[BENCH_SIZE];
-
-    // allocate for Monsters
-    // for(unsigned i = 0; i < BENCH_SIZE; i++) {
-    //     _bench[i] = new Monster("nullMonster");
-    // }
 
     // set Monster count to 0 because no Monsters on the bench yet
     _draftCount = 0;
@@ -24,20 +20,6 @@ Bench::Bench() {
 }
 
 Bench::~Bench() {
-
-    // delete Monsters
-    // for(unsigned i = 0; i < BENCH_SIZE; i++) {
-    //     delete _bench[i];
-    // }
-
-    // delete set of Monster*  
-
-    // for(unsigned int i = 0; i < getCurrent().getMoves().size(); ++i){
-    //     if(getCurrent().getMoves().at(i) != nullptr) {
-    //         delete getCurrent().getMoves().at(i);
-    //     }
-    // }
-
     delete[] _bench;
 }
 
