@@ -122,7 +122,7 @@ void Input::getPlayAgainInput() {
 
     char userSelection[80];
 
-    std::cout << "\tPlay Again?\n\t[ Y / N ] >> ";
+    std::cout << "Play Again?  [ Y / N ] >> ";
     std::cin.getline(userSelection, 80);
 
     // set event data
