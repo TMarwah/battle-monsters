@@ -1,7 +1,7 @@
 ![Deploy badge](https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/actions/workflows/main.yml/badge.svg)  
 
 <h1 align="center"> 
-  # Battle Monsters
+   Battle Monsters
 </h1>
 <p align="center">
  Authors: <a href="https://github.com/antilles183">Andrew Tilles</a>, <a href="https://github.com/TMarwah">Tanmay Marwah</a>, <a href="https://github.com/StanleyZhang0">Stanley Zhang</a>, <a href="https://github.com/WilliamEKim"> William(Dongyeon) Kim </a>
