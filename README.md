@@ -4,7 +4,7 @@
   # Battle Monsters
 </h1>
 <p align="center">
- Authors: <a href="https://github.com/antilles183">[Andrew Tilles]</a>, <a href="https://github.com/TMarwah">[Tanmay Marwah]</a>, <a href="https://github.com/StanleyZhang0">[Stanley Zhang]</a>, <a href="https://github.com/WilliamEKim"> [William(Dongyeon) Kim] </a>
+ Authors: <a href="https://github.com/antilles183">Andrew Tilles</a>, <a href="https://github.com/TMarwah">Tanmay Marwah</a>, <a href="https://github.com/StanleyZhang0">Stanley Zhang</a>, <a href="https://github.com/WilliamEKim"> William(Dongyeon) Kim </a>
 </p>
 
 <br />
@@ -33,6 +33,7 @@ A two player battle strategy game where each player has a team of monsters at th
  * Being able to swap between battle monsters
  * Display victory(battle result) and Generate file(such as .txt) for the battle log
 
+<br />
 
 ## User Interface Specification
 
@@ -100,14 +101,19 @@ Quit Game Screen Layout:
 
 
 
+<br />
 
 ## Class Diagram
 ![swat-team-diagrams-class diagram drawio](https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/4fa120fb-d3da-43fc-a0a0-e71e545c91a7)
 
  The game will be state driven and the superclass States is inherited by all other objects. The Game class is responsible for movement through the phases of the game. Player and Draft class are composed within Game to initialize and then branch out to other classes to build up the game logic.
 
+<br />
+
 ## Class Diagram after incoporating S.O.L.I.D. principle guidelines
 ![swat-team-diagrams-SOLID class diagram drawio](https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/114537897/8abda0ac-0a20-4df7-9641-80c375372225)
+
+<br />
 
 ## Class Diagram reflection after using S.O.L.I.D. principles to improve the design
 
@@ -142,6 +148,7 @@ Quit Game Screen Layout:
 ![image](https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/12e805a9-55f9-4e3b-8f88-cc86dd7b3d43)
 
 
+ <br />
  
  ## Screenshots
  <img width="350" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/b41a0526-4b0d-4a22-9ef3-8240bf1f5b66"> <br />
@@ -168,6 +175,8 @@ Quit Game Screen Layout:
 
  <img width="303" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/b0bc2994-5f1a-4ec7-b0cd-90ee43293966"> <br />
 
+<br />
+
  ## Installation/Usage
   To build Monster Battle, execute the following from within the project directory
  ```
@@ -180,6 +189,9 @@ Quit Game Screen Layout:
  ./bin/monsterBattle
  ```
  The game will prompt the user for there inputs. Enjoy! 😃
+
+ <br />
+ 
  ## Testing
   To build and execute the test, execute the following from within the project directory
  ```
