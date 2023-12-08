@@ -3,7 +3,7 @@
 #include "../src/enum/MonsterType.h"
 
 
-TEST(SkillsetTest, Defaults) {
+TEST(SkillsetTestSuite, DefaultConstructorTest) {
     
     // ARRANGE
     Skillset skillset;
@@ -17,7 +17,7 @@ TEST(SkillsetTest, Defaults) {
 
 }
 
-TEST(SkillsetTest, Setters) {
+TEST(SkillsetTestSuite, SettersTest) {
     
     // ARRANGE
     Skillset skillset;
@@ -26,10 +26,27 @@ TEST(SkillsetTest, Setters) {
     skillset.setType(NULL_TYPE);
     skillset.setPower(66);
     skillset.setDefense(88);
+    skillset.setMoveIndex(2);
 
     // ASSERT
     EXPECT_EQ(skillset.getType(), MonsterType::NULL_TYPE);
     EXPECT_EQ(skillset.getPower(), 66);
     EXPECT_EQ(skillset.getDefense(), 88);
+    EXPECT_EQ(skillset.getMoveIdex(), 2);
     
+}
+
+TEST(SkillsetTestSuite, GetMoveTest) {
+    
+    // ARRANGE
+    Skillset skillset;
+
+    // ACT
+    skillset.addMove(new NormalAttack("move1", 0, 0, 0));
+    skillset.setMoveIndex(0);
+
+    // ASSERT
+    EXPECT_EQ(skillset.getMove()->getName(), "move1");
+    
+    delete skillset.getMove();
 }
