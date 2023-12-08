@@ -186,7 +186,10 @@ Quit Game Screen Layout:
 
  ## Prerequisites
  To play Monster Battle you need
- - The latest version of gcc
+ ```
+ The latest version of gcc
+ cmake
+ ```
  ## Installation/Usage
   To build Monster Battle, execute the following from within the project directory
  ```
