@@ -1,4 +1,4 @@
-<p align="center">
+<p align="left">
    <img rel="Deploy badge" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/actions/workflows/main.yml/badge.svg">
    <img rel="Version" src="https://img.shields.io/badge/version-1.0.0-blue">
 </p>
