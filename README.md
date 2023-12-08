@@ -137,39 +137,30 @@ Quit Game Screen Layout:
 
 
  
- > ## Final deliverable
- > All group members will give a demo to the reader during lab time. ou should schedule your demo on Calendly with the same reader who took your second scrum meeting. The reader will check the demo and the project GitHub repository and ask a few questions to all the team members. 
- > Before the demo, you should do the following:
- > * Complete the sections below (i.e. Screenshots, Installation/Usage, Testing)
- > * Plan one more sprint (that you will not necessarily complete before the end of the quarter). Your In-progress and In-testing columns should be empty (you are not doing more work currently) but your TODO column should have a full sprint plan in it as you have done before. This should include any known bugs (there should be some) or new features you would like to add. These should appear as issues/cards on your Project board.
- > * Make sure your README file and Project board are up-to-date reflecting the current status of your project (e.g. any changes that you have made during the project such as changes to your class diagram). Previous versions should still be visible through your commit history. 
- 
  ## Screenshots
- > Screenshots of the input/output after running your application
->
-> <img width="350" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/b41a0526-4b0d-4a22-9ef3-8240bf1f5b66">
+ <img width="350" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/b41a0526-4b0d-4a22-9ef3-8240bf1f5b66"> <br />
 
-> <img width="314" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/26939172-c412-4d6e-8699-1ecf073d8045">
+ <img width="314" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/26939172-c412-4d6e-8699-1ecf073d8045"> <br />
 
-> <img width="356" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/ad023d93-497e-4954-9193-2a24a7687a80">
+ <img width="356" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/ad023d93-497e-4954-9193-2a24a7687a80"> <br />
 
-> <img width="236" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/ec014b54-aed5-439c-83f5-92553a2a5735">
+ <img width="236" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/ec014b54-aed5-439c-83f5-92553a2a5735"> <br />
 
-> <img width="335" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/4ef801a5-bc86-40a2-905c-22e0f660803c">
+ <img width="335" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/4ef801a5-bc86-40a2-905c-22e0f660803c"> <br />
 
-> <img width="326" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/34d83a4c-8c23-4837-9028-330a002848b6">
+ <img width="326" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/34d83a4c-8c23-4837-9028-330a002848b6"> <br />
 
-> <img width="323" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/6e94ac1d-71f8-4ed0-9a2c-3c35be398254">
+ <img width="323" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/6e94ac1d-71f8-4ed0-9a2c-3c35be398254"> <br />
 
-> <img width="323" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/123ad511-18d6-465b-b194-1eb305d82a23">
+ <img width="323" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/123ad511-18d6-465b-b194-1eb305d82a23"> <br />
 
-> <img width="277" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/129a9a01-0ba2-4ffc-93a8-1b45ef046d3c">
+ <img width="277" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/129a9a01-0ba2-4ffc-93a8-1b45ef046d3c"> <br />
 
-> <img width="315" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/5672ecff-7e98-4c7f-8203-e648269dc849">
+ <img width="315" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/5672ecff-7e98-4c7f-8203-e648269dc849"> <br />
 
-> <img width="356" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/ad023d93-497e-4954-9193-2a24a7687a80">
+ <img width="356" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/ad023d93-497e-4954-9193-2a24a7687a80"> <br />
 
-> <img width="303" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/b0bc2994-5f1a-4ec7-b0cd-90ee43293966">
+ <img width="303" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/b0bc2994-5f1a-4ec7-b0cd-90ee43293966"> <br />
 
  ## Installation/Usage
   To build Monster Battle, execute the following from within the project directory
