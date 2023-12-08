@@ -77,9 +77,9 @@ void Display::renderStartup() {
 
 
 void Display::renderPlayersSetup() const {
-    std::cout << "=================" << '\n';
-    std::cout << "= PLAYERS_SETUP =" << '\n';
-    std::cout << "=================" << '\n' << '\n';
+    std::cout << "====================================================" << std::endl;
+    std::cout << "=                  PLAYERS_SETUP                   =" << std::endl;
+    std::cout << "====================================================" << std::endl << std::endl;
 
 }
 
