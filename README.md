@@ -196,7 +196,7 @@ Quit Game Screen Layout:
  ```
  ./bin/monsterBattle
  ```
- The game will prompt the user for there inputs. Enjoy! 😃
+ The game will prompt the user for their inputs. Enjoy! 😃
 
  <br />
  
