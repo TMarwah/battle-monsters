@@ -4,12 +4,10 @@
 
 // Test init() method using checkState() method
 TEST(DraftBoardTests, DraftBoardInit){
-    
     // Arrange
     DraftBoard draftBoard;
     
     // ACT
-    
     std::string name1 = draftBoard.at(0).getName();
     std::string name2 = draftBoard.at(1).getName();
     
