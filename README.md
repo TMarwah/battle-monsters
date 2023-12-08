@@ -132,6 +132,7 @@ Quit Game Screen Layout:
 
 ### Dependency Inversion Principle (D):
 - The monster class is not dependent on the MoveSet class. But it depends on the abstraction of the Movesets in the MoveSet class. This is an example of the Dependency Inversion Principle that our class diagram has.
+
 ![image](https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/12e805a9-55f9-4e3b-8f88-cc86dd7b3d43)
 
 
@@ -145,6 +146,31 @@ Quit Game Screen Layout:
  
  ## Screenshots
  > Screenshots of the input/output after running your application
+>
+> <img width="350" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/b41a0526-4b0d-4a22-9ef3-8240bf1f5b66">
+
+> <img width="314" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/26939172-c412-4d6e-8699-1ecf073d8045">
+
+> <img width="356" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/ad023d93-497e-4954-9193-2a24a7687a80">
+
+> <img width="236" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/ec014b54-aed5-439c-83f5-92553a2a5735">
+
+> <img width="335" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/4ef801a5-bc86-40a2-905c-22e0f660803c">
+
+> <img width="326" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/34d83a4c-8c23-4837-9028-330a002848b6">
+
+> <img width="323" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/6e94ac1d-71f8-4ed0-9a2c-3c35be398254">
+
+> <img width="323" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/123ad511-18d6-465b-b194-1eb305d82a23">
+
+> <img width="277" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/129a9a01-0ba2-4ffc-93a8-1b45ef046d3c">
+
+> <img width="315" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/5672ecff-7e98-4c7f-8203-e648269dc849">
+
+> <img width="356" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/ad023d93-497e-4954-9193-2a24a7687a80">
+
+> <img width="303" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/b0bc2994-5f1a-4ec7-b0cd-90ee43293966">
+
  ## Installation/Usage
   To build Monster Battle, execute the following from within the project directory
  ```
