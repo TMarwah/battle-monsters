@@ -7,7 +7,7 @@
  Authors: <a href="https://github.com/antilles183">[Andrew Tilles]</a>, <a href="https://github.com/TMarwah">[Tanmay Marwah]</a>, <a href="https://github.com/StanleyZhang0">[Stanley Zhang]</a>, <a href="https://github.com/WilliamEKim"> [William(Dongyeon) Kim] </a>
 </p>
 
-
+<br />
 ## Project Description
 A two player battle strategy game where each player has a team of monsters at their command. With monsters of different strengths and weaknesses it's up to our players to use the right strategies to emerge victorious!
 
