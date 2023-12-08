@@ -4,14 +4,14 @@
 #include <iostream>
 
 
-TEST(PlayerTesting, PlayerConstructorTest) {
+TEST(PlayerTesting, Constructor) {
     Player player;
 
     EXPECT_EQ(player.getName(), "");
     //EXPECT_TRUE(player.getBench(), nullptr);
 }
 
-TEST(PlayerSetNameTesting, EmptyInputTest) {
+TEST(PlayerTesting, EmptyInputTest) {
     // Arrange
     Player player;
     std::string emptyName = "";
@@ -23,7 +23,7 @@ TEST(PlayerSetNameTesting, EmptyInputTest) {
     EXPECT_EQ(player.getName(), emptyName);
 }
 
-TEST(PlayerSetNameTesting, ValidInputTest) {
+TEST(PlayerTesting, ValidInputTest) {
     // Arrange
     Player player;
     std::string validName = "SWAT Team";
@@ -35,4 +35,25 @@ TEST(PlayerSetNameTesting, ValidInputTest) {
     EXPECT_EQ(player.getName(), validName);
 }
 
-   
+TEST(PlayerTesting, playerDefeated) {
+    // Arrange
+    Player player;
+
+    // Act
+    player.setState(GameState::DEFEATED_ST);
+
+    // Assert
+    EXPECT_TRUE(player.isDefeated());
+}
+
+TEST(PlayerTesting, reset) {
+    // Arrange
+    Player player;
+
+    // Act
+    player.setState(GameState::DEFEATED_ST);
+    player.reset();
+
+    // Assert
+    EXPECT_FALSE(player.isDefeated());
+}
