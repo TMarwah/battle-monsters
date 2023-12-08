@@ -26,6 +26,8 @@ public:
     void setType(MonsterType type);
     void setPower(int power);
     void setDefense(int defense);
+
+    void addMove(MoveSet* newMove);
     void addMoves(const std::vector<MoveSet *>& newMoves);
     void setMoveIndex(unsigned index);
 

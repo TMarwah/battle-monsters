@@ -111,13 +111,13 @@ Quit Game Screen Layout:
 
 
 ### Open-Closed Principle (O):
-- We created a Monster class that aligns with the **Open-Closed Principle** because it has a vector of MoveSet * which is open to extension by the Liskov's Substitution Principle. But this does not require Monster class to change its code (closed for modification). This is an example from our previous diagram that contains the Open-Closed Principle.
+- We created a Monster class that aligns with the **Open-Closed Principle** because it has a vector of `MoveSet *` which is open to extension by the Liskov's Substitution Principle. But this does not require Monster class to change its code (closed for modification). This is an example from our previous diagram that contains the Open-Closed Principle.
   
 <img width="317" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/4895db2b-586f-4a93-9ad9-aedb78766299">
 
 
 ### Liskov's Substitution Principle (L):
-- We created a MoveSets class that aligns with the **Liskov's Substitution Principle** because it is replaceable with instances of their subtype(specific moves) without altering the correctness of that program. Since we already have a class that contains similar qualities of the Liskov's Substitution principle we decided to use it as an example. The below image showcases the MoveSets class that we decided to use.
+- We created a `MoveSets` class that aligns with the **Liskov's Substitution Principle** because it is replaceable with instances of their subtype(specific moves) without altering the correctness of that program. Since we already have a class that contains similar qualities of the Liskov's Substitution principle we decided to use it as an example. The below image showcases the `MoveSets` class that we decided to use.
 
 <img width="337" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/4010e9e3-e762-417a-a54c-27d30e943d2b">
 
@@ -131,20 +131,37 @@ Quit Game Screen Layout:
 - For example, here, every object of the Monster class requires full implementation of a MoveSet object to be utilized. No MoveSet member goes unused.
 
 ### Dependency Inversion Principle (D):
-- The monster class is not dependent on the MoveSet class. But it depends on the abstraction of the Movesets in the MoveSet class. This is an example of the Dependency Inversion Principle that our class diagram has.
+- The monster class is not dependent on the MoveSet class. But it depends on the abstraction of the Movesets in the `MoveSet` class. This is an example of the Dependency Inversion Principle that our class diagram has.
+
 ![image](https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/12e805a9-55f9-4e3b-8f88-cc86dd7b3d43)
 
 
  
- > ## Final deliverable
- > All group members will give a demo to the reader during lab time. ou should schedule your demo on Calendly with the same reader who took your second scrum meeting. The reader will check the demo and the project GitHub repository and ask a few questions to all the team members. 
- > Before the demo, you should do the following:
- > * Complete the sections below (i.e. Screenshots, Installation/Usage, Testing)
- > * Plan one more sprint (that you will not necessarily complete before the end of the quarter). Your In-progress and In-testing columns should be empty (you are not doing more work currently) but your TODO column should have a full sprint plan in it as you have done before. This should include any known bugs (there should be some) or new features you would like to add. These should appear as issues/cards on your Project board.
- > * Make sure your README file and Project board are up-to-date reflecting the current status of your project (e.g. any changes that you have made during the project such as changes to your class diagram). Previous versions should still be visible through your commit history. 
- 
  ## Screenshots
- > Screenshots of the input/output after running your application
+ <img width="350" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/b41a0526-4b0d-4a22-9ef3-8240bf1f5b66"> <br />
+
+ <img width="314" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/26939172-c412-4d6e-8699-1ecf073d8045"> <br />
+
+ <img width="356" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/ad023d93-497e-4954-9193-2a24a7687a80"> <br />
+
+ <img width="236" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/ec014b54-aed5-439c-83f5-92553a2a5735"> <br />
+
+ <img width="335" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/4ef801a5-bc86-40a2-905c-22e0f660803c"> <br />
+
+ <img width="326" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/34d83a4c-8c23-4837-9028-330a002848b6"> <br />
+
+ <img width="323" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/6e94ac1d-71f8-4ed0-9a2c-3c35be398254"> <br />
+
+ <img width="323" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/123ad511-18d6-465b-b194-1eb305d82a23"> <br />
+
+ <img width="277" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/129a9a01-0ba2-4ffc-93a8-1b45ef046d3c"> <br />
+
+ <img width="315" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/5672ecff-7e98-4c7f-8203-e648269dc849"> <br />
+
+ <img width="356" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/ad023d93-497e-4954-9193-2a24a7687a80"> <br />
+
+ <img width="303" alt="image" src="https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/b0bc2994-5f1a-4ec7-b0cd-90ee43293966"> <br />
+
  ## Installation/Usage
   To build Monster Battle, execute the following from within the project directory
  ```

@@ -9,6 +9,7 @@ add_executable(runAllTests
     GameComponentsTest.cpp
     PlayerTest.cpp
     PlayersTest.cpp
+    MonsterTest.cpp
     DraftBoardTest.cpp
     BenchTest.cpp
     SkillsetTest.cpp
