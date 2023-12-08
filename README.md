@@ -110,7 +110,7 @@ Quit Game Screen Layout:
 <br />
 
 ## Class Diagram
-![swat-team-diagrams-class diagram drawio](https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/115139825/4fa120fb-d3da-43fc-a0a0-e71e545c91a7)
+![swat-team-diagrams-SOLID class diagram v3 drawio](https://github.com/cs100/final-project-wkim107-tmarw001-szhan240-atill006/assets/44328801/0b2c2aa5-4e4d-440b-9774-e565621ac55b)
 
  The game will be state driven and the superclass States is inherited by all other objects. The Game class is responsible for movement through the phases of the game. Player and Draft class are composed within Game to initialize and then branch out to other classes to build up the game logic.
 
