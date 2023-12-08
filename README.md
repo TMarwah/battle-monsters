@@ -201,16 +201,16 @@ Quit Game Screen Layout:
  <br />
  
  ## Testing
-  To build and execute the test, execute the following from within the project directory
+  To build and execute the test suite, execute the following from within the project directory
  ```
  cmake . -B build
  cd build
  make
  ```
- To run the test
+ To run the test suite
  ```
  ./bin/runAllTests
  ```
- The test will be executed accordingly! 
+ The test suite will be executed accordingly! 
  Also you can checkout the CI badge at the top of `README.md`
  
