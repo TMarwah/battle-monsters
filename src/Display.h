@@ -4,9 +4,12 @@
 #include "Timer.h"
 #include "GameComponents.h"
 #include "./interface/ColorInterface.h"
+#include "./interface/CompatibilityInterface.h"
 
 
-class Display : public State, public ColorInterface
+class Display : public State, 
+                public ColorInterface, 
+                public CompatibilityInterface
 {
     
 private:

@@ -102,7 +102,36 @@ void Display::renderDraft(const std::string& p1_name,
     for(unsigned i = 0; i < draftBoard->size(); i++) {
         std::cout << "\t" << ( i + 1 ) << ". " << white(draftBoard->at(i).getName()) << "\n";
         std::cout << "\thealth: [ " << green(draftBoard->at(i).getHP()) << " / 100 ] \n";
-        std::cout << "\t  type: Normal  |  power: " << draftBoard->at(i).getPower() << "  |  defense: " << draftBoard->at(i).getDefense() << "\n";
+        std::cout << "\t  type: ";
+        
+        switch (draftBoard->at(i).getType())
+        {
+        case MonsterType::NORMAL:
+            std::cout << "NORMAL";
+            break;
+
+        case MonsterType::FIRE:
+            std::cout << red("FIRE");
+            break;
+
+        case MonsterType::WATER:
+            std::cout << blue("WATER");
+            break;
+
+        case MonsterType::EARTH:
+            std::cout << green("EARTH");
+            break;
+
+        case MonsterType::AIR:
+            std::cout << white("AIR");
+            break;
+        
+        default:
+            std::cout << red_underline(" TYPE: ERROR ");
+            break;
+        }
+        
+        std::cout << "  |  power: " << draftBoard->at(i).getPower() << "  |  defense: " << draftBoard->at(i).getDefense() << "\n";
         for(unsigned j = 0; j < draftBoard->at(i).getMoves().size(); ++j) {
             MoveSet* currentMove = draftBoard->at(i).getMoves().at(j);
             const std::string name = (currentMove->getName());
@@ -134,7 +163,35 @@ void Display::renderBattle(const std::string& p1_name,
 
     // p1 display
     std::cout << "p1: " << blue(p1_name) << "\n";
-    std::cout << "\t" << white(p1_monster.getName()) << "\n";
+    std::cout << "\t" << white(p1_monster.getName()) << " [ ";
+
+    switch (p1_monster.getType()) {
+        case MonsterType::NORMAL:
+            std::cout << "NORMAL";
+            break;
+
+        case MonsterType::FIRE:
+            std::cout << red("FIRE");
+            break;
+
+        case MonsterType::WATER:
+            std::cout << blue("WATER");
+            break;
+
+        case MonsterType::EARTH:
+            std::cout << green("EARTH");
+            break;
+
+        case MonsterType::AIR:
+            std::cout << white("AIR");
+            break;
+        
+        default:
+            std::cout << red_underline(" TYPE: ERROR ");
+            break;
+    }
+    std::cout << " ]\n";
+    
     std::cout << "\t[ " << green(p1_monster.getHP()) << " / 100 ]\n";
     for(unsigned i = 0; i < p1_monster.getMoves().size(); ++i) {
         MoveSet* currentMove = p1_monster.getMoves().at(i);
@@ -144,20 +201,41 @@ void Display::renderBattle(const std::string& p1_name,
     // p2 display
     std::cout << '\n';
     std::cout << "p2: " << magenta(p2_name) << "\n";
-    std::cout << "\t" << white(p2_monster.getName()) << "\n";
+    std::cout << "\t" << white(p2_monster.getName()) << " [ ";
+
+    switch (p2_monster.getType()) {
+        case MonsterType::NORMAL:
+            std::cout << "NORMAL";
+            break;
+
+        case MonsterType::FIRE:
+            std::cout << red("FIRE");
+            break;
+
+        case MonsterType::WATER:
+            std::cout << blue("WATER");
+            break;
+
+        case MonsterType::EARTH:
+            std::cout << green("EARTH");
+            break;
+
+        case MonsterType::AIR:
+            std::cout << white("AIR");
+            break;
+        
+        default:
+            std::cout << red_underline(" TYPE: ERROR ");
+            break;
+    }
+    std::cout << " ]\n";
+
     std::cout << "\t[ " << green(p2_monster.getHP()) << " / 100 ]\n";
     for(unsigned i = 0; i < p2_monster.getMoves().size(); ++i) {
         MoveSet* currentMove = p2_monster.getMoves().at(i);
         std::cout << "\t" << i+1 << ": [ " << cyan(currentMove->getName()) << " ] Damage( " << red(currentMove->getDamage()) << " ), Accuracy( "<< currentMove->getAccuracy() * 100 << "% )\n";
     }
 
-    // TODO: checkes if it is not invalid statement
-    /*if(isValidBattleInput()) {
-        std::cout << "\n\n" << red("[ INVALID INPUT ] please provide another valid input.");
-    }
-    // if both monsters are in BATTLE_ST && is not an invalid input
-    else */
-    
     if(p1_monster.getState() == GameState::BATTLE_ST && p2_monster.getState() == GameState::BATTLE_ST) {
         std::cout << "\n\n\n";
         // previous situation display
@@ -166,6 +244,15 @@ void Display::renderBattle(const std::string& p1_name,
             std::cout << "\n\t>> Attack Missed!\n\n";
         }   else {
             std::cout << "\n\t>> " << red(p2_monster.getLostHealth());
+
+            // check if the attack was effective
+            if(getCompatibility(p1_monster.getType(), p2_monster.getType()) == 1.25) {
+                std::cout << green(" EFFECTIVE");
+            } 
+            else if (getCompatibility(p1_monster.getType(), p2_monster.getType()) == 0.75) {
+                std::cout << magenta(" NOT EFFECTIVE");
+            } 
+
             std::cout << " damage to " << white(p2_monster.getName()) << "\n";
         }
 
@@ -174,9 +261,19 @@ void Display::renderBattle(const std::string& p1_name,
             std::cout << "\n\t>> Attack Missed!\n\n";
         }   else {
             std::cout << "\n\t>> " << red(p1_monster.getLostHealth());
+
+            // check if the attack was effective
+            if(getCompatibility(p2_monster.getType(), p1_monster.getType()) == 1.25) {
+                std::cout << green(" EFFECTIVE");
+            } 
+            else if (getCompatibility(p2_monster.getType(), p1_monster.getType()) == 0.75) {
+                std::cout << magenta(" NOT EFFECTIVE");
+            } 
+
             std::cout << " damage to " << white(p1_monster.getName()) << "\n";
         }
     }
+
     else if(p1_monster.getState() == GameState::NULL_ST || p2_monster.getState() == GameState::NULL_ST) {
 
         std::cout << "\n\n";
@@ -228,6 +325,15 @@ void Display::renderBattleOver(GameComponents& gameComponents) {
         if(p2_monster.isDead()) {
             std::cout << " " << red_underline("FATAL");
         }
+
+        // check if the attack was effective
+        if(getCompatibility(p1_monster.getType(), p2_monster.getType()) == 1.25) {
+            std::cout << green(" EFFECTIVE");
+        } 
+        else if (getCompatibility(p1_monster.getType(), p2_monster.getType()) == 0.75) {
+            std::cout << magenta(" NOT EFFECTIVE");
+        } 
+
         std::cout << " damage to " << white(p2_monster.getName()) << "\n";
     }
     std::cout << white(p2_monster.getName()) << " used " << cyan(p2_monster.getMove()->getName());
@@ -238,6 +344,15 @@ void Display::renderBattleOver(GameComponents& gameComponents) {
         if(p1_monster.isDead()) {
             std::cout << " " << red_underline("FATAL");
         }
+
+        // check if the attack was effective
+        if(getCompatibility(p2_monster.getType(), p1_monster.getType()) == 1.25) {
+            std::cout << green(" EFFECTIVE");
+        } 
+        else if (getCompatibility(p2_monster.getType(), p1_monster.getType()) == 0.75) {
+            std::cout << magenta(" NOT EFFECTIVE");
+        } 
+
         std::cout << " damage to " << white(p1_monster.getName()) << "\n";
     }
 
