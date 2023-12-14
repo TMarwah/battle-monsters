@@ -1,10 +1,12 @@
 #pragma once
 #include <string>
 #include "./enum/MonsterType.h"
+#include "./interface/CompatibilityInterface.h"
 #include "State.h"
 
 
-class MoveSet: public State 
+class MoveSet: public State, 
+               public CompatibilityInterface
 {
     private:
         std::string _moveName; //name of the move
@@ -14,7 +16,7 @@ class MoveSet: public State
     
     public:
         //Virtual function to be implemented by inherited class
-        virtual int skillMethod(MonsterType baseType=NORMAL, int basePower=0, int baseOpponentDefense=0) = 0;
+        virtual int skillMethod(MonsterType baseAttackType=NORMAL, int basePower=0, MonsterType baseDefenseType=NORMAL, int baseDefense=0) = 0;
         virtual MoveSet* clone() const = 0;
 
         //Constructor
@@ -30,4 +32,6 @@ class MoveSet: public State
         float getAccuracy() const;
         int getDamage() const;
         int getPriority() const;
+
+        float getCompatibility(MonsterType attackType, MonsterType defenseType) const;
 };

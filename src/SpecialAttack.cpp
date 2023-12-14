@@ -1,13 +1,14 @@
-#include "NormalAttack.h"
+#include "abstract/MoveSet.h"
+#include "SpecialAttack.h"
 #include <cmath>
 #include <ctime>
 
-
-NormalAttack::NormalAttack(const std::string& name, float accuracy, int damage, int priority) :
+SpecialAttack::SpecialAttack(const std::string& moveName, float accuracy, int damage, int priority) :
     MoveSet(name, accuracy, damage, priority)
-{}
+{ }
 
-int NormalAttack::skillMethod(MonsterType baseAttackType, int basePower, MonsterType baseDefenseType, int baseDefense) {
+
+virtual int SpecialAttack::skillMethod(MonsterType baseAttackType, int basePower, MonsterType baseDefenseType, int baseDefense) {
     // get random 0-99 value
     srand(time(0)); 
     int randomAccuracy = (rand() % 100) + 1;
@@ -30,8 +31,4 @@ int NormalAttack::skillMethod(MonsterType baseAttackType, int basePower, Monster
     }
 
     return damage;
-}
-
-MoveSet* NormalAttack::clone() const {
-    return new NormalAttack(*this);
 }
