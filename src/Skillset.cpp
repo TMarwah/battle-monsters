@@ -8,7 +8,8 @@
 Skillset::Skillset(MonsterType type, int basePower, int baseDefense) :
     _type(type),
     _basePower(basePower),
-    _baseDefense(baseDefense)
+    _baseDefense(baseDefense),
+    _moveIndex(0)
 { }
 
 // Skillset::Skillset(const Skillset& target) :
@@ -22,13 +23,7 @@ Skillset::Skillset(MonsterType type, int basePower, int baseDefense) :
 //     }
 // }
 
-Skillset::~Skillset() {
-    // for(unsigned int i = 0; i < _moveset.size(); ++i){
-    //     if(_moveset.at(i) != nullptr) {
-    //         delete _moveset.at(i);
-    //     }
-    // }
-}
+Skillset::~Skillset() {}
 
 /*******************************************************************************
 * SETTERS

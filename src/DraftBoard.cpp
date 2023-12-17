@@ -13,9 +13,9 @@ DraftBoard::DraftBoard() {
    // FIXME: later change it to BENCH_SIZE * 2
     _draftBoard = new Monster[BENCH_SIZE * 4];
 
-    _draftBoard[0] = Monster("Andrewsaurus", NORMAL, 45, 75);
-    _draftBoard[1] = Monster("Willzilla", NORMAL, 60, 60);
-    _draftBoard[2] = Monster("Tanmystic", NORMAL, 80, 40);
+    _draftBoard[0] = Monster("Andrewsaurus", EARTH, 45, 75);
+    _draftBoard[1] = Monster("Willzilla", FIRE, 60, 60);
+    _draftBoard[2] = Monster("Tanmystic", AIR, 80, 40);
     _draftBoard[3] = Monster("John Wink", NORMAL, 100, 20);
 
     // 120 as a balance factor of stats = attack + defense

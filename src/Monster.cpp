@@ -53,7 +53,7 @@ bool Monster::defend(Skillset& enemySkillset) {
     int enemyPower = enemySkillset.getPower();
 
 
-    int damage = enemySkillset.getMove()->skillMethod(enemyType, enemyPower, _skillset.getDefense());
+    int damage = enemySkillset.getMove()->skillMethod(enemyType, enemyPower, getType(), _skillset.getDefense());
     // if the state of the skill is set to the ATTACK_MISSED_ST, set up the flag
     bool isSkillMissed = ( enemySkillset.getMove()->getState() == GameState::ATTACK_MISSED_ST );
 

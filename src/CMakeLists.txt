@@ -5,6 +5,7 @@ add_library(swatLibrary
   Input.cpp
   Display.cpp
     ./interface/ColorInterface.cpp
+    ./interface/CompatibilityInterface.cpp
   Helper.cpp
   Timer.cpp
   
